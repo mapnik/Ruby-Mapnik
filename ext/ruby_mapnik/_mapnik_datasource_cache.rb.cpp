@@ -23,7 +23,11 @@ Rice::Array rubysafe_plugin_names(){
 
 void register_datasource_cache(Rice::Module rb_mRapnik) {
   Rice::Data_Type< mapnik::datasource_cache > rb_cdatasource_cache =  Rice::define_class_under< mapnik::datasource_cache >(rb_mRapnik, "DatasourceCache");
-  
   rb_cdatasource_cache.define_singleton_method("available_plugins", &rubysafe_plugin_names);  
   rb_cdatasource_cache.define_singleton_method("register", &rubysafe_register_sources, Rice::Arg("path"));
+  
+  // TODO: possibly add create here? I like it going though the datasource
+  // class, but I suppose that some people will be conditioned otherwise.
+  
+
 }

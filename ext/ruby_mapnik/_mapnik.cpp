@@ -7,4 +7,6 @@ void register_mapnik(){
   register_coord(rb_mapnik);
   register_datasource(rb_mapnik);
   register_datasource_cache(rb_mapnik);
+  register_envelope(rb_mapnik);
+  
 }
