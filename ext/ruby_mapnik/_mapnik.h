@@ -17,6 +17,7 @@
 #include <_mapnik_color.rb.h>
 #include <_mapnik_coord.rb.h>
 #include <_mapnik_datasource.rb.h>
+#include <_mapnik_datasource_cache.rb.h>
 
 void register_mapnik();
 
