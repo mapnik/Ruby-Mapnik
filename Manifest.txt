@@ -1,0 +1,8 @@
+.autotest
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/ruby_mapnik
+lib/ruby_mapnik.rb
+test/test_ruby_mapnik.rb
