@@ -47,9 +47,7 @@ void register_envelope(Rice::Module rb_mapnik){
   rb_cenvelope.define_method("contains_coord?", contains_coord_func_type( &mapnik::box2d<double>::contains ), (Rice::Arg("c")));
   rb_cenvelope.define_method("contains_envelope?", contains_envelope_func_type( &mapnik::box2d<double>::contains ), (Rice::Arg("other")));
   
-  
   rb_cenvelope.define_method("expand_to_include_xy", expand_to_include_xy_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("x"), Rice::Arg("y")));
   rb_cenvelope.define_method("expand_to_include_coord", expand_to_include_coord_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("c")));
   
-
 }
