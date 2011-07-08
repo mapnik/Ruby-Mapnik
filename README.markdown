@@ -1,0 +1,28 @@
+h1. This is what you all have been waiting for: RUBY BINDINGS FOR MAPNIK
+
+Soon all of your mapping will be like pouding chômeur!
+
+h2. Requirements
+* Mapnik2 (aka the trunk available here: http://svn.mapnik.org/trunk)
+* Ruby 1.8.7
+* These rubygems:
+** rice 1.4.2
+** hoe 2.10.0
+** rake-compiler 0.7.9
+
+h2. Building
+
+Compile and install Mapnik2 so it is linkable as mapnik2. Install and update the 
+headers so statements like @#include <mapnik2/box2d.hpp>@ work properly.
+
+You can then use @rake compile@ to build the extension, and @rake test@ to run the
+unit tests. @rake clean@ will do what you think it does, and you can stack up
+rake tasks so @rake clean compile test@ might be a nice thing to keep around.
+
+h2. Development
+
+Obviously this is under development, and nowhere close to being complete, or 
+really useful at the moment. Please write unit tests for any changes you make.
+
+Autotest works great with this code base with this in your .autotest: 
+@Autotest.add_hook :run_command {|at|system "rake compile"}@
