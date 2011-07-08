@@ -22,7 +22,9 @@ rake tasks so @rake clean compile test@ might be a nice thing to keep around.
 h2. Development
 
 Obviously this is under development, and nowhere close to being complete, or 
-really useful at the moment. Please write unit tests for any changes you make.
+really useful at the moment. Help would be greatly appreciated, providing 
+the extension will always compile, and all changes are accompanied by unit 
+tests.
 
 Autotest works great with this code base with this in your .autotest: 
 @Autotest.add_hook :run_command {|at|system "rake compile"}@
