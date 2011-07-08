@@ -6,6 +6,7 @@ h2. Requirements
 * Mapnik2 (aka the trunk available here: http://svn.mapnik.org/trunk)
 * Ruby 1.8.7
 * These rubygems:
+** ZenTest 4.0.0
 ** rice 1.4.2
 ** hoe 2.10.0
 ** rake-compiler 0.7.9
