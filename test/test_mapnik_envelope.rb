@@ -43,6 +43,16 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     assert_equal(max_y, envelope.max_y)
   end
   
+  def test_equality
+    envelope1 = Mapnik::Envelope.new(0, 0, 10, 10)
+    envelope2 = Mapnik::Envelope.new(0, 0, 10, 10)
+    assert_equal(envelope1, envelope2)
+    envelope1.re_center_to_xy!(7, 7)
+    assert_not_equal(envelope1, envelope2)
+    envelope1.re_center_to_coord!(envelope2.center)
+    assert_equal(envelope1, envelope2)
+  end
+  
   def test_should_return_center
     envelope = Mapnik::Envelope.new(0, 0, 100, 50)
     assert center = envelope.center
@@ -85,7 +95,7 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     height_before = envelope.height
     width_before = envelope.width
     
-    envelope.re_center_to_xy(7,6)
+    envelope.re_center_to_xy!(7,6)
     
     assert_equal 7, envelope.center.x
     assert_equal 6, envelope.center.y
@@ -100,7 +110,7 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     height_before = envelope.height
     width_before = envelope.width
     
-    envelope.re_center_to_coord(Mapnik::Coord2d.new(7,6))
+    envelope.re_center_to_coord!(Mapnik::Coord2d.new(7,6))
     
     assert_equal 7, envelope.center.x
     assert_equal 6, envelope.center.y
@@ -127,13 +137,32 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     assert envelope.contains_envelope?(Mapnik::Envelope.new(5,5,6,6))
   end
   
+  def test_should_know_if_it_intersects_an_xy
+    envelope = Mapnik::Envelope.new(0,0,10,10)
+    assert !envelope.intersects_xy?(11, 11)
+    assert envelope.intersects_xy?(5, 5)
+  end
+  
+  def test_should_know_if_it_intersects_a_coord
+    envelope = Mapnik::Envelope.new(0,0,10,10)
+    assert !envelope.intersects_coord?(Mapnik::Coord2d.new(11, 11))
+    assert envelope.intersects_coord?(Mapnik::Coord2d.new(5, 5))
+  end
+  
+  def test_should_know_if_it_intersects_another_envelope
+    envelope = Mapnik::Envelope.new(0,0,10,10)
+    assert !envelope.intersects_envelope?(Mapnik::Envelope.new(20,20,30,30))
+    assert envelope.intersects_envelope?(Mapnik::Envelope.new(9,9,12,12))
+    assert envelope.intersects_envelope?(Mapnik::Envelope.new(5,5,6,6))
+  end
+  
   def test_should_expand_to_include_an_xy
     envelope = Mapnik::Envelope.new(0,0,10,10)
     assert !envelope.contains_xy?(11, 11)
     height_before = envelope.height
     width_before = envelope.width
     
-    envelope.expand_to_include_xy(11, 11)
+    envelope.expand_to_include_xy!(11, 11)
     
     assert envelope.contains_xy?(11, 11)
     assert_equal height_before + 1, envelope.height 
@@ -147,11 +176,57 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     height_before = envelope.height
     width_before = envelope.width
     
-    envelope.expand_to_include_coord(coord)
+    envelope.expand_to_include_coord!(coord)
     
     assert envelope.contains_coord?(coord)
     assert_equal height_before + 1, envelope.height 
     assert_equal width_before + 1, envelope.width
+  end
+  
+  def test_should_expand_to_include_an_envelope
+    envelope = Mapnik::Envelope.new(0,0,10,10)
+    other_envelope = Mapnik::Envelope.new(11, 11, 12, 12)
+    assert !envelope.contains_envelope?(other_envelope)
+    height_before = envelope.height
+    width_before = envelope.width
+    
+    envelope.expand_to_include_envelope!(other_envelope)
+    
+    assert envelope.contains_envelope?(other_envelope)
+    assert_equal height_before + 2, envelope.height 
+    assert_equal width_before + 2, envelope.width
+  end
+  
+  def test_should_provide_an_intersection
+    envelope = Mapnik::Envelope.new(0,0,10,10)
+    other_envelope = Mapnik::Envelope.new(9,9,12,12)
+    assert envelope.intersects_envelope?(other_envelope)
+    
+    intersection = envelope.intersection(other_envelope)
+    
+    assert_not_equal(intersection, envelope)
+    assert_not_equal(other_envelope, intersection)
+    assert envelope.contains_envelope?(intersection)
+    assert other_envelope.contains_envelope?(intersection)
+  end
+  
+  def test_should_clip
+    envelope = Mapnik::Envelope.new(0,0,10,10)
+    width_before = envelope.width
+    other_envelope = Mapnik::Envelope.new(9,9,12,12)
+    assert envelope.intersects_envelope?(other_envelope)
+    
+    envelope.clip!(other_envelope)
+    
+    assert envelope.intersects_envelope?(other_envelope)
+    assert_not_equal(width_before, envelope.width)
+  end
+  
+  def test_validity
+    envelope = Mapnik::Envelope.new(0,0,-1,-1)
+    assert envelope.min_x <= envelope.max_x
+    assert envelope.min_y <= envelope.max_y
+    assert envelope.valid?
   end
   
 end

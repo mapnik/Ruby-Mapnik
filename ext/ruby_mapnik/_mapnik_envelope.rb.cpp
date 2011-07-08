@@ -36,11 +36,19 @@ typedef bool (mapnik::box2d<double>::*contains_xy_func_type)(double x,double y) 
 typedef bool (mapnik::box2d<double>::*contains_coord_func_type)(const mapnik::coord2d &c) const;
 typedef bool (mapnik::box2d<double>::*contains_envelope_func_type)(const mapnik::box2d<double> &other) const;
 
+// Intersects
+typedef bool (mapnik::box2d<double>::*intersects_xy_func_type)(double x,double y) const;
+typedef bool (mapnik::box2d<double>::*intersects_coord_func_type)(const mapnik::coord2d &c) const;
+typedef bool (mapnik::box2d<double>::*intersects_envelope_func_type)(const mapnik::box2d<double> &other) const;
+
 // Expand to include
 typedef void ( mapnik::box2d<double>::*expand_to_include_xy_func_type )( double x, double y );
 typedef void ( mapnik::box2d<double>::*expand_to_include_coord_func_type )( const mapnik::coord2d& c );
 typedef void ( mapnik::box2d<double>::*expand_to_include_envelope_func_type )( const mapnik::box2d<double>& other );
 
+bool wrap_mapnik_box2d_double__2__equality(mapnik::box2d<double> self, mapnik::box2d<double> rhs){
+  return self == rhs;
+}
 
 void register_envelope(Rice::Module rb_mapnik){
   
@@ -53,8 +61,8 @@ void register_envelope(Rice::Module rb_mapnik){
   rb_cenvelope.define_method("max_y", &mapnik::box2d<double>::maxy);
 
   rb_cenvelope.define_method("center", &mapnik::box2d<double>::center);
-  rb_cenvelope.define_method("re_center_to_xy", re_center_func_type( &mapnik::box2d<double>::re_center ), (Rice::Arg("x"), Rice::Arg("y")));
-  rb_cenvelope.define_method("re_center_to_coord", re_center_func_type_coord( &mapnik::box2d<double>::re_center ), (Rice::Arg("other")));
+  rb_cenvelope.define_method("re_center_to_xy!", re_center_func_type( &mapnik::box2d<double>::re_center ), (Rice::Arg("x"), Rice::Arg("y")));
+  rb_cenvelope.define_method("re_center_to_coord!", re_center_func_type_coord( &mapnik::box2d<double>::re_center ), (Rice::Arg("other")));
 
   rb_cenvelope.define_method("height", height_func_type( &mapnik::box2d<double>::height ));
   rb_cenvelope.define_method("height=", set_height_func_type( &mapnik::box2d<double>::height ), (Rice::Arg("h")));
@@ -66,7 +74,18 @@ void register_envelope(Rice::Module rb_mapnik){
   rb_cenvelope.define_method("contains_coord?", contains_coord_func_type( &mapnik::box2d<double>::contains ), (Rice::Arg("c")));
   rb_cenvelope.define_method("contains_envelope?", contains_envelope_func_type( &mapnik::box2d<double>::contains ), (Rice::Arg("other")));
   
-  rb_cenvelope.define_method("expand_to_include_xy", expand_to_include_xy_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("x"), Rice::Arg("y")));
-  rb_cenvelope.define_method("expand_to_include_coord", expand_to_include_coord_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("c")));
+  rb_cenvelope.define_method("intersects_xy?", intersects_xy_func_type( &mapnik::box2d<double>::intersects ), (Rice::Arg("x"), Rice::Arg("y")));
+  rb_cenvelope.define_method("intersects_coord?", intersects_coord_func_type( &mapnik::box2d<double>::intersects ), (Rice::Arg("c")));
+  rb_cenvelope.define_method("intersects_envelope?", intersects_envelope_func_type( &mapnik::box2d<double>::intersects ), (Rice::Arg("other")));  
+  
+  rb_cenvelope.define_method("expand_to_include_xy!", expand_to_include_xy_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("x"), Rice::Arg("y")));
+  rb_cenvelope.define_method("expand_to_include_coord!", expand_to_include_coord_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("c")));
+  rb_cenvelope.define_method("expand_to_include_envelope!", expand_to_include_envelope_func_type( &mapnik::box2d<double>::expand_to_include ), (Rice::Arg("other")));
+  
+  rb_cenvelope.define_method("intersection", &mapnik::box2d<double>::intersect, Rice::Arg("other"));
+  rb_cenvelope.define_method("clip!", &mapnik::box2d<double>::clip, Rice::Arg("other"));
+  rb_cenvelope.define_method("valid?", &mapnik::box2d<double>::valid);
+  
+  rb_cenvelope.define_method("==", &wrap_mapnik_box2d_double__2__equality, (Rice::Arg("rhs")));
   
 }
