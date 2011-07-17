@@ -22,7 +22,13 @@
 require 'test_helper'
 
 class TestRubyMapnik < Test::Unit::TestCase
+  
   def test_sanity
     assert Mapnik
   end
+  
+  def test_should_register_datasources_on_inclusion
+    assert Mapnik::DatasourceCache.available_plugins.any?
+  end
+  
 end

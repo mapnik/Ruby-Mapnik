@@ -21,3 +21,7 @@
 =end
 require "test/unit"
 require "ruby_mapnik"
+
+unless defined?(SHAPEFILE)
+  SHAPEFILE = "#{File.expand_path(File.dirname(__FILE__))}/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD"
+end

@@ -35,6 +35,7 @@ void register_mapnik(){
   register_rule(rb_mapnik);
   register_expression(rb_mapnik);
   register_symbolizer(rb_mapnik);
-  
+  register_style(rb_mapnik);
+  register_layer(rb_mapnik);
   
 }

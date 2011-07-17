@@ -48,6 +48,8 @@
 
 #include "_mapnik_expression.rb.h"
 #include "_mapnik_symbolizer.rb.h"
+#include "_mapnik_style.rb.h" 
+#include "_mapnik_layer.rb.h" 
  
 void register_mapnik();
 

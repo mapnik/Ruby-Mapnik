@@ -54,11 +54,15 @@ boost::shared_ptr<mapnik::datasource> create(Rice::Object params){
   return mapnik::datasource_cache::create(datasource_params, bind);
 }
 
+mapnik::box2d<double> get_datasource_envelope(boost::shared_ptr<mapnik::datasource> self){
+  return self->envelope();
+}
+
 void register_datasource(Rice::Module rb_mapnik){
   Rice::Data_Type< boost::shared_ptr<mapnik::datasource> > rb_cdatasource = Rice::define_class_under< boost::shared_ptr<mapnik::datasource> >(rb_mapnik, "Datasource");
   
   // TODO:
-  // rb_cdatasource.define_method("envelope", &mapnik::datasource::envelope);
+  rb_cdatasource.define_method("envelope", &get_datasource_envelope);
   // rb_cdatasource.define_method("descriptor", &mapnik::datasource::get_descriptor);
   rb_cdatasource.define_method("name", &name);
   
