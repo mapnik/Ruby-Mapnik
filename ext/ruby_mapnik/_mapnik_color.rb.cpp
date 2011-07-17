@@ -33,8 +33,8 @@ void register_color(Rice::Module rb_mapnik){
   rb_ccolor.define_method("blue=", &mapnik::color::set_blue, (Rice::Arg("value")));
   rb_ccolor.define_method("alpha=", &mapnik::color::set_alpha, (Rice::Arg("value")));
 
-//  These symbols are not found on my installation. Moving on...
-  rb_ccolor.define_method("to_hex", &mapnik::color::to_hex_string);
-  rb_ccolor.define_method("to_s", &mapnik::color::to_string);
+// //  These symbols are not found on my installation. Moving on...
+//   rb_ccolor.define_method("to_hex", &mapnik::color::to_hex_string);
+//   rb_ccolor.define_method("to_s", &mapnik::color::to_string);
   
 }

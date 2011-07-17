@@ -71,7 +71,7 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     envelope.height = 20
     assert_equal 20, envelope.height
     assert_equal 15, envelope.max_y
-    assert_equal -5, envelope.min_y
+    assert_equal(-5, envelope.min_y)
   end
   
   def test_should_return_width
@@ -85,7 +85,7 @@ class TestMapnikEnvelope < Test::Unit::TestCase
     envelope.width = 20
     assert_equal 20, envelope.width
     assert_equal 15, envelope.max_x
-    assert_equal -5, envelope.min_x
+    assert_equal(-5, envelope.min_x)
   end
   
   def test_should_recenter_to_xy

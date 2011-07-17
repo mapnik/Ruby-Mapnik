@@ -33,12 +33,22 @@
 // #include <mapnik2/map.hpp>
 
 // Ruby Mapnik
-#include <_mapnik_color.rb.h>
-#include <_mapnik_coord.rb.h>
-#include <_mapnik_datasource.rb.h>
-#include <_mapnik_datasource_cache.rb.h>
-#include <_mapnik_envelope.rb.h>
+#include "_mapnik_color.rb.h"
+#include "_mapnik_coord.rb.h"
+#include "_mapnik_datasource.rb.h"
+#include "_mapnik_datasource_cache.rb.h"
+#include "_mapnik_envelope.rb.h"
+#include "_mapnik_feature.rb.h"
+#include "_mapnik_geometry.rb.h"
+ 
+#include "_mapnik_polygon_symbolizer.rb.h" 
+#include "_mapnik_line_symbolizer.rb.h" 
+#include "_mapnik_stroke.rb.h" 
+#include "_mapnik_rule.rb.h"
 
+#include "_mapnik_expression.rb.h"
+#include "_mapnik_symbolizer.rb.h"
+ 
 void register_mapnik();
 
 #endif

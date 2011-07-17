@@ -20,6 +20,7 @@
  ******************************************************************************
 =end
 require 'ruby_mapnik/ruby_mapnik'
+require 'ruby_mapnik/mapnik/rule'
 class RubyMapnik
   VERSION = '1.0.0'
 end

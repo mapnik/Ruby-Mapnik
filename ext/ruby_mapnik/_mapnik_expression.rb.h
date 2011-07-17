@@ -17,24 +17,22 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  *****************************************************************************/
-#include "_mapnik.h"
+#ifndef PIKA2_MAPNIK_EXPRESSION
+#define PIKA2_MAPNIK_EXPRESSION
 
-void register_mapnik(){
-  Rice::Module rb_mapnik = Rice::define_module("Mapnik");
-  
-  register_color(rb_mapnik);
-  register_coord(rb_mapnik);
-  register_datasource(rb_mapnik);
-  register_datasource_cache(rb_mapnik);
-  register_envelope(rb_mapnik);
-  register_feature(rb_mapnik);
-  register_geometry(rb_mapnik);
-  register_polygon_symbolizer(rb_mapnik);
-  register_line_symbolizer(rb_mapnik);
-  register_stroke(rb_mapnik);
-  register_rule(rb_mapnik);
-  register_expression(rb_mapnik);
-  register_symbolizer(rb_mapnik);
-  
-  
-}
+  // Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+  // Mapnik
+#include <mapnik2/feature.hpp>
+#include <mapnik2/filter_factory.hpp>
+#include <mapnik2/expression_string.hpp>
+#include <mapnik2/expression_evaluator.hpp>
+#include <mapnik2/parse_path.hpp>
+
+void register_expression(Rice::Module rb_mapnik);
+
+#endif

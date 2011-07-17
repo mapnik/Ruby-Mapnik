@@ -1,0 +1,2 @@
+#!/bin/bash
+(cd lib && irb -r ruby_mapnik)
