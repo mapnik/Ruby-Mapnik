@@ -170,6 +170,20 @@ class TestMapnikMap < Test::Unit::TestCase
     File.delete(filename)
   end
   
+  def test_should_load_from_xml_string
+    map_1 = build_complete_map
+    map_2 = Mapnik::Map.from_xml(map_1.to_xml)
+    assert_equal map_1.layers.count, map_2.layers.count
+    assert_equal map_1.srs, map_2.srs
+  end
+  
+  def test_should_load_from_file
+    file_path = File.join(File.expand_path(File.dirname(__FILE__)), "data", "test_map.xml")
+    map = Mapnik::Map.from_file(file_path)
+    assert map.layers.any?
+    assert map.styles['My Style']
+  end
+  
 private
 
   def build_map

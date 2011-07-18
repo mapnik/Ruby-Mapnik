@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map srs="+proj=latlong +datum=WGS84" background-color="rgb(0,0,255)">
+  <Style name="My Style">
+    <Rule>
+      <PolygonSymbolizer fill="rgb(255,0,0)"/>
+    </Rule>
+  </Style>
+  <Layer name="world" srs="+proj=latlong +datum=WGS84">
+    <StyleName>My Style</StyleName>
+    <Datasource>
+      <Parameter name="file">TM_WORLD_BORDERS_SIMPL_0.3_MOD</Parameter>
+      <Parameter name="type">shape</Parameter>
+    </Datasource>
+  </Layer>
+</Map>

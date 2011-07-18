@@ -60,6 +60,9 @@ void register_map(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::Map > rb_cmap = Rice::define_class_under< mapnik::Map >(rb_mapnik, "Map");
   rb_cmap.define_constructor(Rice::Constructor< mapnik::Map, int, int, std::string >(), (Rice::Arg("width"), Rice::Arg("height"), Rice::Arg("srs")));
   
+  rb_cmap.define_singleton_method("__load_map_string__", &mapnik::load_map_string);
+  rb_cmap.define_singleton_method("__load_map__", &mapnik::load_map);
+  
   rb_cmap.define_method("background", &mapnik::Map::background);
   rb_cmap.define_method("background=", &mapnik::Map::set_background);
   

@@ -27,7 +27,7 @@ module Mapnik
     
     extend Forwardable
     
-    def_delegators :@collection, :empty?, :any?, :length, :first
+    def_delegators :@collection, :empty?, :any?, :length, :first, :[], :count
     
     def initialize(collection)
       @collection = collection
@@ -71,6 +71,22 @@ module Mapnik
   end
   
   class Map
+    
+    class << self
+      
+      def from_xml(xml, strict = false, base_path = "")
+        map = new(640, 480, "")
+        __load_map_string__(map, xml, strict, base_path)
+        map
+      end
+      
+      def from_file(filename, strict = false)
+        map = new(640, 480, "")
+        __load_map__(map, filename, strict)
+        map
+      end
+      
+    end
     
     def styles
       styles = MapStyleContainer[__styles__]
