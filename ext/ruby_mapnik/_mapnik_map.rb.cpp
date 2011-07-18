@@ -101,6 +101,6 @@ void register_map(Rice::Module rb_mapnik){
   rb_cmap.define_method("__remove_layer__", &mapnik::Map::removeLayer);
   
   rb_cmap.define_method("__render_to_file__", &render_map_to_file);
-  rb_cmap.define_method("__save_to_string__", &map_to_string);
+  rb_cmap.define_method("to_xml", &map_to_string);
   
 }

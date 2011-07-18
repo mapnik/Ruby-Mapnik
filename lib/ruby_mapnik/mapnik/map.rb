@@ -84,6 +84,10 @@ module Mapnik
       layers
     end
     
+    def render_to_file(file, format)
+      __render_to_file__(file, format)
+    end
+      
     private :__styles__, :__insert_style__, :__remove_style__, :__layers__, 
             :__add_layer__, :__remove_layer__
     
