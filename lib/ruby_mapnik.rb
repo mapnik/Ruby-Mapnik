@@ -23,6 +23,7 @@ require 'ruby_mapnik/ruby_mapnik'
 require 'ruby_mapnik/mapnik/rule'
 require 'ruby_mapnik/mapnik/style'
 require 'ruby_mapnik/mapnik/layer'
+require 'ruby_mapnik/mapnik/map'
 class RubyMapnik
   VERSION = '1.0.0'
 end

@@ -37,4 +37,6 @@ void register_color(Rice::Module rb_mapnik){
 //   rb_ccolor.define_method("to_hex", &mapnik::color::to_hex_string);
 //   rb_ccolor.define_method("to_s", &mapnik::color::to_string);
   
+  // TODO: color equality. Here or in ruby. Also other constructors.
+  
 }

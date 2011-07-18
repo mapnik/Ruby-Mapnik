@@ -32,7 +32,6 @@ class TestMapnikDatasource < Test::Unit::TestCase
       :type => 'shape',
       :file => SHAPEFILE
     )
-    
   end
   
   def test_should_have_an_envelope

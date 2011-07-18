@@ -29,9 +29,6 @@
 #include <rice/Module.hpp>
 #include <rice/Enum.hpp>
 
-// // Mapnik
-// #include <mapnik2/map.hpp>
-
 // Ruby Mapnik
 #include "_mapnik_color.rb.h"
 #include "_mapnik_coord.rb.h"
@@ -50,6 +47,8 @@
 #include "_mapnik_symbolizer.rb.h"
 #include "_mapnik_style.rb.h" 
 #include "_mapnik_layer.rb.h" 
+#include "_mapnik_map.rb.h" 
+ 
  
 void register_mapnik();
 
