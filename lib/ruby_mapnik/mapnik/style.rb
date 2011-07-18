@@ -1,10 +1,14 @@
 module Mapnik
   
-  class StyleRuleContainer < Array
+  class StyleRuleContainer
     
-    # TODO: Rethink this?
-    undef :insert, :replace, :flatten, :reject, :pack, :zip, :reverse, :sort, 
-          :uniq, :shift, :unshift, :sort!, :pop, :delete_at
+    extend Forwardable
+    
+    def_delegators :@collection, :empty?, :any?, :length, :first, :count
+    
+    def initialize(collection)
+      @collection = collection
+    end
     
     def style=(style)
       @style = style
@@ -12,7 +16,7 @@ module Mapnik
     
     def <<(object)
       @style.send(:__add_rule__, object)
-      super(object)
+      @collection << object
     end      
           
     alias :push :<<      

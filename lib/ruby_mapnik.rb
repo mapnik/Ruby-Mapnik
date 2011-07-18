@@ -19,6 +19,8 @@
  *
  ******************************************************************************
 =end
+require 'forwardable'
+
 require 'ruby_mapnik/ruby_mapnik'
 require 'ruby_mapnik/mapnik/rule'
 require 'ruby_mapnik/mapnik/style'

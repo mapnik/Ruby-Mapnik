@@ -1,10 +1,14 @@
 module Mapnik
   
-  class LayerStyleContainer < Array
+  class LayerStyleContainer
     
-    # TODO: Rethink this?
-    undef :insert, :replace, :flatten, :reject, :pack, :zip, :reverse, :sort, 
-          :uniq, :shift, :unshift, :sort!, :pop, :delete_at
+    extend Forwardable
+    
+    def_delegators :@collection, :empty?, :any?, :length, :first, :count
+    
+    def initialize(collection)
+      @collection = collection
+    end
     
     def layer=(layer)
       @layer = layer
@@ -12,7 +16,7 @@ module Mapnik
     
     def <<(object)
       @layer.send(:__append_style__, object)
-      super(object)
+      @collection << object
     end      
           
     alias :push :<<      

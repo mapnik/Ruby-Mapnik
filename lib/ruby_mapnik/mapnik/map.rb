@@ -23,36 +23,44 @@ module Mapnik
           
   end
   
-  class MapLayerContainer < Array
+  class MapLayerContainer 
     
-    # TODO: Rethink this?
-    undef :insert, :replace, :flatten, :reject, :pack, :zip, :reverse, :sort, 
-          :uniq, :shift, :unshift, :sort!, :pop, :delete_at
+    extend Forwardable
+    
+    def_delegators :@collection, :empty?, :any?, :length, :first
+    
+    def initialize(collection)
+      @collection = collection
+    end
+    
+    def <<(object)
+      @map.send(:__add_layer__, object)
+      @collection << (object)
+    end
+    
+    alias :push :<<      
+    
+    def clear
+      (0..length-1).each{|index| remove_object_at_index(index)}
+      @collection.clear
+    end
+    
+    def delete_at(index)
+       remove_object_at_index(index)
+       @collection.delete_at(index)
+    end
+    
+    def empty?
+      @collection.empty?
+    end
     
     def map=(map)
       @map = map
     end
     
-    def <<(object)
-      @map.send(:__add_layer__, object)
-      super(object)
-    end      
-          
-    alias :push :<<      
-    
-    def delete_at(index)
-       remove_object_at_index(index)
-       super(index)
-     end
-
-     def pop
-       delete_at(length - 1) unless length.zero?
-     end
-
-     def clear
-       (0..length-1).each{|index| remove_object_at_index(index)}
-       super
-     end
+    def pop
+      delete_at(length - 1) unless length.zero?
+    end
      
     private 
      

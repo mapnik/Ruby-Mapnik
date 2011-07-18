@@ -156,25 +156,24 @@ class TestMapnikMap < Test::Unit::TestCase
     assert map.layers.empty?
   end
   
-  def test_big
-    map = Mapnik::Map.new(600, 300, "+proj=latlong +datum=WGS84")
-    map.background = Mapnik::Color.new(0, 0, 255, 255)
-    style = Mapnik::Style.new
-    rule = Mapnik::Rule.new
-    poly = Mapnik::PolygonSymbolizer.new
-    poly.fill = Mapnik::Color.new(255, 0, 0, 255)
-    rule.symbols << poly
-    style.rules << rule
-    map.styles["My Style"]=style
-    layer = Mapnik::Layer.new('world',"+proj=latlong +datum=WGS84")
-    layer.datasource = Mapnik::Datasource.create(:type => "shape", :file => SHAPEFILE)
-    layer.styles << "My Style"
-    map.layers << layer
-    map.zoom_to_box(layer.envelope)
-    # raise map.__save_to_string__.inspect
-    map.__render_to_file__("world.png", "png")
-  end
-  
+  # def test_big
+  #   map = Mapnik::Map.new(600, 300, "+proj=latlong +datum=WGS84")
+  #   map.background = Mapnik::Color.new(0, 0, 255, 255)
+  #   style = Mapnik::Style.new
+  #   rule = Mapnik::Rule.new
+  #   poly = Mapnik::PolygonSymbolizer.new
+  #   poly.fill = Mapnik::Color.new(255, 0, 0, 255)
+  #   rule.symbols << poly
+  #   style.rules << rule
+  #   map.styles["My Style"]=style
+  #   layer = Mapnik::Layer.new('world',"+proj=latlong +datum=WGS84")
+  #   layer.datasource = Mapnik::Datasource.create(:type => "shape", :file => SHAPEFILE)
+  #   layer.styles << "My Style"
+  #   map.layers << layer
+  #   map.zoom_to_box(layer.envelope)
+  #   map.__render_to_file__("world.png", "png")
+  # end
+  # 
 private
 
   def build_map

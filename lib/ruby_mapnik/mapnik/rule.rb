@@ -2,10 +2,13 @@ module Mapnik
 
   class RuleSymbolContainer < Array
     
-    # TODO: Make sure these are complete and sane. I'd like to accomodate as many
-    # as possible.
-    undef :insert, :replace, :flatten, :reject, :pack, :zip, :reverse, :sort, 
-          :uniq, :shift, :unshift, :sort!
+    extend Forwardable
+    
+    def_delegators :@collection, :empty?, :any?, :length, :first, :count
+    
+    def initialize(collection)
+      @collection = collection
+    end
     
     def rule=(rule)
       @rule = rule
@@ -14,14 +17,14 @@ module Mapnik
     def <<(object)
       symbolizer_object = Mapnik::Symbolizer.from_subtype(object)
       @rule.send(:__append_symbol__, symbolizer_object)
-      super(symbolizer_object)
+      @collection << symbolizer_object
     end
     
     alias :push :<<
     
     def delete_at(index)
       remove_object_at_index(index)
-      super(index)
+      @collection.delete_at(index)
     end
   
     def pop
@@ -30,7 +33,7 @@ module Mapnik
     
     def clear
       (0..length-1).each{|index| remove_object_at_index(index)}
-      super
+      @collection.clear
     end
     
     private
