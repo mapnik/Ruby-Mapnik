@@ -6,5 +6,9 @@ class TestMapnikExpression < Test::Unit::TestCase
     assert Mapnik::Expression
   end
 
+  def test_should_evaluate
+    expression = "([place]='town')"
+    assert_equal expression, Mapnik::Expression.parse(expression).to_s
+  end
   
 end

@@ -29,6 +29,7 @@
   // Mapnik
 #include <mapnik2/feature.hpp>
 #include <mapnik2/filter_factory.hpp>
+#include <mapnik2/expression_node.hpp>
 #include <mapnik2/expression_string.hpp>
 #include <mapnik2/expression_evaluator.hpp>
 #include <mapnik2/parse_path.hpp>
