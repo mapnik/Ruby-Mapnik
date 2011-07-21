@@ -39,13 +39,10 @@ class TestMapnikRule < Test::Unit::TestCase
   
   def test_should_get_and_set_filter
     rule = Mapnik::Rule.new
-    assert rule.filter.kind_of?(Mapnik::Expression)
-    
-    # assert_equal("", rule.filter)
-    # 
-    # new_filter = "New filter"
-    # rule.filter = new_filter
-    # assert_equal new_filter, rule.filter
+    expression_string = "([place]='town')"
+    expression = Mapnik::Expression.parse(expression_string)
+    rule.filter = expression
+    assert_equal expression_string, rule.filter.to_s
   end
   
   def test_should_append_and_remove_symbols
