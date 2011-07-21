@@ -25,7 +25,9 @@
 #include <rice/Constructor.hpp>
 #include <rice/Class.hpp>
 #include <rice/Enum.hpp>
-
+#include <rice/Array.hpp>
+#include <rice/Hash.hpp>
+#include <rice/Symbol.hpp>
   // Mapnik
 #include <mapnik2/stroke.hpp>
 

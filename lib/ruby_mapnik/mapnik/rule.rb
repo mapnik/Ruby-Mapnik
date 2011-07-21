@@ -4,7 +4,7 @@ module Mapnik
     
     extend Forwardable
     
-    def_delegators :@collection, :empty?, :any?, :length, :first, :count
+    def_delegators :@collection, :empty?, :any?, :length, :first, :count, :[]
     
     def initialize(collection)
       @collection = collection

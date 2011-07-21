@@ -21,7 +21,7 @@ void register_rule(Rice::Module rb_mapnik){
   rb_crule.define_method("abstract=", &mapnik::rule::set_abstract, Rice::Arg("new_abstract"));
   
   rb_crule.define_method("filter", &mapnik::rule::get_filter);
-  // rb_crule.define_method("filter=", &mapnik::rule::set_filter, Rice::Arg("new_filter"));
+  rb_crule.define_method("filter=", &mapnik::rule::set_filter, Rice::Arg("new_filter"));
 
   rb_crule.define_method("__symbols__", &mapnik::rule::get_symbolizers);
   rb_crule.define_method("__append_symbol__", &mapnik::rule::append, Rice::Arg("new_symbol"));
