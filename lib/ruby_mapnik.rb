@@ -31,7 +31,10 @@ class RubyMapnik
   VERSION = '1.0.0'
 end
 
-# TODO: Warning message if no datasources are found
 ['/opt/local/lib', '/usr/local/lib', '/usr/lib'].each do |dir|
   Mapnik::DatasourceCache.register("#{dir}/mapnik2/input")
+end
+
+if Mapnik::DatasourceCache.available_plugins.empty?
+  puts "MAPNIK WARNING: No datasource plugins were found!"
 end

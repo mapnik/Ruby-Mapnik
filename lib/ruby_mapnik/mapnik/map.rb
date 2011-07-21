@@ -15,11 +15,6 @@ module Mapnik
       @map.send(:__remove_style__, key)
       super(key)
     end
-
-    # TODO: Maybe?
-    # def [](key)
-    #   @map.send(:__find_style__, key)
-    # end  
           
   end
   
