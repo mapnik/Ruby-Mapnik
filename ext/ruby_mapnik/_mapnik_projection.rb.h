@@ -1,5 +1,4 @@
-=begin 
- ******************************************************************************
+/*****************************************************************************
  * 
  * Copyright (C) 2011 Elliot Laster
  *
@@ -17,26 +16,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
- ******************************************************************************
-=end
-require 'forwardable'
+ *****************************************************************************/
+#ifndef PIKA2_MAPNIK_PROJECTION
+#define PIKA2_MAPNIK_PROJECTION
 
-require 'ruby_mapnik/ruby_mapnik'
-require 'ruby_mapnik/mapnik/rule'
-require 'ruby_mapnik/mapnik/style'
-require 'ruby_mapnik/mapnik/layer'
-require 'ruby_mapnik/mapnik/map'
-require 'ruby_mapnik/mapnik/stroke'
-require 'ruby_mapnik/mapnik/projection'
+  // Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+  // Mapnik
+#include <mapnik2/projection.hpp>
 
-class RubyMapnik
-  VERSION = '1.0.0'
-end
+void register_projection(Rice::Module rb_mapnik);
 
-['/opt/local/lib', '/usr/local/lib', '/usr/lib'].each do |dir|
-  Mapnik::DatasourceCache.register("#{dir}/mapnik2/input")
-end
-
-if Mapnik::DatasourceCache.available_plugins.empty?
-  puts "MAPNIK WARNING: No datasource plugins were found!"
-end
+#endif

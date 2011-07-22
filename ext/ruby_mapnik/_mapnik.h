@@ -49,6 +49,7 @@
 #include "_mapnik_layer.rb.h" 
 #include "_mapnik_map.rb.h" 
  
+#include "_mapnik_projection.rb.h" 
  
 void register_mapnik();
 
