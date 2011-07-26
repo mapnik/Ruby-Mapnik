@@ -144,11 +144,12 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
   end
   
   # TODO: failure here!
-  # def test_should_get_and_set_max_char_angle_delta
-  #   assert_equal 0.392699081698724, @symbolizer.max_char_angle_delta
-  #   @symbolizer.max_char_angle_delta = 0.5
-  #   assert_equal 0.5, @symbolizer.max_char_angle_delta
-  # end
+  def test_should_get_and_set_max_char_angle_delta
+    @symbolizer.max_char_angle_delta = 0.5
+    assert_equal 0.5, @symbolizer.max_char_angle_delta
+    @symbolizer.max_char_angle_delta = 0.7
+    assert_equal 0.7, @symbolizer.max_char_angle_delta
+  end
   
   def test_should_get_and_set_minimum_distance
     assert_equal 0, @symbolizer.minimum_distance
