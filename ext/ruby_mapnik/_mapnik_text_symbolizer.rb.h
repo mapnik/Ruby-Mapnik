@@ -17,41 +17,19 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  *****************************************************************************/
-#ifndef mapnik_HPP
-#define mapnik_HPP
+#ifndef PIKA2_MAPNIK_TEXT_SYMBOLIZER
+#define PIKA2_MAPNIK_TEXT_SYMBOLIZER
 
   // Rice
-#include <rice/Enum.hpp>
-#include <rice/Object.hpp>
 #include <rice/Data_Type.hpp>
-#include <rice/Data_Object.hpp>
-#include <rice/Allocation_Strategies.hpp>
-#include <rice/Module.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
 #include <rice/Enum.hpp>
 
-// Ruby Mapnik
-#include "_mapnik_color.rb.h"
-#include "_mapnik_coord.rb.h"
-#include "_mapnik_datasource.rb.h"
-#include "_mapnik_datasource_cache.rb.h"
-#include "_mapnik_envelope.rb.h"
-#include "_mapnik_feature.rb.h"
-#include "_mapnik_geometry.rb.h"
- 
-#include "_mapnik_polygon_symbolizer.rb.h" 
-#include "_mapnik_line_symbolizer.rb.h" 
-#include "_mapnik_stroke.rb.h" 
-#include "_mapnik_rule.rb.h"
+  // Mapnik
+#include <mapnik2/text_placements.hpp>  
+#include <mapnik2/text_symbolizer.hpp>
 
-#include "_mapnik_expression.rb.h"
-#include "_mapnik_symbolizer.rb.h"
-#include "_mapnik_style.rb.h" 
-#include "_mapnik_layer.rb.h" 
-#include "_mapnik_map.rb.h" 
- 
-#include "_mapnik_projection.rb.h" 
-#include "_mapnik_text_symbolizer.rb.h" 
- 
-void register_mapnik();
+void register_text_symbolizer(Rice::Module rb_mapnik);
 
 #endif

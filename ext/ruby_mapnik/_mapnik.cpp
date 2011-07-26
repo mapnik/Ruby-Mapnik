@@ -39,4 +39,5 @@ void register_mapnik(){
   register_layer(rb_mapnik);
   register_map(rb_mapnik);
   register_projection(rb_mapnik);
+  register_text_symbolizer(rb_mapnik);
 }
