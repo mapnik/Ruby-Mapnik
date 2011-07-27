@@ -16,6 +16,7 @@ Rice::Object get_dashes(const mapnik::stroke& stroke){
   return out;
 }
 
+// TODO: line cap and line join accessors
 void register_stroke(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::stroke > rb_cstroke = Rice::define_class_under< mapnik::stroke >(rb_mapnik, "Stroke");
   rb_cstroke.define_constructor(Rice::Constructor< mapnik::stroke, mapnik::color, float >());

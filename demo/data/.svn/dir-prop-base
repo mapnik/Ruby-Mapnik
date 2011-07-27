@@ -1,0 +1,21 @@
+K 10
+svn:ignore
+V 159
+.
+.sconf_temp
+config.py
+config.cache
+config.log
+.project
+.sconsign.dblite
+__init__.py.orig
+*.os
+*.input
+*.dylib
+*.pyc
+shapeindex
+pgsql2sqlite
+rundemo
+paths.py
+
+END

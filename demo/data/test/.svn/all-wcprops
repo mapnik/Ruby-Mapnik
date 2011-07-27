@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/!svn/ver/1343/trunk/demo/data/test
+END
+charplacement.shp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/598/trunk/demo/data/test/charplacement.shp
+END
+charplacement.dbf
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/598/trunk/demo/data/test/charplacement.dbf
+END
+displacement.shp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/609/trunk/demo/data/test/displacement.shp
+END
+overlap.shp
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/!svn/ver/596/trunk/demo/data/test/overlap.shp
+END
+displacement.dbf
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/609/trunk/demo/data/test/displacement.dbf
+END
+overlap.dbf
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/!svn/ver/596/trunk/demo/data/test/overlap.dbf
+END
+textspacing.shp
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/!svn/ver/593/trunk/demo/data/test/textspacing.shp
+END
+textspacing.dbf
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/!svn/ver/593/trunk/demo/data/test/textspacing.dbf
+END
+charplacement.shx
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/!svn/ver/598/trunk/demo/data/test/charplacement.shx
+END
+displacement.shx
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/609/trunk/demo/data/test/displacement.shx
+END
+overlap.shx
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/!svn/ver/596/trunk/demo/data/test/overlap.shx
+END
+regenerate.sh
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/!svn/ver/598/trunk/demo/data/test/regenerate.sh
+END
+textspacing.shx
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/!svn/ver/593/trunk/demo/data/test/textspacing.shx
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/!svn/ver/590/trunk/demo/data/test/readme.txt
+END

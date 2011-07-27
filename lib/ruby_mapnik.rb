@@ -21,17 +21,24 @@
 =end
 require 'forwardable'
 
-require 'ruby_mapnik/ruby_mapnik'
-require 'ruby_mapnik/mapnik/rule'
-require 'ruby_mapnik/mapnik/style'
-require 'ruby_mapnik/mapnik/layer'
-require 'ruby_mapnik/mapnik/map'
-require 'ruby_mapnik/mapnik/stroke'
-require 'ruby_mapnik/mapnik/projection'
+path = File.expand_path(File.dirname(__FILE__))
+
+require "#{path}/ruby_mapnik/ruby_mapnik"
+require "#{path}/ruby_mapnik/mapnik/rule"
+require "#{path}/ruby_mapnik/mapnik/style"
+require "#{path}/ruby_mapnik/mapnik/layer"
+require "#{path}/ruby_mapnik/mapnik/map"
+require "#{path}/ruby_mapnik/mapnik/stroke"
+require "#{path}/ruby_mapnik/mapnik/projection"
+require "#{path}/ruby_mapnik/mapnik/font_engine"
+
 
 class RubyMapnik
   VERSION = '1.0.0'
 end
+
+# TODO: Smarter initialization
+Mapnik::FontEngine.register_fonts("/usr/local/lib/mapnik/fonts")
 
 ['/opt/local/lib', '/usr/local/lib', '/usr/lib'].each do |dir|
   Mapnik::DatasourceCache.register("#{dir}/mapnik2/input")

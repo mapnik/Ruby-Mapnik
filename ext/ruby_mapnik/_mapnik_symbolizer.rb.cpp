@@ -8,6 +8,8 @@ mapnik::symbolizer from_subtype(Rice::Object obj){
     out = mapnik::symbolizer(from_ruby<mapnik::polygon_symbolizer>(obj));
   } else if(class_name == "Mapnik::LineSymbolizer") {
     out = mapnik::symbolizer(from_ruby<mapnik::line_symbolizer>(obj));
+  } else if(class_name == "Mapnik::TextSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::text_symbolizer>(obj));
   }
   return out;
 }
