@@ -52,8 +52,8 @@
 #include "_mapnik_projection.rb.h" 
 #include "_mapnik_text_symbolizer.rb.h" 
 #include "_mapnik_font_engine.rb.h" 
-
-
+#include "_mapnik_raster_symbolizer.rb.h"
+#include "_mapnik_raster_colorizer.rb.h"
  
 void register_mapnik();
 
