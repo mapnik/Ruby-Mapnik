@@ -43,4 +43,9 @@ void register_mapnik(){
   register_font_engine(rb_mapnik);
   register_raster_symbolizer(rb_mapnik);
   register_raster_colorizer(rb_mapnik);
+  register_point_symbolizer(rb_mapnik);
+  register_polygon_pattern_symbolizer(rb_mapnik);
+  register_glyph_symbolizer(rb_mapnik);
+  register_line_pattern_symbolizer(rb_mapnik);
+  register_markers_symbolizer(rb_mapnik);
 }

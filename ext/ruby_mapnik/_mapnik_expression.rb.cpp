@@ -16,10 +16,10 @@ std::string expr_node_to_string_(boost::shared_ptr<mapnik::expr_node> node_ptr){
 //   return result.to_string();
 // }
 // 
-// // path expression
-// mapnik::path_expression_ptr parse_path_(std::string const& path){
-//   return mapnik::parse_path(path);
-// }
+// path expression
+mapnik::path_expression_ptr parse_path_(std::string const& path){
+  return mapnik::parse_path(path);
+}
 // 
 // std::string path_to_string_(mapnik::path_expression const& expr){
 //   return mapnik::path_processor_type::to_string(expr);
@@ -34,7 +34,9 @@ void register_expression(Rice::Module rb_mapnik){
   // rb_cexpression.define_singleton_method("evaluate", &expression_evaluate_);
   rb_cexpression.define_method("to_s",&expr_node_to_string_);
   
-  // Rice::Data_Type< mapnik::path_expression > rb_cpath_expression = Rice::define_class_under< mapnik::path_expression >(rb_mapnik, "PathExpression");
+  Rice::Data_Type< mapnik::path_expression_ptr > rb_cpath_expression = Rice::define_class_under< mapnik::path_expression_ptr >(rb_mapnik, "PathExpression");
   // rb_cpath_expression.define_singleton_method("evaluate", &path_evaluate_);
   // rb_cpath_expression.define_method("to_s",&path_to_string_);
+  rb_cpath_expression.define_singleton_method("parse", &parse_path_);
+  
 }
