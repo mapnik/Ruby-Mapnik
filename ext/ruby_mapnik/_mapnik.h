@@ -59,6 +59,8 @@
 #include "_mapnik_glyph_symbolizer.rb.h" 
 #include "_mapnik_line_pattern_symbolizer.rb.h" 
 #include "_mapnik_markers_symbolizer.rb.h" 
+#include "_mapnik_shield_symbolizer.rb.h" 
+ 
  
 void register_mapnik();
 

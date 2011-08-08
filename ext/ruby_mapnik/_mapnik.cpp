@@ -48,4 +48,5 @@ void register_mapnik(){
   register_glyph_symbolizer(rb_mapnik);
   register_line_pattern_symbolizer(rb_mapnik);
   register_markers_symbolizer(rb_mapnik);
+  register_shield_symbolizer(rb_mapnik);
 }
