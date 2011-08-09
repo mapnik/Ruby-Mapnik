@@ -166,7 +166,7 @@ class TestMapnikMap < Test::Unit::TestCase
     map = build_complete_map
     filename = File.join(File.expand_path(File.dirname(__FILE__)), "../tmp/world.png")
     assert_equal 0, File.size(filename) if File.exists?(filename)
-    map.render_to_file(filename, 'png')
+    map.render_to_file(filename)
     File.delete(filename)
   end
   

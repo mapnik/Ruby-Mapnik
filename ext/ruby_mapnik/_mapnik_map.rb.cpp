@@ -45,11 +45,11 @@ Rice::Object to_ruby<std::vector<mapnik::layer> >(std::vector<mapnik::layer> con
 std::map<std::string,mapnik::feature_type_style> & (mapnik::Map::*_map_styles_)() = &mapnik::Map::styles;
 std::vector<mapnik::layer> & (mapnik::Map::*_map_layers_)() = &mapnik::Map::layers;
 
-void render_map_to_file(const mapnik::Map& map, const std::string& filename, const std::string& format){
+void render_map_to_file(const mapnik::Map& map, const std::string& filename){
   mapnik::image_32 image(map.width(),map.height());
   mapnik::agg_renderer<mapnik::image_32> ren(map,image,1.0,0,0);
   ren.apply();
-  mapnik::save_to_file(image,filename,format);
+  mapnik::save_to_file(image,filename);
 }
 
 std::string map_to_string(const mapnik::Map& map){

@@ -206,7 +206,7 @@ map.layers << popplaces_lyr
 # Rendering...
 filename = File.join(CURRENT_PATH, '..', 'tmp', 'demo.png')
 map.zoom_to_box(Mapnik::Envelope.new(-8024477.28459,5445190.38849,-7381388.20071,5662941.44855)) 
-map.render_to_file(filename, 'png')
+map.render_to_file(filename)
 `open #{filename}`
 
 
