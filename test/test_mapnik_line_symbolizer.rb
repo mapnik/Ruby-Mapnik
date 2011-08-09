@@ -15,7 +15,7 @@ class TestMapnikLineSymbolizer < Test::Unit::TestCase
     stroke_before = line.stroke
     assert stroke_before.kind_of?(Mapnik::Stroke)
     
-    new_stroke = Mapnik::Stroke.new(Mapnik::Color.new(255,255,255,1), 1.0)
+    new_stroke = Mapnik::Stroke.new(Mapnik::Color.new("#fff"), 1.0)
     line.stroke = new_stroke
     
     # Once Equality for strokes is established

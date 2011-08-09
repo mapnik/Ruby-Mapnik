@@ -15,7 +15,7 @@ class TestMapnikPolygonSymbolizer < Test::Unit::TestCase
     color_before = polygon.fill
     assert color_before.kind_of?(Mapnik::Color)
     
-    new_color = Mapnik::Color.new(50,40,13,1)
+    new_color = Mapnik::Color.new("#000")
     polygon.fill = new_color
     
     assert [:red, :green, :blue, :alpha].all?{|x| polygon.fill.send(x) == new_color.send(x)}

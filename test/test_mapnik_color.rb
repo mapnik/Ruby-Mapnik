@@ -23,10 +23,9 @@ require 'test_helper'
 class TestMapnikColor < Test::Unit::TestCase
   
   def test_should_instantiate_and_update_values
-    values = {:red => 1, :green => 2, :blue => 3, :alpha => 0}
-    color = Mapnik::Color.new(values[:red],  values[:green],
-                              values[:blue], values[:alpha])
-    
+    values = {:red => 0, :green => 0, :blue => 0, :alpha => 0}
+    color = Mapnik::Color.new("#000")
+    color.alpha = 0
     values.each do |key, value|
       assert_equal(value, color.send("#{key}"))
       color.send("#{key}=", value + 1)

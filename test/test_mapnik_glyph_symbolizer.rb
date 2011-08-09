@@ -46,10 +46,11 @@ class TestMapnikGlyphSymbolizer < Test::Unit::TestCase
     assert_equal new_vals, @sym.displacement
   end
   
-  # TODO: When there is color equality
   def test_should_get_and_set_halo_fill
     assert @sym.halo_fill.instance_of?(Mapnik::Color)
-    @sym.halo_fill = Mapnik::Color.new(255,255,255,255)
+    white = Mapnik::Color.new("#fff")
+    @sym.halo_fill = white
+    assert_equal white, @sym.halo_fill
   end
   
   def test_should_get_and_set_halo_radius

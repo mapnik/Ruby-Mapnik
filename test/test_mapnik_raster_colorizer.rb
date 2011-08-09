@@ -15,16 +15,12 @@ class TestMapnikRasterColorizer < Test::Unit::TestCase
   end
   
   def test_should_get_and_set_default_color
-    r = 34
-    g = 45
-    b = 56
-    a = 255
-    color = Mapnik::Color.new(r,g,b,a)
+    color = Mapnik::Color.new("#fff")
     @colorizer.default_color = color
-    assert_equal r, @colorizer.default_color.red
-    assert_equal g, @colorizer.default_color.green
-    assert_equal b, @colorizer.default_color.blue
-    assert_equal a, @colorizer.default_color.alpha
+    assert_equal 255, @colorizer.default_color.red
+    assert_equal 255, @colorizer.default_color.green
+    assert_equal 255, @colorizer.default_color.blue
+    assert_equal 255, @colorizer.default_color.alpha
   end
   
   def test_should_get_and_set_default_mode
@@ -43,17 +39,16 @@ class TestMapnikRasterColorizer < Test::Unit::TestCase
   def test_should_instantiate_a_stop
     value = 45.5
     mode = Mapnik::ColorizerMode::EXACT
-    color = Mapnik::Color.new(255,255,255,255)
+    color = Mapnik::Color.new("#fff")
     assert stop = Mapnik::ColorizerStop.new(value,mode,color)
     assert_equal value, stop.value
     assert_equal mode, stop.mode
-    # TODO: when there is color equality
-    # assert_equal color, stop.color 
+    assert_equal color, stop.color 
   end
   
   def test_should_get_and_add_stops
     assert @colorizer.stops.empty?
-    stop = Mapnik::ColorizerStop.new(45.45, Mapnik::ColorizerMode::EXACT, Mapnik::Color.new(255,255,255,255))
+    stop = Mapnik::ColorizerStop.new(45.45, Mapnik::ColorizerMode::EXACT, Mapnik::Color.new("#fff"))
     @colorizer.stops << stop
     assert_equal @colorizer.stops.first, stop
   end

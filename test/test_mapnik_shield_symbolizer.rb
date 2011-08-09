@@ -5,7 +5,7 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
   def setup
     expression = Mapnik::Expression.parse("[place]")
     face_name = "DejaVu Sans Book"
-    fill = Mapnik::Color.new(255,255,255,255)
+    fill = Mapnik::Color.new("#fff")
     file = Mapnik::PathExpression.parse("myfile.png")
     @sym = Mapnik::ShieldSymbolizer.new(expression, face_name, 12, fill, file)
   end
@@ -61,10 +61,11 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
     assert_equal "DejaVu Sans", @sym.face_name
   end
   
-  # TODO: When there is color equality
   def test_should_get_and_set_fill
     assert @sym.fill.instance_of?(Mapnik::Color)
-    @sym.fill = Mapnik::Color.new(255,255,255,255)
+    white = Mapnik::Color.new("#fff")
+    @sym.fill = white
+    assert_equal white, @sym.fill
   end
   
   # TODO: Need fontset
@@ -79,10 +80,11 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
     assert !@sym.force_odd_labels?  
   end
   
-  # TODO: When there is color equality
   def test_should_get_and_set_halo_fill
     assert @sym.halo_fill.instance_of?(Mapnik::Color)
-    @sym.halo_fill = Mapnik::Color.new(255,255,255,255)
+    white = Mapnik::Color.new("#fff")
+    @sym.halo_fill = white
+    assert_equal white, @sym.halo_fill
   end
   
   def test_should_get_and_set_halo_radius

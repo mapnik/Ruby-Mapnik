@@ -54,7 +54,7 @@ class TestMapnikMap < Test::Unit::TestCase
     map = build_map
     assert map.background.nil?
     
-    color = Mapnik::Color.new(255, 255, 255, 1)
+    color = Mapnik::Color.new("#fff")
     map.background = color
     assert [:red, :green, :blue, :alpha].all?{|x| color.send(x) == map.background.send(x)}
   end
@@ -192,11 +192,11 @@ private
   
   def build_complete_map
     map = Mapnik::Map.new(600, 300, "+proj=latlong +datum=WGS84")
-    map.background = Mapnik::Color.new(0, 0, 255, 255)
+    map.background = Mapnik::Color.new("#0000FF")
     style = Mapnik::Style.new
     rule = Mapnik::Rule.new
     poly = Mapnik::PolygonSymbolizer.new
-    poly.fill = Mapnik::Color.new(255, 0, 0, 255)
+    poly.fill = Mapnik::Color.new("#FF0088")
     rule.symbols << poly
     style.rules << rule
     map.styles["My Style"]=style

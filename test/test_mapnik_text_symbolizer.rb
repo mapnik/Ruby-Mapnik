@@ -4,7 +4,7 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
   
   def setup
     expression = Mapnik::Expression.parse("([place]='town')")
-    @symbolizer = Mapnik::TextSymbolizer.new(expression, "DejaVu Sans Book", 10, Mapnik::Color.new(0,0,0,255))
+    @symbolizer = Mapnik::TextSymbolizer.new(expression, "DejaVu Sans Book", 10, Mapnik::Color.new("#fff"))
   end
   
   def test_should_instantiate
@@ -76,10 +76,11 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
     assert_equal "DejaVu Sans", @symbolizer.face_name
   end
   
-  # TODO: When there is color equality
   def test_should_get_and_set_fill
     assert @symbolizer.fill.instance_of?(Mapnik::Color)
-    @symbolizer.fill = Mapnik::Color.new(255,255,255,255)
+    white = Mapnik::Color.new("#fff")
+    @symbolizer.fill = white
+    assert_equal white, @symbolizer.fill
   end
   
   # TODO: Need fontset
@@ -94,10 +95,11 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
     assert !@symbolizer.force_odd_labels?  
   end
   
-  # TODO: When there is color equality
   def test_should_get_and_set_halo_fill
     assert @symbolizer.halo_fill.instance_of?(Mapnik::Color)
-    @symbolizer.halo_fill = Mapnik::Color.new(255,255,255,255)
+    white = Mapnik::Color.new("#fff")
+    @symbolizer.halo_fill = white
+    assert_equal white, @symbolizer.halo_fill
   end
   
   def test_should_get_and_set_halo_radius
