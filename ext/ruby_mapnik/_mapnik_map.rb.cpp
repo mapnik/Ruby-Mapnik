@@ -1,9 +1,15 @@
+#define HAVE_CAIRO
 #include "_mapnik_map.rb.h"
 #include <mapnik2/agg_renderer.hpp>
 #include <mapnik2/graphics.hpp>
+#ifdef HAVE_CAIRO
+  #include <mapnik2/cairo_renderer.hpp>
+#endif
 #include <mapnik2/image_util.hpp>
 #include <mapnik2/load_map.hpp>
 #include <mapnik2/save_map.hpp>
+
+
 
 // Seems like we could metaprogram these two away...
 template<>
@@ -46,10 +52,19 @@ std::map<std::string,mapnik::feature_type_style> & (mapnik::Map::*_map_styles_)(
 std::vector<mapnik::layer> & (mapnik::Map::*_map_layers_)() = &mapnik::Map::layers;
 
 void render_map_to_file(const mapnik::Map& map, const std::string& filename){
-  mapnik::image_32 image(map.width(),map.height());
-  mapnik::agg_renderer<mapnik::image_32> ren(map,image,1.0,0,0);
-  ren.apply();
-  mapnik::save_to_file(image,filename);
+  std::string format = mapnik::guess_type(filename);
+  if (format == "pdf" || format == "svg" || format =="ps") {
+#if defined(HAVE_CAIRO)
+  mapnik::save_to_cairo_file(map,filename,format);
+#else
+  throw mapnik::ImageWriterException("Cairo backend not available, cannot write to format: " + format);
+#endif
+  } else {
+      mapnik::image_32 image(map.width(),map.height());
+      mapnik::agg_renderer<mapnik::image_32> ren(map,image,1.0,0,0);
+      ren.apply();
+      mapnik::save_to_file(image,filename);
+  }
 }
 
 std::string map_to_string(const mapnik::Map& map){

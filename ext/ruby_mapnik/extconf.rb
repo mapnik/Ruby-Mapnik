@@ -37,7 +37,10 @@ HEADER_DIRS = [
 
 # Then search /usr/local for people that installed from source
 '/usr/local/include/',
-
+'/usr/local/include/cairomm-1.0',
+'/usr/local/include/cairo',
+'/usr/local/include/sigc++-2.0',
+'/usr/local/include/sigc++-2.0/sigc++',
 '/opt/local/include/',
 
 # Check the ruby install locations
@@ -46,7 +49,7 @@ INCLUDEDIR,
 # Finally fall back to /usr
 '/usr/include/',
 '/usr/X11/include',
-'/usr/include/mapnik/',
+'/usr/include/mapnik/'
 ]
 
 LIB_DIRS = [
