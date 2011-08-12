@@ -71,6 +71,45 @@ std::string map_to_string(const mapnik::Map& map){
   return mapnik::save_map_to_string(map);
 }
 
+// TODO: These are temporarily boosted from the ruby cairo gem...
+cairo_surface_t * rb_cairo_surface_from_ruby_object (VALUE obj) {
+  cairo_surface_t *surface;
+  // if (!rb_cairo__is_kind_of (obj, rb_cCairo_Surface))
+  //   {
+  //     rb_raise (rb_eTypeError, "not a cairo surface");
+  //   }
+  Data_Get_Struct (obj, cairo_surface_t, surface);
+  // if (!surface)
+  //   rb_cairo_check_status (CAIRO_STATUS_NULL_POINTER);
+  return surface;
+}
+
+cairo_t * rb_cairo_context_from_ruby_object (VALUE obj) {
+  cairo_t *context;
+  // if (!rb_cairo__is_kind_of (obj, rb_cCairo_Surface))
+  //   {
+  //     rb_raise (rb_eTypeError, "not a cairo surface");
+  //   }
+  Data_Get_Struct (obj, cairo_t, context);
+  // if (!surface)
+  //   rb_cairo_check_status (CAIRO_STATUS_NULL_POINTER);
+  return context;
+}
+
+void render_to_cairo_surface(mapnik::Map const & map, Rice::Object rb_surface, unsigned offset_x = 0, unsigned offset_y = 0){
+  cairo_surface_t * surface = rb_cairo_surface_from_ruby_object(rb_surface);
+  Cairo::RefPtr<Cairo::Surface> s(new Cairo::Surface(surface));
+  mapnik::cairo_renderer<Cairo::Surface> ren(map,s,offset_x, offset_y);
+  ren.apply();
+}
+
+void render_to_cairo_context(mapnik::Map const & map, Rice::Object rb_context, unsigned offset_x = 0, unsigned offset_y = 0){
+  cairo_t * context = rb_cairo_context_from_ruby_object(rb_context);
+  Cairo::RefPtr<Cairo::Context> c(new Cairo::Context(context));
+  mapnik::cairo_renderer<Cairo::Context> ren(map, c, offset_x, offset_y);
+  ren.apply();
+}
+
 void register_map(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::Map > rb_cmap = Rice::define_class_under< mapnik::Map >(rb_mapnik, "Map");
   rb_cmap.define_constructor(Rice::Constructor< mapnik::Map, int, int, std::string >(), (Rice::Arg("width"), Rice::Arg("height"), Rice::Arg("srs")));
@@ -120,5 +159,9 @@ void register_map(Rice::Module rb_mapnik){
   
   rb_cmap.define_method("__render_to_file__", &render_map_to_file);
   rb_cmap.define_method("to_xml", &map_to_string);
+  
+  rb_cmap.define_method("render_to_cairo_surface", &render_to_cairo_surface);
+  rb_cmap.define_method("render_to_cairo_context", &render_to_cairo_context);
+  
   
 }
