@@ -70,20 +70,20 @@ module Mapnik
     class << self
       
       def from_xml(xml, strict = false, base_path = "")
-        map = new(640, 480, "")
+        map = new
         __load_map_string__(map, xml, strict, base_path)
         map
       end
       
       def from_file(filename, strict = false)
-        map = new(640, 480, "")
+        map = new
         __load_map__(map, filename, strict)
         map
       end
       
-      def define(&block)
+      def define
         map = new(800,600,"+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs")
-        map.instance_eval(&block)
+        yield map
         map
       end
       

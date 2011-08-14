@@ -6,11 +6,13 @@ require File.join(CURRENT_PATH, '..', 'lib', 'ruby_mapnik')
 width = 800
 height = 600
 
-# data = nil
-# stride = nil
 
 # Instantiate a map
-map = Mapnik::Map.new(800,600,"+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs")
+map = Mapnik::Map.new
+map.width = width
+map.height = height
+map.srs = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs"
+
 
 # Set its background color
 map.background = Mapnik::Color.new("#fff")
