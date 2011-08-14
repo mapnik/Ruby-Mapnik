@@ -80,14 +80,9 @@ module Mapnik
         __load_map__(map, filename, strict)
         map
       end
-      
-      def define
-        map = new(800,600,"+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs")
-        yield map
-        map
-      end
-      
+            
     end
+    
     
     def styles
       styles = MapStyleContainer[__styles__]

@@ -110,6 +110,13 @@ void render_to_cairo_context(mapnik::Map const & map, Rice::Object rb_context, u
   ren.apply();
 }
 
+void initialize_map(Rice::Object self){
+  DATA_PTR(self.value()) = new mapnik::Map();
+  if(rb_block_given_p()) {
+    rb_yield(self);
+  }
+}
+
 void register_map(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::Map > rb_cmap = Rice::define_class_under< mapnik::Map >(rb_mapnik, "Map");
   rb_cmap.define_constructor(Rice::Constructor< mapnik::Map >());
@@ -117,6 +124,7 @@ void register_map(Rice::Module rb_mapnik){
   rb_cmap.define_singleton_method("__load_map_string__", &mapnik::load_map_string);
   rb_cmap.define_singleton_method("__load_map__", &mapnik::load_map);
   
+  rb_cmap.define_method("initialize", &initialize_map);
   rb_cmap.define_method("background", &mapnik::Map::background);
   rb_cmap.define_method("background=", &mapnik::Map::set_background);
   

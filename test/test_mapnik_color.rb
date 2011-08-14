@@ -34,4 +34,33 @@ class TestMapnikColor < Test::Unit::TestCase
     
   end
   
+  def test_should_instantiate_with_a_css_hex_value
+    color = Mapnik::Color.new("#ff0000")
+    assert_equal 255, color.red
+    assert_equal 0, color.green
+    assert_equal 0, color.blue
+  end
+  
+  def test_should_instantiate_with_a_rgb_value
+    red = 34
+    green = 120
+    blue = 134
+    color = Mapnik::Color.new(red, green, blue)
+    assert_equal red, color.red
+    assert_equal green, color.green
+    assert_equal blue, color.blue
+  end
+  
+  def test_should_instantiate_with_a_rgba_value
+    red = 34
+    green = 120
+    blue = 134
+    alpha = 0
+    color = Mapnik::Color.new(red, green, blue, alpha)
+    assert_equal red, color.red
+    assert_equal green, color.green
+    assert_equal blue, color.blue
+    assert_equal alpha, color.alpha
+  end
+  
 end
