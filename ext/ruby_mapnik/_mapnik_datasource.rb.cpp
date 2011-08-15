@@ -21,11 +21,28 @@
 #include <mapnik2/layer.hpp>
 #include <rice/Address_Registration_Guard_defn.hpp>
 
+class mapnik_value_holder_to_ruby_visitor : public boost::static_visitor<Rice::Object>
+{
+public:
+
+ Rice::Object operator()(int i) const {
+   return to_ruby<int>(i);
+ }
+
+ Rice::Object operator()(double i) const {
+   return to_ruby<double>(i);
+ }
+
+ Rice::Object operator()(const std::string & str) const {
+   return to_ruby<std::string>(str);
+ }
+};
+
+
 std::string name(boost::shared_ptr<mapnik::datasource> self){
   mapnik::layer_descriptor ld = self->get_descriptor();
   return ld.get_name();
 }
-
 
 boost::shared_ptr<mapnik::datasource> create(Rice::Object params){
   bool bind=true;
@@ -58,14 +75,27 @@ mapnik::box2d<double> get_datasource_envelope(boost::shared_ptr<mapnik::datasour
   return self->envelope();
 }
 
+Rice::Object get_datasource_params(boost::shared_ptr<mapnik::datasource> const & self){
+  Rice::Hash params;
+  mapnik::parameters ds_params = self->params();
+  mapnik::parameters::const_iterator pos=ds_params.begin();
+  while(pos!=ds_params.end())
+  {
+    params[Rice::Symbol(pos->first)] = boost::apply_visitor(mapnik_value_holder_to_ruby_visitor(), pos->second);
+    ++pos;
+  }
+  return params;
+}
+
 void register_datasource(Rice::Module rb_mapnik){
   Rice::Data_Type< boost::shared_ptr<mapnik::datasource> > rb_cdatasource = Rice::define_class_under< boost::shared_ptr<mapnik::datasource> >(rb_mapnik, "Datasource");
   
-  // TODO:
   rb_cdatasource.define_method("envelope", &get_datasource_envelope);
-  // rb_cdatasource.define_method("descriptor", &mapnik::datasource::get_descriptor);
   rb_cdatasource.define_method("name", &name);
-  
+  rb_cdatasource.define_method("params", &get_datasource_params);
   rb_cdatasource.define_singleton_method("create", &create, (Rice::Arg("params")));
-  // TODO: more
+  
+  // TODO: Descriptor, features at point...
+  // rb_cdatasource.define_method("descriptor", &mapnik::datasource::get_descriptor);
+  
 }

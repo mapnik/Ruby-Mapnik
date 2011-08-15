@@ -22,24 +22,28 @@
 require 'test_helper'
 class TestMapnikDatasource < Test::Unit::TestCase
   
-  def test_presence
-    assert Mapnik::Datasource
-    assert Mapnik::DatasourceCache
+  def setup
+    @datasource_params = {
+      :type => 'shape',
+      :file => SHAPEFILE
+    }
+    @datasource = Mapnik::Datasource.create(@datasource_params)
   end
   
   def test_should_create_a_new_datasource
-    assert Mapnik::Datasource.create(
-      :type => 'shape',
-      :file => SHAPEFILE
-    )
+    assert @datasource
   end
   
   def test_should_have_an_envelope
-    d = Mapnik::Datasource.create(
-      :type => 'shape',
-      :file => SHAPEFILE
-    )
-    assert d.envelope.kind_of?(Mapnik::Envelope)
+    assert @datasource.envelope.kind_of?(Mapnik::Envelope)
+  end
+
+  # def test_should_have_a_descriptor
+  #   raise @datasource.descriptor.inspect
+  # end
+
+  def test_should_get_params
+    assert_equal @datasource_params, @datasource.params
   end
 
 end
