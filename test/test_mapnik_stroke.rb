@@ -61,6 +61,22 @@ class TestMapnikStroke < Test::Unit::TestCase
     assert Mapnik::LineJoin::BEVEL_JOIN
   end
   
+  def test_should_get_and_set_line_cap
+    Mapnik::LineCap.constants.each do |const_name|
+      const = Mapnik::LineCap.const_get(const_name)
+      @stroke.line_cap = const
+      assert_equal const, @stroke.line_cap
+    end
+  end
+  
+  def test_should_get_and_set_line_join
+    Mapnik::LineJoin.constants.each do |const_name|
+      const = Mapnik::LineJoin.const_get(const_name)
+      @stroke.line_join = const
+      assert_equal const, @stroke.line_join
+    end
+  end
+  
   def test_should_have_dashes
     assert_equal 0, @stroke.dashes.length
     dash_hash = {:gap => 1, :length => 1.2}

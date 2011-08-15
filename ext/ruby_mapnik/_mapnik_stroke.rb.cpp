@@ -16,7 +16,24 @@ Rice::Object get_dashes(const mapnik::stroke& stroke){
   return out;
 }
 
-// TODO: line cap and line join accessors
+mapnik::line_cap_enum get_stroke_line_cap(mapnik::stroke const & self){
+  mapnik::line_cap_enum line_cap = self.get_line_cap();
+  return line_cap;
+}
+
+void set_stroke_line_cap(mapnik::stroke & self, mapnik::line_cap_enum val){
+  self.set_line_cap(val);
+}
+
+mapnik::line_join_enum get_stroke_line_join(mapnik::stroke const & self){
+  mapnik::line_join_enum line_join = self.get_line_join();
+  return line_join;
+}
+
+void set_stroke_line_join(mapnik::stroke & self, mapnik::line_join_enum val){
+  self.set_line_join(val);
+}
+
 void register_stroke(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::stroke > rb_cstroke = Rice::define_class_under< mapnik::stroke >(rb_mapnik, "Stroke");
   rb_cstroke.define_constructor(Rice::Constructor< mapnik::stroke, mapnik::color, float >());
@@ -36,6 +53,12 @@ void register_stroke(Rice::Module rb_mapnik){
   rb_cstroke.define_method("dash_offset", &mapnik::stroke::dash_offset);
   rb_cstroke.define_method("dash_offset=", &mapnik::stroke::set_dash_offset, Rice::Arg("new_dash_offset"));
 
+  rb_cstroke.define_method("line_cap", &get_stroke_line_cap);
+  rb_cstroke.define_method("line_cap=", &set_stroke_line_cap);
+  
+  rb_cstroke.define_method("line_join", &get_stroke_line_join);
+  rb_cstroke.define_method("line_join=", &set_stroke_line_join);
+  
   rb_cstroke.define_method("__dashes__", &get_dashes);
   rb_cstroke.define_method("__add_dash__", &mapnik::stroke::add_dash);
 

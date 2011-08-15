@@ -95,7 +95,7 @@ roads34_rule = Mapnik::Rule.new
 roads34_rule.filter = Mapnik::Expression.parse('([CLASS] = 3) or ([CLASS] = 4)')
 
 roads34_rule_stk = Mapnik::Stroke.new(Mapnik::Color.new('#AB9E89'), 2.0)
-#roads34_rule_stk.line_cap = Mapnik::LineCap::ROUND_CAP
+roads34_rule_stk.line_cap = Mapnik::LineCap::ROUND_CAP
 roads34_symbolizer = Mapnik::LineSymbolizer.new
 roads34_symbolizer.stroke = roads34_rule_stk
 roads34_rule.symbols << roads34_symbolizer
@@ -114,7 +114,7 @@ roads2_style_1 = Mapnik::Style.new
 roads2_rule_1 = Mapnik::Rule.new
 roads2_rule_1.filter = Mapnik::Expression.parse('[CLASS] = 2')
 roads2_rule_stk_1 = Mapnik::Stroke.new(Mapnik::Color.new('#AB9E89'), 4.0)
-#roads2_rule_stk_1.line_cap = Mapnik::LineCap::ROUND_CAP
+roads2_rule_stk_1.line_cap = Mapnik::LineCap::ROUND_CAP
 roads2_symbolizer1 = Mapnik::LineSymbolizer.new
 roads2_symbolizer1.stroke = roads2_rule_stk_1
 roads2_rule_1.symbols << roads2_symbolizer1
@@ -126,7 +126,7 @@ roads2_style_2 = Mapnik::Style.new
 roads2_rule_2 = Mapnik::Rule.new
 roads2_rule_2.filter = Mapnik::Expression.parse('[CLASS] = 2')
 roads2_rule_stk_2 = Mapnik::Stroke.new(Mapnik::Color.new('#FFFA73'), 2.0)
-#roads2_rule_stk_2.line_cap = Mapnik::LineCap::ROUND_CAP
+roads2_rule_stk_2.line_cap = Mapnik::LineCap::ROUND_CAP
 roads2_rule_2_symbolizer = Mapnik::LineSymbolizer.new
 roads2_rule_2_symbolizer.stroke = roads2_rule_stk_2
 roads2_rule_2.symbols << roads2_rule_2_symbolizer
@@ -148,7 +148,7 @@ roads1_style_1 = Mapnik::Style.new
 roads1_rule_1 = Mapnik::Rule.new
 roads1_rule_1.filter = Mapnik::Expression.parse('[CLASS] = 1')
 roads1_rule_stk_1 = Mapnik::Stroke.new(Mapnik::Color.new('#BC951C'), 7.0) 
-#roads1_rule_stk_1.line_cap = Mapnik::LineCap::ROUND_CAP
+roads1_rule_stk_1.line_cap = Mapnik::LineCap::ROUND_CAP
 roads1_rule1_symbolizer = Mapnik::LineSymbolizer.new
 roads1_rule1_symbolizer.stroke = roads1_rule_stk_1
 roads1_rule_1.symbols << roads1_rule1_symbolizer
@@ -159,7 +159,7 @@ roads1_style_2 = Mapnik::Style.new
 roads1_rule_2 = Mapnik::Rule.new
 roads1_rule_2.filter = Mapnik::Expression.parse('[CLASS] = 1')
 roads1_rule_stk_2 = Mapnik::Stroke.new(Mapnik::Color.new('#F2BF24'), 5.0)
-##roads1_rule_stk_2.line_cap = Mapnik::LineCap::ROUND_CAP
+roads1_rule_stk_2.line_cap = Mapnik::LineCap::ROUND_CAP
 roads1_rule2_symbolizer = Mapnik::LineSymbolizer.new
 roads1_rule2_symbolizer.stroke = roads1_rule_stk_2 
 roads1_rule_2.symbols << roads1_rule2_symbolizer
@@ -195,7 +195,7 @@ popplaces_text_symbolizer.label_placement= Mapnik::LABEL_PLACEMENT::POINT_PLACEM
 popplaces_text_symbolizer.halo_fill = Mapnik::Color.new("#fff")
 popplaces_text_symbolizer.halo_radius = 1
 popplaces_text_symbolizer.avoid_edges = true
-#popplaces_text_symbolizer.minimum_padding = 30
+popplaces_text_symbolizer.minimum_padding = 30
 
 popplaces_rule.symbols << popplaces_text_symbolizer
 
