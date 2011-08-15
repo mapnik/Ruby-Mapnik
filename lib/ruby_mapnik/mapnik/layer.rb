@@ -25,6 +25,16 @@ module Mapnik
   
   class Layer
     
+    attr_writer :map
+    
+    def style(override_style_name = nil)
+      style_name = override_style_name || name 
+      style = Mapnik::Style.new
+      yield style
+      @map.styles[style_name] = style
+      styles << style_name
+    end
+    
     def styles
       styles = LayerStyleContainer.new(__style_list__)
       styles.layer = self

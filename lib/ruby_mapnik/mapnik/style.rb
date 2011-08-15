@@ -25,6 +25,13 @@ module Mapnik
   
   class Style
     
+    def rule(filter_string = 'true')
+      rule = Mapnik::Rule.new
+      rule.filter = Mapnik::Expression.parse(filter_string)
+      yield rule
+      self.rules << rule
+    end
+    
     def rules
       rules = StyleRuleContainer.new(__rules__)
       rules.style = self

@@ -46,6 +46,33 @@ module Mapnik
 
   class Rule
     
+    def polygon
+      polygon = Mapnik::PolygonSymbolizer.new
+      yield polygon
+      symbols << polygon
+    end
+    
+    def fill=(color)
+      polygon = Mapnik::PolygonSymbolizer.new
+      polygon.fill = color
+      symbols << polygon
+    end
+    
+    def line
+      stroke = Mapnik::Stroke.new(Mapnik::Color.new, 1.0)
+      yield stroke
+      line = Mapnik::LineSymbolizer.new
+      line.stroke = stroke
+      symbols << line
+    end
+    
+    def text(expression_text)
+      exp = Mapnik::Expression.parse(expression_text)
+      text = Mapnik::TextSymbolizer.new(exp, 'DejaVu Sans Book', 10, Mapnik::Color.new)
+      yield text
+      symbols << text
+    end
+    
     def symbols
       symbol_container = RuleSymbolContainer.new(__symbols__)
       symbol_container.rule = self

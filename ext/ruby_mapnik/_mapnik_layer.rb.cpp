@@ -10,7 +10,7 @@ std::vector<std::string> & (mapnik::layer::*_styles_)() = &mapnik::layer::styles
 
 void register_layer(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::layer > rb_clayer = Rice::define_class_under< mapnik::layer >(rb_mapnik, "Layer");
-  rb_clayer.define_constructor(Rice::Constructor< mapnik::layer, std::string, std::string >());
+  rb_clayer.define_constructor(Rice::Constructor< mapnik::layer, std::string, std::string >(), (Rice::Arg("name"), Rice::Arg("srs") = (std::string)"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"));
  
   rb_clayer.define_method("datasource", &mapnik::layer::datasource);
   rb_clayer.define_method("datasource=", &mapnik::layer::set_datasource, Rice::Arg("new_datasource"));

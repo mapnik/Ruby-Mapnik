@@ -83,11 +83,23 @@ module Mapnik
             
     end
     
+    def style(name)
+      style = Mapnik::Style.new
+      yield style
+      styles[name] = style
+    end
     
     def styles
       styles = MapStyleContainer[__styles__]
       styles.map = self
       styles
+    end
+    
+    def layer(name, srs = nil)
+      layer = Mapnik::Layer.new(name, srs)
+      layer.map = self
+      yield layer
+      layers << layer
     end
     
     def layers
