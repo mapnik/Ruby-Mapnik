@@ -10,6 +10,20 @@ mapnik::symbolizer from_subtype(Rice::Object obj){
     out = mapnik::symbolizer(from_ruby<mapnik::line_symbolizer>(obj));
   } else if(class_name == "Mapnik::TextSymbolizer"){
     out = mapnik::symbolizer(from_ruby<mapnik::text_symbolizer>(obj));
+  } else if(class_name == "Mapnik::GlyphSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::glyph_symbolizer>(obj));
+  } else if(class_name == "Mapnik::LinePatternSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::line_pattern_symbolizer>(obj));
+  } else if(class_name == "Mapnik::MarkersSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::markers_symbolizer>(obj));
+  } else if(class_name == "Mapnik::PointSymbolizer") {
+    out = mapnik::symbolizer(from_ruby<mapnik::point_symbolizer>(obj));
+  } else if(class_name == "Mapnik::PolygonPatternSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::polygon_pattern_symbolizer>(obj));
+  } else if(class_name == "Mapnik::RasterSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::raster_symbolizer>(obj));
+  } else if(class_name == "Mapnik::ShieldSymbolizer"){
+    out = mapnik::symbolizer(from_ruby<mapnik::shield_symbolizer>(obj));
   }
   return out;
 }

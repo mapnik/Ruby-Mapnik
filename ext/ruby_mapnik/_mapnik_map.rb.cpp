@@ -67,6 +67,13 @@ void render_map_to_file(const mapnik::Map& map, const std::string& filename){
   }
 }
 
+std::string render_map_to_string(const mapnik::Map& map, std::string const& format){
+  mapnik::image_32 image(map.width(),map.height());
+  mapnik::agg_renderer<mapnik::image_32> ren(map,image,1.0,0,0);
+  ren.apply();
+  return mapnik::save_to_string(image,format);
+}
+
 std::string map_to_string(const mapnik::Map& map){
   return mapnik::save_map_to_string(map);
 }
@@ -167,6 +174,7 @@ void register_map(Rice::Module rb_mapnik){
   
   rb_cmap.define_method("__render_to_file__", &render_map_to_file);
   rb_cmap.define_method("to_xml", &map_to_string);
+  rb_cmap.define_method("render_to_string", &render_map_to_string);
   
   rb_cmap.define_method("render_to_cairo_surface", &render_to_cairo_surface);
   rb_cmap.define_method("render_to_cairo_context", &render_to_cairo_context);

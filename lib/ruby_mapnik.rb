@@ -32,6 +32,8 @@ require "#{path}/ruby_mapnik/mapnik/stroke"
 require "#{path}/ruby_mapnik/mapnik/projection"
 require "#{path}/ruby_mapnik/mapnik/font_engine"
 require "#{path}/ruby_mapnik/mapnik/raster_colorizer"
+require "#{path}/ruby_mapnik/mapnik/tile"
+
 
 class RubyMapnik
   VERSION = '1.0.0'

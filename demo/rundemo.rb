@@ -131,7 +131,7 @@ map = Mapnik::Map.new do |m|
 end
 
 # Rendering...
-filename = File.join(CURRENT_PATH, '..', 'tmp', 'block_demo.png')
+filename = File.join(CURRENT_PATH, '..', 'tmp', 'rundemo.png')
 map.zoom_to_box(Mapnik::Envelope.new(-8024477.28459,5445190.38849,-7381388.20071,5662941.44855)) 
 map.render_to_file(filename)
 `open #{filename}`
