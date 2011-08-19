@@ -27,10 +27,10 @@
 #include <rice/Array.hpp>
 
   // Mapnik
-#include <mapnik2/datasource.hpp>
-#include <mapnik2/datasource_cache.hpp>
-#include <mapnik2/feature_layer_desc.hpp>
-#include <mapnik2/box2d.hpp>
+#include <mapnik/datasource.hpp>
+#include <mapnik/datasource_cache.hpp>
+#include <mapnik/feature_layer_desc.hpp>
+#include <mapnik/box2d.hpp>
 
 void register_datasource(Rice::Module rb_mapnik);
 

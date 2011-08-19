@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/geometry.hpp>
+#include <mapnik/geometry.hpp>
 
 
 void register_geometry(Rice::Module rb_mapnik);

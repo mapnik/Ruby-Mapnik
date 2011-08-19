@@ -25,7 +25,7 @@
 #include <rice/Class.hpp>
 
   // Mapnik
-#include <mapnik2/color.hpp>
+#include <mapnik/color.hpp>
 
 void register_color(Rice::Module rb_mapnik);
 

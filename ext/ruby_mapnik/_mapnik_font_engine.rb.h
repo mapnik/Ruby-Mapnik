@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/font_engine_freetype.hpp>  
+#include <mapnik/font_engine_freetype.hpp>  
 
 void register_font_engine(Rice::Module rb_mapnik);
 

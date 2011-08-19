@@ -26,7 +26,7 @@
 #include <rice/Class.hpp>
 
   // Mapnik
-#include <mapnik2/line_pattern_symbolizer.hpp>
+#include <mapnik/line_pattern_symbolizer.hpp>
 
 void register_line_pattern_symbolizer(Rice::Module rb_mapnik);
 

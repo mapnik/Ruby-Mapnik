@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/point_symbolizer.hpp>
+#include <mapnik/point_symbolizer.hpp>
 
 void register_point_symbolizer(Rice::Module rb_mapnik);
 

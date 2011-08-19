@@ -27,8 +27,8 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/text_symbolizer.hpp>  
-#include <mapnik2/shield_symbolizer.hpp>
+#include <mapnik/text_symbolizer.hpp>  
+#include <mapnik/shield_symbolizer.hpp>
 
 void register_shield_symbolizer(Rice::Module rb_mapnik);
 

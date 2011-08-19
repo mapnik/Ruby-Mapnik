@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/polygon_pattern_symbolizer.hpp>
+#include <mapnik/polygon_pattern_symbolizer.hpp>
 
 void register_polygon_pattern_symbolizer(Rice::Module rb_mapnik);
 

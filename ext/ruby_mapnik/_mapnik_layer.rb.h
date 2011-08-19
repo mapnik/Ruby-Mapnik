@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/layer.hpp>
+#include <mapnik/layer.hpp>
 
 void register_layer(Rice::Module rb_mapnik);
 

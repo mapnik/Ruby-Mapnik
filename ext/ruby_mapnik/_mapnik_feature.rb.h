@@ -25,7 +25,7 @@
 #include <rice/Class.hpp>
 
   // Mapnik
-#include <mapnik2/feature.hpp>
+#include <mapnik/feature.hpp>
 
 void register_feature(Rice::Module rb_mapnik);
 

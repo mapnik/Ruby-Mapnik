@@ -27,12 +27,12 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/feature.hpp>
-#include <mapnik2/filter_factory.hpp>
-#include <mapnik2/expression_node.hpp>
-#include <mapnik2/expression_string.hpp>
-#include <mapnik2/expression_evaluator.hpp>
-#include <mapnik2/parse_path.hpp>
+#include <mapnik/feature.hpp>
+#include <mapnik/filter_factory.hpp>
+#include <mapnik/expression_node.hpp>
+#include <mapnik/expression_string.hpp>
+#include <mapnik/expression_evaluator.hpp>
+#include <mapnik/parse_path.hpp>
 
 void register_expression(Rice::Module rb_mapnik);
 

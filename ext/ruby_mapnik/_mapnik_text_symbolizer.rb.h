@@ -27,8 +27,8 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/text_placements.hpp>  
-#include <mapnik2/text_symbolizer.hpp>
+#include <mapnik/text_placements.hpp>  
+#include <mapnik/text_symbolizer.hpp>
 
 void register_text_symbolizer(Rice::Module rb_mapnik);
 

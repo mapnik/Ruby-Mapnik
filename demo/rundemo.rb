@@ -97,6 +97,7 @@ map = Mapnik::Map.new do |m|
         road.line do |stroke|
           stroke.color = Mapnik::Color.new('#BC951C')
           stroke.width = 7.0
+          stroke.line_cap = Mapnik::LineCap::ROUND_CAP
         end
       end
     end
@@ -106,6 +107,7 @@ map = Mapnik::Map.new do |m|
         road.line do |stroke|
           stroke.color = Mapnik::Color.new('#F2BF24')
           stroke.width = 5.0
+          stroke.line_cap = Mapnik::LineCap::ROUND_CAP
         end
       end
     end

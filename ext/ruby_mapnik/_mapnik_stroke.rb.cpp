@@ -72,5 +72,4 @@ void register_stroke(Rice::Module rb_mapnik){
   rb_eline_join_enum.define_value("MITER_REVERT_JOIN", mapnik::MITER_REVERT_JOIN);
   rb_eline_join_enum.define_value("ROUND_JOIN", mapnik::ROUND_JOIN);
   rb_eline_join_enum.define_value("BEVEL_JOIN", mapnik::BEVEL_JOIN);
-  
 }

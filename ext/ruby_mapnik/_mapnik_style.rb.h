@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/feature_type_style.hpp>
+#include <mapnik/feature_type_style.hpp>
 
 void register_style(Rice::Module rb_mapnik);
 

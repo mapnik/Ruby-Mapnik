@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/raster_colorizer.hpp>
+#include <mapnik/raster_colorizer.hpp>
 
 void register_raster_colorizer(Rice::Module rb_mapnik);
 

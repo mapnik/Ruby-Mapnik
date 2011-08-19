@@ -25,7 +25,7 @@
 #include <rice/Class.hpp>
 
 // Mapnik
-#include <mapnik2/coord.hpp>
+#include <mapnik/coord.hpp>
 
 void register_coord(Rice::Module rb_mapnik);
 

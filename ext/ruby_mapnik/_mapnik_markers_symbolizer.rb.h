@@ -26,7 +26,7 @@
 #include <rice/Class.hpp>
 
   // Mapnik
-#include <mapnik2/markers_symbolizer.hpp>
+#include <mapnik/markers_symbolizer.hpp>
 
 void register_markers_symbolizer(Rice::Module rb_mapnik);
 

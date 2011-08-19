@@ -27,7 +27,7 @@
 #include <rice/Enum.hpp>
 
   // Mapnik
-#include <mapnik2/glyph_symbolizer.hpp>
+#include <mapnik/glyph_symbolizer.hpp>
 
 void register_glyph_symbolizer(Rice::Module rb_mapnik);
 

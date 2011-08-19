@@ -18,7 +18,7 @@
  *
  *****************************************************************************/
 #include "_mapnik_datasource.rb.h"
-#include <mapnik2/layer.hpp>
+#include <mapnik/layer.hpp>
 #include <rice/Address_Registration_Guard_defn.hpp>
 
 class mapnik_value_holder_to_ruby_visitor : public boost::static_visitor<Rice::Object>

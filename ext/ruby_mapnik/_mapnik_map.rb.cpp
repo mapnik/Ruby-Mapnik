@@ -1,13 +1,13 @@
 #define HAVE_CAIRO
 #include "_mapnik_map.rb.h"
-#include <mapnik2/agg_renderer.hpp>
-#include <mapnik2/graphics.hpp>
+#include <mapnik/agg_renderer.hpp>
+#include <mapnik/graphics.hpp>
 #ifdef HAVE_CAIRO
-  #include <mapnik2/cairo_renderer.hpp>
+  #include <mapnik/cairo_renderer.hpp>
 #endif
-#include <mapnik2/image_util.hpp>
-#include <mapnik2/load_map.hpp>
-#include <mapnik2/save_map.hpp>
+#include <mapnik/image_util.hpp>
+#include <mapnik/load_map.hpp>
+#include <mapnik/save_map.hpp>
 
 
 

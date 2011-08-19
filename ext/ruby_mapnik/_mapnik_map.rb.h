@@ -28,7 +28,7 @@
 #include <rice/Array.hpp>
 
   // Mapnik
-#include <mapnik2/map.hpp>
+#include <mapnik/map.hpp>
 
 void register_map(Rice::Module rb_mapnik);
 

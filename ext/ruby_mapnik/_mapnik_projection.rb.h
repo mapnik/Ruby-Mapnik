@@ -25,7 +25,7 @@
 #include <rice/Constructor.hpp>
 #include <rice/Class.hpp>
   // Mapnik
-#include <mapnik2/projection.hpp>
+#include <mapnik/projection.hpp>
 
 void register_projection(Rice::Module rb_mapnik);
 

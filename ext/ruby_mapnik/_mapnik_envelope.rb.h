@@ -25,7 +25,7 @@
 #include <rice/Class.hpp>
 
   // Mapnik
-#include <mapnik2/box2d.hpp>
+#include <mapnik/box2d.hpp>
 
 void register_envelope(Rice::Module rb_mapnik);
 

@@ -29,7 +29,7 @@
 #include <rice/Hash.hpp>
 #include <rice/Symbol.hpp>
   // Mapnik
-#include <mapnik2/stroke.hpp>
+#include <mapnik/stroke.hpp>
 
 void register_stroke(Rice::Module rb_mapnik);
 

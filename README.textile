@@ -14,7 +14,7 @@ h2. Requirements
 h2. Building
 
 Compile and install Mapnik2 so it is linkable as mapnik2. Install and update the 
-headers so statements like @#include <mapnik2/box2d.hpp>@ work properly.
+headers so statements like @#include <mapnik/box2d.hpp>@ work properly.
 
 You can then use @rake compile@ to build the extension, and @rake test@ to run the
 unit tests. @rake clean@ will do what you think it does, and you can stack up

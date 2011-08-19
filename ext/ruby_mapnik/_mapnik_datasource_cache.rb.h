@@ -26,8 +26,8 @@
 #include <rice/Array.hpp>
 
   // Mapnik
-#include <mapnik2/datasource.hpp>
-#include <mapnik2/datasource_cache.hpp>
+#include <mapnik/datasource.hpp>
+#include <mapnik/datasource_cache.hpp>
 
 void register_datasource_cache(Rice::Module rb_mapnik);
 
