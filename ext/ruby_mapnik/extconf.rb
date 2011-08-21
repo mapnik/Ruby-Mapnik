@@ -26,74 +26,22 @@ require 'mkmf-rice'
 
 # Add the arguments to the linker flags.
 def append_ld_flags(flags) 
-    flags = [flags] unless flags.is_a?(Array)
-    with_ldflags("#{$LDFLAGS} #{flags.join(' ')}") { true }
+  flags = [flags] unless flags.is_a?(Array)
+  with_ldflags("#{$LDFLAGS} #{flags.join(' ')}") { true }
 end
 
-LIBDIR = Config::CONFIG['libdir'] #:nodoc:
-INCLUDEDIR = Config::CONFIG['includedir'] #:nodoc:
-
-HEADER_DIRS = [
-
-# Then search /usr/local for people that installed from source
-'/usr/local/include/',
-# '/usr/local/include/cairomm-1.0',
-# '/usr/local/include/cairo',
-# '/usr/local/include/sigc++-2.0',
-# '/usr/local/include/sigc++-2.0/sigc++',
-'/opt/local/include/',
-
-# Check the ruby install locations
-INCLUDEDIR,
-
-# Finally fall back to /usr
-'/usr/include/',
-'/usr/X11/include',
-'/usr/include/mapnik/'
-] #:nodoc:
-
-LIB_DIRS = [
-# First search /usr/local for people that installed from source
-'/usr/local/lib',  
-  
-# Then search /opt/local for macports
-'/opt/local/lib',
-
-# Check the ruby install locations
-LIBDIR,
-
-# X11 
-'/usr/X11/lib',
-
-# Finally fall back to /usr
-'/usr/lib',
-]
-
-FREETYPE2_HEADER_DIRS = HEADER_DIRS.map{|x| File.join(x, 'freetype2')} + HEADER_DIRS
-CAIROMM_HEADER_DIRS = HEADER_DIRS.map{|x| File.join(x, 'cairomm')} + HEADER_DIRS
-CAIRO_HEADER_DIRS = HEADER_DIRS.map{|x| File.join(x, 'cairo')} + HEADER_DIRS
-SIGC_HEADER_DIRS = HEADER_DIRS.map{|x| File.join(x, 'sigc++')} + HEADER_DIRS
-SIGC_CONFIG_HEADER_DIRS = HEADER_DIRS.map{|x| File.join(x, 'sigc++', 'sigc++')} + HEADER_DIRS
-
-
-dir_config('freetype2', FREETYPE2_HEADER_DIRS, LIB_DIRS)
-dir_config("cairomm", CAIROMM_HEADER_DIRS, LIB_DIRS)
-dir_config("cairo", CAIRO_HEADER_DIRS, LIB_DIRS)
-dir_config("sigc++", SIGC_HEADER_DIRS, LIB_DIRS)
-dir_config("sigc++config", SIGC_CONFIG_HEADER_DIRS, LIB_DIRS)
-
-# Thanks, nokogiri!
-def asplode(lib)
-  abort "---\n#{lib} is missing!"
-end
-
-asplode "freetype2" unless find_header('freetype/config/ftheader.h')
-asplode "cairomm" unless find_header('cairomm/types.h')
-asplode "cairo" unless find_header('cairo/cairo.h')
-asplode "sigc++" unless find_header('sigc++/sigc++config.h')
-asplode "sigc++config.h" unless find_header('sigc++config.h')
+LIBDIR = Config::CONFIG['libdir']
+INCLUDEDIR = Config::CONFIG['includedir'] 
 
 $LDFLAGS += " -lmapnik2 "
+$CFLAGS += `mapnik-config --cflags`
+
+dir_config('freetype2')
+dir_config("cairomm")
+dir_config("cairo")
+dir_config("sigc++")
+dir_config("sigc++config")
+
 
 if RUBY_PLATFORM =~ /darwin/
     # In order to link the shared library into our bundle with GCC 4.x on OSX, we have to work around a bug:
