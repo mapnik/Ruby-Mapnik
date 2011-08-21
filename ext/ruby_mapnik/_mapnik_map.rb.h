@@ -20,15 +20,10 @@
 #ifndef PIKA2_MAPNIK_MAP
 #define PIKA2_MAPNIK_MAP
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Hash.hpp>
-#include <rice/Array.hpp>
-
-  // Mapnik
-#include <mapnik/map.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_map(Rice::Module rb_mapnik);
 

@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_LINE_SYMBOLIZER
 #define PIKA2_MAPNIK_LINE_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/line_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_line_symbolizer(Rice::Module rb_mapnik);
 

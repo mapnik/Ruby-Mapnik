@@ -1,6 +1,19 @@
 #include "_mapnik_expression.rb.h"
 
-// expression
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/feature.hpp>
+#include <mapnik/filter_factory.hpp>
+#include <mapnik/expression_node.hpp>
+#include <mapnik/expression_string.hpp>
+#include <mapnik/expression_evaluator.hpp>
+#include <mapnik/parse_path.hpp>
+
 boost::shared_ptr<mapnik::expr_node> parse_expression_(std::string const& wkt){
   return mapnik::parse_expression(wkt,"utf8");
 }

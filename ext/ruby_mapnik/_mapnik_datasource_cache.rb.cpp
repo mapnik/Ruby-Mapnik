@@ -18,7 +18,17 @@
  *
  *****************************************************************************/
 #include "_mapnik_datasource_cache.rb.h"
-#include "rice/Hash.hpp"
+
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Array.hpp>
+#include <rice/Hash.hpp>
+
+// Mapnik
+#include <mapnik/datasource.hpp>
+#include <mapnik/datasource_cache.hpp>
 
 bool rubysafe_register_sources(std::string path){
   mapnik::datasource_cache::instance()->register_datasources(path);

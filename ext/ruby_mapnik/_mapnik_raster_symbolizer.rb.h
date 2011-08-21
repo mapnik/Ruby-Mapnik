@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_RASTER_SYMBOLIZER
 #define PIKA2_MAPNIK_RASTER_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/raster_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_raster_symbolizer(Rice::Module rb_mapnik);
 

@@ -1,5 +1,15 @@
 #include "_mapnik_polygon_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/polygon_symbolizer.hpp>
+#include <mapnik/rule.hpp>
+  
 void register_polygon_symbolizer(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::polygon_symbolizer > rb_cpolygon_symbolizer = Rice::define_class_under< mapnik::polygon_symbolizer >(rb_mapnik, "PolygonSymbolizer");
   rb_cpolygon_symbolizer.define_constructor(Rice::Constructor< mapnik::polygon_symbolizer >());

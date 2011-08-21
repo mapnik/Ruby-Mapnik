@@ -1,5 +1,13 @@
 #include "_mapnik_markers_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+
+// Mapnik
+#include <mapnik/markers_symbolizer.hpp>
+
 const std::string get_filename(mapnik::markers_symbolizer const& t) { 
     return mapnik::path_processor_type::to_string(*t.get_filename()); 
 }

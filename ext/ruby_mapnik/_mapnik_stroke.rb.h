@@ -20,16 +20,10 @@
 #ifndef PIKA2_MAPNIK_STROKE
 #define PIKA2_MAPNIK_STROKE
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-#include <rice/Array.hpp>
-#include <rice/Hash.hpp>
-#include <rice/Symbol.hpp>
-  // Mapnik
-#include <mapnik/stroke.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_stroke(Rice::Module rb_mapnik);
 

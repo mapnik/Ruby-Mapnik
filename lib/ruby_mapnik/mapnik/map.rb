@@ -44,11 +44,7 @@ module Mapnik
        remove_object_at_index(index)
        @collection.delete_at(index)
     end
-    
-    def empty?
-      @collection.empty?
-    end
-    
+        
     def map=(map)
       @map = map
     end

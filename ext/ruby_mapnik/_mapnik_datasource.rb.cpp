@@ -18,8 +18,20 @@
  *
  *****************************************************************************/
 #include "_mapnik_datasource.rb.h"
+
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Hash.hpp>
+#include <rice/Array.hpp>
+
+// Mapnik
 #include <mapnik/layer.hpp>
-#include <rice/Address_Registration_Guard_defn.hpp>
+#include <mapnik/datasource.hpp>
+#include <mapnik/datasource_cache.hpp>
+#include <mapnik/feature_layer_desc.hpp>
+#include <mapnik/box2d.hpp>
 
 class mapnik_value_holder_to_ruby_visitor : public boost::static_visitor<Rice::Object>
 {

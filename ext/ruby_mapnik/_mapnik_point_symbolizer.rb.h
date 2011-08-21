@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_POINT_SYMBOLIZER
 #define PIKA2_MAPNIK_POINT_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/point_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_point_symbolizer(Rice::Module rb_mapnik);
 

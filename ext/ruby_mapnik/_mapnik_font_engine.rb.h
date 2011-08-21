@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_FONT_ENGINE
 #define PIKA2_MAPNIK_FONT_ENGINE
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/font_engine_freetype.hpp>  
+namespace Rice
+{
+ class Module; 
+}
 
 void register_font_engine(Rice::Module rb_mapnik);
 

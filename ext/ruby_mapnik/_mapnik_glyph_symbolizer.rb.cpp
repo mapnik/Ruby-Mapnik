@@ -1,5 +1,14 @@
 #include "_mapnik_glyph_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+  
+// Mapnik
+#include <mapnik/glyph_symbolizer.hpp>
+
 Rice::Object get_displacement(const mapnik::glyph_symbolizer& t){
   mapnik::position pos = t.get_displacement();
   Rice::Array out;

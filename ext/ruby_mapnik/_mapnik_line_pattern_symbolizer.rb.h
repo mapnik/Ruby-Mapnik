@@ -20,13 +20,10 @@
 #ifndef PIKA2_MAPNIK_LINE_PATTERN_SYMBOLIZER
 #define PIKA2_MAPNIK_LINE_PATTERN_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-
-  // Mapnik
-#include <mapnik/line_pattern_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_line_pattern_symbolizer(Rice::Module rb_mapnik);
 

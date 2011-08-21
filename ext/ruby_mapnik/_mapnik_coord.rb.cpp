@@ -19,6 +19,14 @@
  *****************************************************************************/
 #include "_mapnik_coord.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+
+// Mapnik
+#include <mapnik/coord.hpp>
+
 void wrap_mapnik_coord_double__2__x_set(mapnik::coord2d* self, double val) {
   self->x = val;
 }

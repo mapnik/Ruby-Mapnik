@@ -1,5 +1,14 @@
 #include "_mapnik_polygon_pattern_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/polygon_pattern_symbolizer.hpp>
+
 const std::string get_filename(mapnik::polygon_pattern_symbolizer const& t) { 
     return mapnik::path_processor_type::to_string(*t.get_filename()); 
 }

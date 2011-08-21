@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_GLYPH_SYMBOLIZER
 #define PIKA2_MAPNIK_GLYPH_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/glyph_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_glyph_symbolizer(Rice::Module rb_mapnik);
 

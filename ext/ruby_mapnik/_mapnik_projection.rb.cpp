@@ -1,6 +1,13 @@
 #include "_mapnik_projection.rb.h"
 
-// Again, nearly straight from the python bindings...
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+
+// Mapnik
+#include <mapnik/projection.hpp>
+
 namespace {
 mapnik::coord2d forward_pt(mapnik::projection const& prj, mapnik::coord2d const& pt)
 {

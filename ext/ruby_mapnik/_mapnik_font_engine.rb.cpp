@@ -1,5 +1,14 @@
 #include "_mapnik_font_engine.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/font_engine_freetype.hpp>
+
 Rice::Object get_font_face_names(){
   Rice::Array out;
   std::vector<std::string> const& names = mapnik::freetype_engine::face_names();

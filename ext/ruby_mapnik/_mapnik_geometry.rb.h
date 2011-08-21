@@ -20,15 +20,10 @@
 #ifndef PIKA2_MAPNIK_GEOMETRY
 #define PIKA2_MAPNIK_GEOMETRY
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/geometry.hpp>
-
+namespace Rice
+{
+ class Module; 
+}
 
 void register_geometry(Rice::Module rb_mapnik);
 

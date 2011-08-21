@@ -1,5 +1,13 @@
 #include "_mapnik_feature.rb.h"
+
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+
+// Mapnik
 #include <mapnik/wkt/wkt_factory.hpp>
+#include <mapnik/feature.hpp>
 
 // A cop out of sorts. I'll need to do more research on how to transfer ownership
 // via rice.

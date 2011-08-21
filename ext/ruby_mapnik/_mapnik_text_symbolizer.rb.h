@@ -20,15 +20,10 @@
 #ifndef PIKA2_MAPNIK_TEXT_SYMBOLIZER
 #define PIKA2_MAPNIK_TEXT_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/text_placements.hpp>  
-#include <mapnik/text_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_text_symbolizer(Rice::Module rb_mapnik);
 

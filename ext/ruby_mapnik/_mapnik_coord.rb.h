@@ -19,13 +19,11 @@
  *****************************************************************************/
 #ifndef PIKA2_MAPNIK_COORD
 #define PIKA2_MAPNIK_COORD
-// Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
 
-// Mapnik
-#include <mapnik/coord.hpp>
+namespace Rice
+{
+  class Module; 
+}
 
 void register_coord(Rice::Module rb_mapnik);
 

@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_STYLE
 #define PIKA2_MAPNIK_STYLE
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/feature_type_style.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_style(Rice::Module rb_mapnik);
 

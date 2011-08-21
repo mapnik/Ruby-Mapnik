@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_RASTER_COLORIZER
 #define PIKA2_MAPNIK_RASTER_COLORIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/raster_colorizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_raster_colorizer(Rice::Module rb_mapnik);
 

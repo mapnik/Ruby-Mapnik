@@ -20,15 +20,10 @@
 #ifndef PIKA2_MAPNIK_POLYGON_SYMBOLIZER
 #define PIKA2_MAPNIK_POLYGON_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/polygon_symbolizer.hpp>
-#include <mapnik/rule.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_polygon_symbolizer(Rice::Module rb_mapnik);
 

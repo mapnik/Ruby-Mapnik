@@ -1,5 +1,14 @@
 #include "_mapnik_raster_colorizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/raster_colorizer.hpp>
+
 mapnik::colorizer_mode_enum get_default_colorizer_mode(mapnik::raster_colorizer & self){
   mapnik::colorizer_mode_enum out = self.get_default_mode();
   return out;

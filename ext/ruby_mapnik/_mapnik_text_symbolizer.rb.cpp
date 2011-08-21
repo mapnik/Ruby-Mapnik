@@ -1,5 +1,15 @@
 #include "_mapnik_text_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/text_placements.hpp>  
+#include <mapnik/text_symbolizer.hpp>
+
 Rice::Object get_anchor(const mapnik::text_symbolizer& t){
   mapnik::position pos = t.get_anchor();
   Rice::Array out;

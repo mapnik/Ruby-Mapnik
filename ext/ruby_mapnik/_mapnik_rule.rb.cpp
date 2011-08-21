@@ -1,5 +1,14 @@
 #include "_mapnik_rule.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Array.hpp>
+
+// Mapnik
+#include <mapnik/rule.hpp>
+
 template<>
 Rice::Object to_ruby<std::vector<mapnik::symbolizer> >(std::vector<mapnik::symbolizer> const & x)
 {

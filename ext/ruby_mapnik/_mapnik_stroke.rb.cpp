@@ -1,5 +1,17 @@
 #include "_mapnik_stroke.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+#include <rice/Array.hpp>
+#include <rice/Hash.hpp>
+#include <rice/Symbol.hpp>
+
+// Mapnik
+#include <mapnik/stroke.hpp>
+
 Rice::Object get_dashes(const mapnik::stroke& stroke){
   Rice::Array out;
   if (stroke.has_dash()) {

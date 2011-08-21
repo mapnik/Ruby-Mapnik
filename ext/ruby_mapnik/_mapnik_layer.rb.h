@@ -20,14 +20,10 @@
 #ifndef PIKA2_MAPNIK_LAYER
 #define PIKA2_MAPNIK_LAYER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/layer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_layer(Rice::Module rb_mapnik);
 

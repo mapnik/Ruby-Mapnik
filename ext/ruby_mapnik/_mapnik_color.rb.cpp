@@ -18,7 +18,14 @@
  *
  *****************************************************************************/
 #include "_mapnik_color.rb.h"
-#include <iostream>
+
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+
+// Mapnik
+#include <mapnik/color.hpp>
 
 bool check_color_equality(mapnik::color const & self, mapnik::color const & rhs){
   return self == rhs;

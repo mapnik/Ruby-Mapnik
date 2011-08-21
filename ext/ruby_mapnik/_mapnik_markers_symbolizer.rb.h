@@ -20,13 +20,10 @@
 #ifndef PIKA2_MAPNIK_MARKERS_SYMBOLIZER
 #define PIKA2_MAPNIK_MARKERS_SYMBOLIZER
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-
-  // Mapnik
-#include <mapnik/markers_symbolizer.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_markers_symbolizer(Rice::Module rb_mapnik);
 

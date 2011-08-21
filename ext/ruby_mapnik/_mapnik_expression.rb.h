@@ -20,19 +20,10 @@
 #ifndef PIKA2_MAPNIK_EXPRESSION
 #define PIKA2_MAPNIK_EXPRESSION
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-#include <rice/Enum.hpp>
-
-  // Mapnik
-#include <mapnik/feature.hpp>
-#include <mapnik/filter_factory.hpp>
-#include <mapnik/expression_node.hpp>
-#include <mapnik/expression_string.hpp>
-#include <mapnik/expression_evaluator.hpp>
-#include <mapnik/parse_path.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_expression(Rice::Module rb_mapnik);
 

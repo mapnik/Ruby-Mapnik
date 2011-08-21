@@ -19,13 +19,11 @@
  *****************************************************************************/
 #ifndef PIKA2_MAPNIK_FEATURE
 #define PIKA2_MAPNIK_FEATURE
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
 
-  // Mapnik
-#include <mapnik/feature.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_feature(Rice::Module rb_mapnik);
 

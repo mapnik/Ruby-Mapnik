@@ -20,12 +20,10 @@
 #ifndef PIKA2_MAPNIK_PROJECTION
 #define PIKA2_MAPNIK_PROJECTION
 
-  // Rice
-#include <rice/Data_Type.hpp>
-#include <rice/Constructor.hpp>
-#include <rice/Class.hpp>
-  // Mapnik
-#include <mapnik/projection.hpp>
+namespace Rice
+{
+ class Module; 
+}
 
 void register_projection(Rice::Module rb_mapnik);
 

@@ -1,5 +1,14 @@
 #include "_mapnik_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/rule.hpp>
+
 // TODO: Hackasaurus!
 mapnik::symbolizer from_subtype(Rice::Object obj){
   mapnik::symbolizer out;

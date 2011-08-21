@@ -19,6 +19,14 @@
  *****************************************************************************/
 #include "_mapnik_envelope.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+
+// Mapnik
+#include <mapnik/box2d.hpp>
+
 // Height
 typedef double ( mapnik::box2d<double>::*height_func_type )() const;
 typedef void ( mapnik::box2d<double>::*set_height_func_type )(double h);

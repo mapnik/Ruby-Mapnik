@@ -1,20 +1,28 @@
 #include <_mapnik_geometry.rb.h>
+
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/geometry.hpp>
 #include <mapnik/wkt/wkt_factory.hpp>
 
-// // Stolen wholesale from the python bindings...
+// Borrowed from the python bindings...
 mapnik::geometry_type * make_from_wkt(std::string const& wkt) {
-    std::pair<bool,mapnik::geometry_type*> result = mapnik::from_wkt(wkt);
-    if (result.first){
-      return result.second;
-    }
-    throw std::runtime_error("Failed to parse WKT");
+  std::pair<bool,mapnik::geometry_type*> result = mapnik::from_wkt(wkt);
+  if (result.first){
+    return result.second;
+  }
+  throw std::runtime_error("Failed to parse WKT");
 }
 
 Rice::Enum<mapnik::eGeomType> geometry_enum;
 
 template<>
-mapnik::eGeomType from_ruby<mapnik::eGeomType>(Rice::Object x)
-{
+mapnik::eGeomType from_ruby<mapnik::eGeomType>(Rice::Object x) {
   Rice::Data_Object<mapnik::eGeomType> d(x, geometry_enum);
   return *d;
 }

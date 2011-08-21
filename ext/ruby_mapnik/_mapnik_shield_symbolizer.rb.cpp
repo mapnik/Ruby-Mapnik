@@ -1,5 +1,15 @@
 #include "_mapnik_shield_symbolizer.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/text_symbolizer.hpp>  
+#include <mapnik/shield_symbolizer.hpp>
+
 Rice::Object get_shield_displacement(const mapnik::shield_symbolizer& t){
   mapnik::position pos = t.get_shield_displacement();
   Rice::Array out;

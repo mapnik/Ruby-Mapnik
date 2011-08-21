@@ -1,5 +1,14 @@
-#define HAVE_CAIRO
 #include "_mapnik_map.rb.h"
+
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Hash.hpp>
+#include <rice/Array.hpp>
+
+// Mapnik
+#include <mapnik/map.hpp>
 #include <mapnik/agg_renderer.hpp>
 #include <mapnik/graphics.hpp>
 #ifdef HAVE_CAIRO
@@ -9,9 +18,7 @@
 #include <mapnik/load_map.hpp>
 #include <mapnik/save_map.hpp>
 
-
-
-// Seems like we could metaprogram these two away...
+// Seems like one could metaprogram these two away...
 template<>
 Rice::Object to_ruby<boost::optional<mapnik::color> >(boost::optional<mapnik::color> const & x){
   if(x)
@@ -175,9 +182,10 @@ void register_map(Rice::Module rb_mapnik){
   rb_cmap.define_method("__render_to_file__", &render_map_to_file);
   rb_cmap.define_method("to_xml", &map_to_string);
   rb_cmap.define_method("render_to_string", &render_map_to_string);
-  
+
+#if defined(HAVE_CAIRO)  
   rb_cmap.define_method("render_to_cairo_surface", &render_to_cairo_surface);
   rb_cmap.define_method("render_to_cairo_context", &render_to_cairo_context);
-  
+#endif  
   
 }

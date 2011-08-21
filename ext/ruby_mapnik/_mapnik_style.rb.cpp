@@ -1,5 +1,15 @@
 #include "_mapnik_style.rb.h"
 
+// Rice
+#include <rice/Data_Type.hpp>
+#include <rice/Constructor.hpp>
+#include <rice/Class.hpp>
+#include <rice/Enum.hpp>
+
+// Mapnik
+#include <mapnik/feature_type_style.hpp>
+
+
 template<>
 Rice::Object to_ruby<std::vector<mapnik::rule> >(std::vector<mapnik::rule> const & x)
 {
