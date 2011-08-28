@@ -36,13 +36,6 @@ INCLUDEDIR = Config::CONFIG['includedir']
 $LDFLAGS += " -lmapnik2 "
 $CFLAGS += `mapnik-config --cflags`
 
-dir_config('freetype2')
-dir_config("cairomm")
-dir_config("cairo")
-dir_config("sigc++")
-dir_config("sigc++config")
-
-
 if RUBY_PLATFORM =~ /darwin/
     # In order to link the shared library into our bundle with GCC 4.x on OSX, we have to work around a bug:
     #   GCC redefines symbols - which the -fno-common prohibits.  In order to keep the -fno-common, we
