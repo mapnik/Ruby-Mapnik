@@ -85,6 +85,7 @@ std::string map_to_string(const mapnik::Map& map){
   return mapnik::save_map_to_string(map);
 }
 
+#if defined(HAVE_CAIRO)
 // TODO: These are temporarily boosted from the ruby cairo gem...
 cairo_surface_t * rb_cairo_surface_from_ruby_object (VALUE obj) {
   cairo_surface_t *surface;
@@ -123,6 +124,7 @@ void render_to_cairo_context(mapnik::Map const & map, Rice::Object rb_context, u
   mapnik::cairo_renderer<Cairo::Context> ren(map, c, offset_x, offset_y);
   ren.apply();
 }
+#endif
 
 void initialize_map(Rice::Object self){
   DATA_PTR(self.value()) = new mapnik::Map();
