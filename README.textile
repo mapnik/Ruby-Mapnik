@@ -13,12 +13,26 @@ h2. Requirements
 
 h2. Building
 
-Compile and install Mapnik2 so it is linkable as mapnik2. Install and update the 
-headers so statements like @#include <mapnik/box2d.hpp>@ work properly.
+Compile and install Mapnik2. The mapnik-config program should then be on your PATH.
 
 You can then use @rake compile@ to build the extension, and @rake test@ to run the
 unit tests. @rake clean@ will do what you think it does, and you can stack up
 rake tasks so @rake clean compile test@ might be a nice thing to keep around.
+
+Note: on osx the default rake compile will try to build universal, and your
+mapnik install is unlikely built universal. Check the architecture of libmapnik2.dylib like:
+
+    file /usr/local/lib/libmapnik2.dylib
+
+On a system where your compiler defaults to 64bit you'll see: 'Mach-O 64-bit dynamically linked shared library x86_64'
+
+So to avoid a linking warning like:
+
+    ld: warning: ignoring file /usr/local/lib/libmapnik2.dylib, file was built for unsupported file format which is not the architecture being linked (i386)
+
+You can pass this before rake compile:
+
+    export ARCHFLAGS="-arch x86_64"
 
 h2. Development
 

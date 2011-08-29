@@ -39,12 +39,9 @@ class RubyMapnik
   VERSION = '1.0.0'
 end
 
-# TODO: Smarter initialization
-Mapnik::FontEngine.register_fonts("/usr/local/lib/mapnik/fonts")
-
-['/opt/local/lib', '/usr/local/lib', '/usr/lib'].each do |dir|
-  Mapnik::DatasourceCache.register("#{dir}/mapnik2/input")
-end
+# TODO: Smarter initialization - needs to come from a json or ruby config file written at build time
+Mapnik::FontEngine.register_fonts("/usr/local/lib/mapnik2/fonts")
+Mapnik::DatasourceCache.register("/usr/local/lib/mapnik2/input")
 
 if Mapnik::DatasourceCache.available_plugins.empty?
   puts "MAPNIK WARNING: No datasource plugins were found!"
