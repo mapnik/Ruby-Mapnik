@@ -23,6 +23,7 @@ require 'forwardable'
 
 path = File.expand_path(File.dirname(__FILE__))
 
+require 'ruby_mapnik_config'
 require "#{path}/ruby_mapnik/ruby_mapnik"
 require "#{path}/ruby_mapnik/mapnik/rule"
 require "#{path}/ruby_mapnik/mapnik/style"
@@ -35,14 +36,13 @@ require "#{path}/ruby_mapnik/mapnik/raster_colorizer"
 require "#{path}/ruby_mapnik/mapnik/tile"
 
 
-class RubyMapnik
-  VERSION = '1.0.0'
-end
+module Mapnik
+  VERSION = '0.1'
+  
+  FontEngine.register_fonts(FONT_PATH)
+  DatasourceCache.register(INPUT_PLUGIN_PATH)
 
-# TODO: Smarter initialization - needs to come from a json or ruby config file written at build time
-Mapnik::FontEngine.register_fonts("/usr/local/lib/mapnik2/fonts")
-Mapnik::DatasourceCache.register("/usr/local/lib/mapnik2/input")
-
-if Mapnik::DatasourceCache.available_plugins.empty?
-  puts "MAPNIK WARNING: No datasource plugins were found!"
+  if DatasourceCache.available_plugins.empty?
+    puts "RUBY-MAPNIK WARNING: No datasource plugins were found!"
+  end
 end

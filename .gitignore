@@ -1,4 +1,6 @@
 lib/ruby_mapnik/ruby_mapnik.bundle
+lib/ruby_mapnik_config.rb
 tmp
 .DS_Store
 .gitignore
+mkmf.log
