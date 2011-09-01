@@ -134,6 +134,9 @@ void initialize_map(Rice::Object self){
 }
 
 void register_map(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::Map > rb_cmap = Rice::define_class_under< mapnik::Map >(rb_mapnik, "Map");
   rb_cmap.define_constructor(Rice::Constructor< mapnik::Map >());
   

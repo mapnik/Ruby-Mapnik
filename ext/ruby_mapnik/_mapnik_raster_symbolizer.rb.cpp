@@ -10,6 +10,9 @@
 #include <mapnik/raster_symbolizer.hpp>
 
 void register_raster_symbolizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::raster_symbolizer > rb_craster_symbolizer = Rice::define_class_under< mapnik::raster_symbolizer >(rb_mapnik, "RasterSymbolizer");
   rb_craster_symbolizer.define_constructor(Rice::Constructor< mapnik::raster_symbolizer >());
   

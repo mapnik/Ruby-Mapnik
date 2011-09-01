@@ -10,25 +10,29 @@
 #include <mapnik/geometry.hpp>
 #include <mapnik/wkt/wkt_factory.hpp>
 
-// Borrowed from the python bindings...
-mapnik::geometry_type * make_from_wkt(std::string const& wkt) {
-  std::pair<bool,mapnik::geometry_type*> result = mapnik::from_wkt(wkt);
-  if (result.first){
-    return result.second;
+namespace{
+  // Borrowed from the python bindings...
+  mapnik::geometry_type * make_from_wkt(std::string const& wkt) {
+    std::pair<bool,mapnik::geometry_type*> result = mapnik::from_wkt(wkt);
+    if (result.first){
+      return result.second;
+    }
+    throw std::runtime_error("Failed to parse WKT");
   }
-  throw std::runtime_error("Failed to parse WKT");
-}
 
-Rice::Enum<mapnik::eGeomType> geometry_enum;
+  Rice::Enum<mapnik::eGeomType> geometry_enum;
 
-template<>
-mapnik::eGeomType from_ruby<mapnik::eGeomType>(Rice::Object x) {
-  Rice::Data_Object<mapnik::eGeomType> d(x, geometry_enum);
-  return *d;
+  template<>
+  mapnik::eGeomType from_ruby<mapnik::eGeomType>(Rice::Object x) {
+    Rice::Data_Object<mapnik::eGeomType> d(x, geometry_enum);
+    return *d;
+  }
 }
 
 void register_geometry(Rice::Module rb_mapnik){
-
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   geometry_enum = Rice::define_enum<mapnik::eGeomType>("GeometryType", rb_mapnik);
   geometry_enum.define_value("Point",mapnik::Point);
   geometry_enum.define_value("LineString",mapnik::LineString);

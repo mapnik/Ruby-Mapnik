@@ -51,6 +51,9 @@ mapnik::box2d<double> inverse_env(mapnik::projection const& prj, mapnik::box2d<d
 
 
 void register_projection(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::projection > rb_cproj = Rice::define_class_under< mapnik::projection >(rb_mapnik, "Projection");
   rb_cproj.define_constructor(Rice::Constructor< mapnik::projection, std::string >());
   rb_cproj.define_method("params", &mapnik::projection::params);

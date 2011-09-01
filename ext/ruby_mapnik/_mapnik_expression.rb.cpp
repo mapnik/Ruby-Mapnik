@@ -14,27 +14,57 @@
 #include <mapnik/expression_evaluator.hpp>
 #include <mapnik/parse_path.hpp>
 
-boost::shared_ptr<mapnik::expr_node> parse_expression_(std::string const& wkt){
-  return mapnik::parse_expression(wkt,"utf8");
-}
+namespace {  
+  boost::shared_ptr<mapnik::expr_node> parse_expression_(std::string const& wkt){
+    return mapnik::parse_expression(wkt,"utf8");
+  }
 
-std::string expr_node_to_string_(boost::shared_ptr<mapnik::expr_node> node_ptr){
-  return mapnik::to_expression_string(*node_ptr);
-}
+  std::string expr_node_to_string_(boost::shared_ptr<mapnik::expr_node> node_ptr){
+    return mapnik::to_expression_string(*node_ptr);
+  }
 
-// path expression
-mapnik::path_expression_ptr parse_path_(std::string const& path){
-  return mapnik::parse_path(path);
+  // path expression
+  mapnik::path_expression_ptr parse_path_(std::string const& path){
+    return mapnik::parse_path(path);
+  }
 }
 
 void register_expression(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< boost::shared_ptr<mapnik::expr_node> > rb_cexpression = Rice::define_class_under< boost::shared_ptr<mapnik::expr_node> >(rb_mapnik, "Expression");
+  
+  /*
+  * Document-method: parse
+  * call-seq:
+  *  parse(expression_string)
+  *
+  * @param [String]
+  *
+  * @return [Mapnk::Expression] a new expression
+  */
   rb_cexpression.define_singleton_method("parse", &parse_expression_);
+
+  /*
+  * Document-method: to_s
+  * @return [String] a string representation of the expression 
+  */
   rb_cexpression.define_method("to_s",&expr_node_to_string_);
   
   Rice::Data_Type< mapnik::path_expression_ptr > rb_cpath_expression = Rice::define_class_under< mapnik::path_expression_ptr >(rb_mapnik, "PathExpression");
   // rb_cpath_expression.define_singleton_method("evaluate", &path_evaluate_);
   // rb_cpath_expression.define_method("to_s",&path_to_string_);
+  
+    /*
+  * Document-method: parse
+  * call-seq:
+  *  parse(path_expression_string)
+  *
+  * @param [String]
+  *
+  * @return [Mapnk::PathExpression] a new expression
+  */
   rb_cpath_expression.define_singleton_method("parse", &parse_path_);
   
 }

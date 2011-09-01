@@ -11,6 +11,9 @@
 #include <mapnik/rule.hpp>
   
 void register_polygon_symbolizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::polygon_symbolizer > rb_cpolygon_symbolizer = Rice::define_class_under< mapnik::polygon_symbolizer >(rb_mapnik, "PolygonSymbolizer");
   rb_cpolygon_symbolizer.define_constructor(Rice::Constructor< mapnik::polygon_symbolizer >());
   

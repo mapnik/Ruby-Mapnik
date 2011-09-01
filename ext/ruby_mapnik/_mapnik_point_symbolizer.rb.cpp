@@ -38,7 +38,9 @@ std::string get_point_transform_string(mapnik::point_symbolizer const& t){
 }
 
 void register_point_symbolizer(Rice::Module rb_mapnik){
-  
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Enum<mapnik::point_placement_enum> placement_enum = Rice::define_enum<mapnik::point_placement_enum>("PointPlacement", rb_mapnik);
   
   placement_enum.define_value("CENTROID",mapnik::CENTROID_POINT_PLACEMENT);

@@ -16,6 +16,9 @@ Rice::Object to_ruby<std::vector<mapnik::symbolizer> >(std::vector<mapnik::symbo
 }
 
 void register_rule(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::rule > rb_crule = Rice::define_class_under< mapnik::rule >(rb_mapnik, "Rule");
   rb_crule.define_constructor(Rice::Constructor< mapnik::rule >());
   

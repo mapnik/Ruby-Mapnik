@@ -86,6 +86,9 @@ void set_vertical_alignment(mapnik::text_symbolizer & self, mapnik::vertical_ali
 }
 
 void register_text_symbolizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Enum<mapnik::label_placement_enum> label_placement = Rice::define_enum<mapnik::label_placement_enum>("LABEL_PLACEMENT", rb_mapnik);
   label_placement.define_value("LINE_PLACEMENT", mapnik::LINE_PLACEMENT);
   label_placement.define_value("POINT_PLACEMENT", mapnik::POINT_PLACEMENT);

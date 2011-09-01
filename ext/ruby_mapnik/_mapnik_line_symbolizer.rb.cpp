@@ -10,7 +10,9 @@
 #include <mapnik/line_symbolizer.hpp>
 
 void register_line_symbolizer(Rice::Module rb_mapnik){
-  
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::line_symbolizer > rb_cline_symbolizer = Rice::define_class_under< mapnik::line_symbolizer >(rb_mapnik, "LineSymbolizer");
   rb_cline_symbolizer.define_constructor(Rice::Constructor< mapnik::line_symbolizer >());
   

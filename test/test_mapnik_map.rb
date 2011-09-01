@@ -1,7 +1,7 @@
 require "test_helper"
 
 class TestMapnikMap < Test::Unit::TestCase
-    
+      
   def setup
     @map = Mapnik::Map.new
   end

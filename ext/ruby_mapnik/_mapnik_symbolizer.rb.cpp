@@ -38,6 +38,9 @@ mapnik::symbolizer from_subtype(Rice::Object obj){
 }
 
 void register_symbolizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::symbolizer > rb_csymbolizer = Rice::define_class_under< mapnik::symbolizer >(rb_mapnik, "Symbolizer");
   rb_csymbolizer.define_singleton_method("from_subtype", &from_subtype, Rice::Arg("obj"));
 }

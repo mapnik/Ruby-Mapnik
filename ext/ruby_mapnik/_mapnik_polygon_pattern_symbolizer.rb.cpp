@@ -27,6 +27,9 @@ void set_alignment(mapnik::polygon_pattern_symbolizer & t, mapnik::pattern_align
 
 
 void register_polygon_pattern_symbolizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Enum<mapnik::pattern_alignment_enum> alignment_enum = Rice::define_enum<mapnik::pattern_alignment_enum>("PatternAlignment", rb_mapnik);
   
   alignment_enum.define_value("LOCAL",mapnik::LOCAL_ALIGNMENT);

@@ -26,6 +26,9 @@ mapnik::filter_mode_enum get_style_filter(const mapnik::feature_type_style& self
 }
 
 void register_style(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::feature_type_style > rb_cstyle = Rice::define_class_under< mapnik::feature_type_style >(rb_mapnik, "Style");
   rb_cstyle.define_constructor(Rice::Constructor< mapnik::feature_type_style >());
   rb_cstyle.define_method("__rules__", &mapnik::feature_type_style::get_rules);

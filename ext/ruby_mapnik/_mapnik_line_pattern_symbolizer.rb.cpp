@@ -17,6 +17,9 @@ void set_filename(mapnik::line_pattern_symbolizer & t, std::string const& file_e
 }
 
 void register_line_pattern_symbolizer(Rice::Module rb_mapnik){  
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::line_pattern_symbolizer > rb_cline_pattern_symbolizer = Rice::define_class_under< mapnik::line_pattern_symbolizer >(rb_mapnik, "LinePatternSymbolizer");
   rb_cline_pattern_symbolizer.define_constructor(Rice::Constructor< mapnik::line_pattern_symbolizer, mapnik::path_expression_ptr>());
   

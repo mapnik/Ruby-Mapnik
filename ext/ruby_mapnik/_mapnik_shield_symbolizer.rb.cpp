@@ -26,6 +26,9 @@ void set_shield_displacement(mapnik::shield_symbolizer & t, Rice::Array ary){
 }
 
 void register_shield_symbolizer(Rice::Module rb_mapnik){  
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::shield_symbolizer > rb_cshield_symbolizer = Rice::define_class_under< mapnik::shield_symbolizer, mapnik::text_symbolizer >(rb_mapnik, "ShieldSymbolizer");
   rb_cshield_symbolizer.define_constructor(Rice::Constructor< mapnik::shield_symbolizer, mapnik::expression_ptr, std::string, unsigned, mapnik::color, mapnik::path_expression_ptr >());  
   

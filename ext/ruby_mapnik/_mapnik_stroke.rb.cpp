@@ -47,6 +47,9 @@ void set_stroke_line_join(mapnik::stroke & self, mapnik::line_join_enum val){
 }
 
 void register_stroke(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::stroke > rb_cstroke = Rice::define_class_under< mapnik::stroke >(rb_mapnik, "Stroke");
   rb_cstroke.define_constructor(Rice::Constructor< mapnik::stroke, mapnik::color, float >());
   

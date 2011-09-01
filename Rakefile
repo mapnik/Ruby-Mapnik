@@ -21,7 +21,9 @@
 =end
 require 'rubygems'
 require 'hoe'
-require "rake/extensiontask"
+require 'rake/extensiontask'
+require 'yard'
+
 
 Hoe.spec 'ruby_mapnik' do
   developer('Elliot Laster', 'elliotlaster@gmail.com')
@@ -37,3 +39,8 @@ Hoe.spec 'ruby_mapnik' do
 end
 
 Rake::Task[:test].prerequisites << :compile
+
+YARD::Rake::YardocTask.new do |t|
+  t.files   = ['ext/**/*.cpp']
+  t.options = ['-eyard/lib/yard_generic.rb'] # optional
+end

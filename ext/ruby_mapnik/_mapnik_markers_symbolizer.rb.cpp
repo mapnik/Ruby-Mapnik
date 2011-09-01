@@ -25,6 +25,9 @@ void set_markers_opacity(mapnik::markers_symbolizer & t, double value){
 }
 
 void register_markers_symbolizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::markers_symbolizer > rb_cmarkers_symbolizer = Rice::define_class_under< mapnik::markers_symbolizer >(rb_mapnik, "MarkersSymbolizer");
   rb_cmarkers_symbolizer.define_constructor(Rice::Constructor< mapnik::markers_symbolizer, mapnik::path_expression_ptr>());
   

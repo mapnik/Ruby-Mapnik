@@ -41,6 +41,9 @@ bool check_colorizer_stop_equality(mapnik::colorizer_stop stop_l, mapnik::colori
 }
 
 void register_raster_colorizer(Rice::Module rb_mapnik){
+  /*
+    @@Module_var rb_mapnik = Mapnik
+  */
   Rice::Data_Type< mapnik::raster_colorizer > rb_craster_colorizer = Rice::define_class_under< mapnik::raster_colorizer >(rb_mapnik, "RasterColorizer");
   rb_craster_colorizer.define_constructor(Rice::Constructor< mapnik::raster_colorizer >());
 
