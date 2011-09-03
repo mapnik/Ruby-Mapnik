@@ -87,7 +87,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_projection.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/projection.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_projection.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -138,90 +140,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__forward_env__-instance_method" title="#__forward_env__ (instance method)">- (Object) <strong>__forward_env__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__forward_pt__-instance_method" title="#__forward_pt__ (instance method)">- (Object) <strong>__forward_pt__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__inverse_env__-instance_method" title="#__inverse_env__ (instance method)">- (Object) <strong>__inverse_env__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__inverse_pt__-instance_method" title="#__inverse_pt__ (instance method)">- (Object) <strong>__inverse_pt__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#expanded_params-instance_method" title="#expanded_params (instance method)">- (Object) <strong>expanded_params</strong> </a>
     
 
@@ -243,7 +161,49 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#forward-instance_method" title="#forward (instance method)">- (Object) <strong>forward</strong>(obj) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#geographic%3F-instance_method" title="#geographic? (instance method)">- (Boolean) <strong>geographic?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inverse-instance_method" title="#inverse (instance method)">- (Object) <strong>inverse</strong>(obj) </a>
     
 
     
@@ -308,53 +268,52 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="__forward_env__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__forward_env__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__forward_pt__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__forward_pt__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__inverse_env__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__inverse_env__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__inverse_pt__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__inverse_pt__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="expanded_params-instance_method">
+  <p class="signature first" id="expanded_params-instance_method">
   
     - (<tt>Object</tt>) <strong>expanded_params</strong> 
   
 
   
 </p>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="forward-instance_method">
+  
+    - (<tt>Object</tt>) <strong>forward</strong>(obj) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6
+7
+8
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/projection.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='forward identifier id'>forward</span><span class='lparen token'>(</span><span class='obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='case case kw'>case</span>
+  <span class='when when kw'>when</span> <span class='obj identifier id'>obj</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Envelope constant id'>Envelope</span>
+    <span class='__forward_env__ identifier id'>__forward_env__</span><span class='lparen token'>(</span><span class='obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='when when kw'>when</span> <span class='obj identifier id'>obj</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Coord2d constant id'>Coord2d</span>
+    <span class='__forward_pt__ identifier id'>__forward_pt__</span><span class='lparen token'>(</span><span class='obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
@@ -389,6 +348,45 @@
 </div>
     
       <div class="method_details ">
+  <p class="signature " id="inverse-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inverse</strong>(obj) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15
+16
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/projection.rb', line 13</span>
+
+<span class='def def kw'>def</span> <span class='inverse identifier id'>inverse</span><span class='lparen token'>(</span><span class='obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='case case kw'>case</span>
+  <span class='when when kw'>when</span> <span class='obj identifier id'>obj</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Envelope constant id'>Envelope</span>
+    <span class='__inverse_env__ identifier id'>__inverse_env__</span><span class='lparen token'>(</span><span class='obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='when when kw'>when</span> <span class='obj identifier id'>obj</span><span class='dot token'>.</span><span class='class identifier id'>class</span> <span class='eq op'>==</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Coord2d constant id'>Coord2d</span>
+    <span class='__inverse_pt__ identifier id'>__inverse_pt__</span><span class='lparen token'>(</span><span class='obj identifier id'>obj</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <p class="signature " id="params-instance_method">
   
     - (<tt>Object</tt>) <strong>params</strong> 
@@ -403,7 +401,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:55 2011 by 
+  Generated on Sat Sep  3 11:24:43 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

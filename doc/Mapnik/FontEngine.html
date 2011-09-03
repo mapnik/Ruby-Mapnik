@@ -87,11 +87,26 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_font_engine.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/font_engine.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_font_engine.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
 
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_VALID_EXTENSIONS-constant" class="">DEFAULT_VALID_EXTENSIONS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrack token'>[</span><span class='string val'>'ttf'</span><span class='comma token'>,</span><span class='string val'>'otf'</span><span class='comma token'>,</span><span class='string val'>'ttc'</span><span class='comma token'>,</span><span class='string val'>'pfa'</span><span class='comma token'>,</span><span class='string val'>'pfb'</span><span class='comma token'>,</span><span class='string val'>'ttc'</span><span class='comma token'>,</span><span class='string val'>'dfont'</span><span class='rbrack token'>]</span>
+</pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -147,6 +162,27 @@
     <span class="summary_desc"><div class='inline'>
 <p>Registers a font with the FontEngine.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register_fonts-class_method" title="register_fonts (class method)">+ (Object) <strong>register_fonts</strong>(path, valid_extensions = DEFAULT_VALID_EXTENSIONS) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -233,12 +269,43 @@
 </div>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="register_fonts-class_method">
+  
+    + (<tt>Object</tt>) <strong>register_fonts</strong>(path, valid_extensions = DEFAULT_VALID_EXTENSIONS) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/font_engine.rb', line 7</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='register_fonts identifier id'>register_fonts</span><span class='lparen token'>(</span><span class='path identifier id'>path</span><span class='comma token'>,</span> <span class='valid_extensions identifier id'>valid_extensions</span> <span class='assign token'>=</span> <span class='DEFAULT_VALID_EXTENSIONS constant id'>DEFAULT_VALID_EXTENSIONS</span><span class='rparen token'>)</span>
+  <span class='file_names identifier id'>file_names</span> <span class='assign token'>=</span> <span class='Dir constant id'>Dir</span><span class='dot token'>.</span><span class='glob identifier id'>glob</span><span class='lparen token'>(</span><span class='File constant id'>File</span><span class='dot token'>.</span><span class='join identifier id'>join</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{path}&quot;</span><span class='comma token'>,</span> <span class='dstring node'>&quot;*.{#{valid_extensions.join(',')}}&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='file_names identifier id'>file_names</span><span class='dot token'>.</span><span class='each identifier id'>each</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='filename identifier id'>filename</span><span class='bitor op'>|</span> <span class='register_font identifier id'>register_font</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span><span class='rbrace token'>}</span> 
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:55 2011 by 
+  Generated on Sat Sep  3 11:24:42 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

@@ -87,7 +87,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_stroke.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/stroke.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_stroke.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -134,48 +136,6 @@
     </h2>
 
     <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__add_dash__-instance_method" title="#__add_dash__ (instance method)">- (Object) <strong>__add_dash__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__dashes__-instance_method" title="#__dashes__ (instance method)">- (Object) <strong>__dashes__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
       
         <li class="public ">
   <span class="summary_signature">
@@ -244,6 +204,27 @@
   <span class="summary_signature">
     
       <a href="#dash_offset%3D-instance_method" title="#dash_offset= (instance method)">- (Object) <strong>dash_offset=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dashes-instance_method" title="#dashes (instance method)">- (Object) <strong>dashes</strong> </a>
     
 
     
@@ -497,27 +478,7 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="__add_dash__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__add_dash__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__dashes__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__dashes__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="color-instance_method">
+  <p class="signature first" id="color-instance_method">
   
     - (<tt>Object</tt>) <strong>color</strong> 
   
@@ -554,6 +515,39 @@
 
   
 </p>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dashes-instance_method">
+  
+    - (<tt>Object</tt>) <strong>dashes</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/stroke.rb', line 27</span>
+
+<span class='def def kw'>def</span> <span class='dashes identifier id'>dashes</span>
+  <span class='dashes identifier id'>dashes</span> <span class='assign token'>=</span> <span class='StrokeDashContainer constant id'>StrokeDashContainer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='__dashes__ identifier id'>__dashes__</span><span class='rparen token'>)</span>
+  <span class='dashes identifier id'>dashes</span><span class='dot token'>.</span><span class='stroke identifier id'>stroke</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='dashes identifier id'>dashes</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
@@ -661,7 +655,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:56 2011 by 
+  Generated on Sat Sep  3 11:24:43 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

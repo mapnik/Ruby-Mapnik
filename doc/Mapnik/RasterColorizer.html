@@ -87,7 +87,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_raster_colorizer.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/raster_colorizer.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_raster_colorizer.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -303,6 +305,27 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stops-instance_method" title="#stops (instance method)">- (Object) <strong>stops</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -408,12 +431,45 @@
 </p>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="stops-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stops</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/raster_colorizer.rb', line 26</span>
+
+<span class='def def kw'>def</span> <span class='stops identifier id'>stops</span>
+  <span class='stops identifier id'>stops</span> <span class='assign token'>=</span> <span class='ColorizerStopCollection constant id'>ColorizerStopCollection</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='__stops__ identifier id'>__stops__</span><span class='rparen token'>)</span>
+  <span class='stops identifier id'>stops</span><span class='dot token'>.</span><span class='delegate identifier id'>delegate</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='stops identifier id'>stops</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:55 2011 by 
+  Generated on Sat Sep  3 11:24:40 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

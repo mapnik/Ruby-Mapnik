@@ -87,7 +87,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_rule.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/rule.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_rule.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -138,69 +140,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__append_symbol__-instance_method" title="#__append_symbol__ (instance method)">- (Object) <strong>__append_symbol__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__remove_symbol__-instance_method" title="#__remove_symbol__ (instance method)">- (Object) <strong>__remove_symbol__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__symbols__-instance_method" title="#__symbols__ (instance method)">- (Object) <strong>__symbols__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#abstract-instance_method" title="#abstract (instance method)">- (Object) <strong>abstract</strong> </a>
     
 
@@ -223,6 +162,27 @@
   <span class="summary_signature">
     
       <a href="#abstract%3D-instance_method" title="#abstract= (instance method)">- (Object) <strong>abstract=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fill%3D-instance_method" title="#fill= (instance method)">- (Object) <strong>fill=</strong>(color) </a>
     
 
     
@@ -285,6 +245,27 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#line-instance_method" title="#line (instance method)">- (Object) <strong>line</strong> {|stroke| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
     
 
@@ -307,6 +288,69 @@
   <span class="summary_signature">
     
       <a href="#name%3D-instance_method" title="#name= (instance method)">- (Object) <strong>name=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#polygon-instance_method" title="#polygon (instance method)">- (Object) <strong>polygon</strong> {|polygon| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#symbols-instance_method" title="#symbols (instance method)">- (Object) <strong>symbols</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#text-instance_method" title="#text (instance method)">- (Object) <strong>text</strong>(expression_text) {|text| ... }</a>
     
 
     
@@ -392,37 +436,7 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="__append_symbol__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__append_symbol__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__remove_symbol__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__remove_symbol__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__symbols__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__symbols__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="abstract-instance_method">
+  <p class="signature first" id="abstract-instance_method">
   
     - (<tt>Object</tt>) <strong>abstract</strong> 
   
@@ -439,6 +453,39 @@
 
   
 </p>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fill=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fill=</strong>(color) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/rule.rb', line 55</span>
+
+<span class='def def kw'>def</span> <span class='fill= identifier id'>fill=</span><span class='lparen token'>(</span><span class='color identifier id'>color</span><span class='rparen token'>)</span>
+  <span class='polygon identifier id'>polygon</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='PolygonSymbolizer constant id'>PolygonSymbolizer</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='polygon identifier id'>polygon</span><span class='dot token'>.</span><span class='fill identifier id'>fill</span> <span class='assign token'>=</span> <span class='color identifier id'>color</span>
+  <span class='symbols identifier id'>symbols</span> <span class='lshft op'>&lt;&lt;</span> <span class='polygon identifier id'>polygon</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
@@ -462,6 +509,64 @@
 </div>
     
       <div class="method_details ">
+  <p class="signature " id="line-instance_method">
+  
+    - (<tt>Object</tt>) <strong>line</strong> {|stroke| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>stroke</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/rule.rb', line 61</span>
+
+<span class='def def kw'>def</span> <span class='line identifier id'>line</span>
+  <span class='stroke identifier id'>stroke</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Stroke constant id'>Stroke</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Color constant id'>Color</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='comma token'>,</span> <span class='float val'>1.0</span><span class='rparen token'>)</span>
+  <span class='yield yield kw'>yield</span> <span class='stroke identifier id'>stroke</span>
+  <span class='line identifier id'>line</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='LineSymbolizer constant id'>LineSymbolizer</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='line identifier id'>line</span><span class='dot token'>.</span><span class='stroke identifier id'>stroke</span> <span class='assign token'>=</span> <span class='stroke identifier id'>stroke</span>
+  <span class='symbols identifier id'>symbols</span> <span class='lshft op'>&lt;&lt;</span> <span class='line identifier id'>line</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <p class="signature " id="name-instance_method">
   
     - (<tt>Object</tt>) <strong>name</strong> 
@@ -479,6 +584,149 @@
 
   
 </p>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="polygon-instance_method">
+  
+    - (<tt>Object</tt>) <strong>polygon</strong> {|polygon| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>polygon</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/rule.rb', line 49</span>
+
+<span class='def def kw'>def</span> <span class='polygon identifier id'>polygon</span>
+  <span class='polygon identifier id'>polygon</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='PolygonSymbolizer constant id'>PolygonSymbolizer</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='yield yield kw'>yield</span> <span class='polygon identifier id'>polygon</span>
+  <span class='symbols identifier id'>symbols</span> <span class='lshft op'>&lt;&lt;</span> <span class='polygon identifier id'>polygon</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="symbols-instance_method">
+  
+    - (<tt>Object</tt>) <strong>symbols</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/rule.rb', line 76</span>
+
+<span class='def def kw'>def</span> <span class='symbols identifier id'>symbols</span>
+  <span class='symbol_container identifier id'>symbol_container</span> <span class='assign token'>=</span> <span class='RuleSymbolContainer constant id'>RuleSymbolContainer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='__symbols__ identifier id'>__symbols__</span><span class='rparen token'>)</span>
+  <span class='symbol_container identifier id'>symbol_container</span><span class='dot token'>.</span><span class='rule identifier id'>rule</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='symbol_container identifier id'>symbol_container</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="text-instance_method">
+  
+    - (<tt>Object</tt>) <strong>text</strong>(expression_text) {|text| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>text</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/rule.rb', line 69</span>
+
+<span class='def def kw'>def</span> <span class='text identifier id'>text</span><span class='lparen token'>(</span><span class='expression_text identifier id'>expression_text</span><span class='rparen token'>)</span>
+  <span class='exp identifier id'>exp</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Expression constant id'>Expression</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='expression_text identifier id'>expression_text</span><span class='rparen token'>)</span>
+  <span class='text identifier id'>text</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='TextSymbolizer constant id'>TextSymbolizer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='exp identifier id'>exp</span><span class='comma token'>,</span> <span class='string val'>'DejaVu Sans Book'</span><span class='comma token'>,</span> <span class='integer val'>10</span><span class='comma token'>,</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Color constant id'>Color</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='rparen token'>)</span>
+  <span class='yield yield kw'>yield</span> <span class='text identifier id'>text</span>
+  <span class='symbols identifier id'>symbols</span> <span class='lshft op'>&lt;&lt;</span> <span class='text identifier id'>text</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
@@ -506,7 +754,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:56 2011 by 
+  Generated on Sat Sep  3 11:24:40 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

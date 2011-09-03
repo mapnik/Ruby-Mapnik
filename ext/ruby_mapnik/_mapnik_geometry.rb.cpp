@@ -20,14 +20,16 @@ namespace{
     throw std::runtime_error("Failed to parse WKT");
   }
 
-  Rice::Enum<mapnik::eGeomType> geometry_enum;
-
-  template<>
-  mapnik::eGeomType from_ruby<mapnik::eGeomType>(Rice::Object x) {
-    Rice::Data_Object<mapnik::eGeomType> d(x, geometry_enum);
-    return *d;
-  }
 }
+
+Rice::Enum<mapnik::eGeomType> geometry_enum;
+
+template<>
+mapnik::eGeomType from_ruby<mapnik::eGeomType>(Rice::Object x) {
+  Rice::Data_Object<mapnik::eGeomType> d(x, geometry_enum);
+  return *d;
+}
+
 
 void register_geometry(Rice::Module rb_mapnik){
   /*

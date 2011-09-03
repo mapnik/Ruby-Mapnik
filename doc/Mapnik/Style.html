@@ -87,7 +87,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_style.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/style.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_style.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -138,48 +140,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__add_rule__-instance_method" title="#__add_rule__ (instance method)">- (Object) <strong>__add_rule__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__rules__-instance_method" title="#__rules__ (instance method)">- (Object) <strong>__rules__</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#filter_mode-instance_method" title="#filter_mode (instance method)">- (Object) <strong>filter_mode</strong> </a>
     
 
@@ -202,6 +162,48 @@
   <span class="summary_signature">
     
       <a href="#filter_mode%3D-instance_method" title="#filter_mode= (instance method)">- (Object) <strong>filter_mode=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rule-instance_method" title="#rule (instance method)">- (Object) <strong>rule</strong>(filter_string = 'true') {|rule| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rules-instance_method" title="#rules (instance method)">- (Object) <strong>rules</strong> </a>
     
 
     
@@ -245,27 +247,7 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="__add_rule__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__add_rule__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__rules__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__rules__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="filter_mode-instance_method">
+  <p class="signature first" id="filter_mode-instance_method">
   
     - (<tt>Object</tt>) <strong>filter_mode</strong> 
   
@@ -284,12 +266,101 @@
 </p>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="rule-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rule</strong>(filter_string = 'true') {|rule| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>rule</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/style.rb', line 28</span>
+
+<span class='def def kw'>def</span> <span class='rule identifier id'>rule</span><span class='lparen token'>(</span><span class='filter_string identifier id'>filter_string</span> <span class='assign token'>=</span> <span class='string val'>'true'</span><span class='rparen token'>)</span>
+  <span class='rule identifier id'>rule</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Rule constant id'>Rule</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='rule identifier id'>rule</span><span class='dot token'>.</span><span class='filter identifier id'>filter</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Expression constant id'>Expression</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='filter_string identifier id'>filter_string</span><span class='rparen token'>)</span>
+  <span class='yield yield kw'>yield</span> <span class='rule identifier id'>rule</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='rules identifier id'>rules</span> <span class='lshft op'>&lt;&lt;</span> <span class='rule identifier id'>rule</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rules-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rules</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/style.rb', line 35</span>
+
+<span class='def def kw'>def</span> <span class='rules identifier id'>rules</span>
+  <span class='rules identifier id'>rules</span> <span class='assign token'>=</span> <span class='StyleRuleContainer constant id'>StyleRuleContainer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='__rules__ identifier id'>__rules__</span><span class='rparen token'>)</span>
+  <span class='rules identifier id'>rules</span><span class='dot token'>.</span><span class='style identifier id'>style</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='rules identifier id'>rules</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:55 2011 by 
+  Generated on Sat Sep  3 11:24:43 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

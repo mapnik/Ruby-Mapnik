@@ -87,7 +87,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_map.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/map.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_map.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -108,7 +110,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__load_map__-class_method" title="__load_map__ (class method)">+ (Object) <strong>__load_map__</strong> </a>
+      <a href="#from_file-class_method" title="from_file (class method)">+ (Object) <strong>from_file</strong>(filename, strict = false) </a>
     
 
     
@@ -129,7 +131,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__load_map_string__-class_method" title="__load_map_string__ (class method)">+ (Object) <strong>__load_map_string__</strong> </a>
+      <a href="#from_xml-class_method" title="from_xml (class method)">+ (Object) <strong>from_xml</strong>(xml, strict = false, base_path = &quot;&quot;) </a>
     
 
     
@@ -150,7 +152,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#new-class_method" title="new (class method)">+ (Object) <strong>new</strong> </a>
+      <a href="#new-class_method" title="new (class method)">+ (Mapnik::Map) <strong>new</strong> {|map| ... }</a>
     
 
     
@@ -163,7 +165,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>A new map object.</p>
+</div></span>
   
 </li>
 
@@ -180,7 +184,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__add_layer__-instance_method" title="#__add_layer__ (instance method)">- (Object) <strong>__add_layer__</strong> </a>
+      <a href="#background-instance_method" title="#background (instance method)">- (Mapnik::Color) <strong>background</strong> </a>
     
 
     
@@ -201,7 +205,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__insert_style__-instance_method" title="#__insert_style__ (instance method)">- (Object) <strong>__insert_style__</strong> </a>
+      <a href="#background%3D-instance_method" title="#background= (instance method)">- (nil) <strong>background=</strong>(color) </a>
     
 
     
@@ -222,7 +226,30 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__layers__-instance_method" title="#__layers__ (instance method)">- (Object) <strong>__layers__</strong> </a>
+      <a href="#base_path-instance_method" title="#base_path (instance method)">- (String) <strong>base_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The path all relative paths will be resolved with.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#base_path%3D-instance_method" title="#base_path= (instance method)">- (nil) <strong>base_path=</strong>(path) </a>
     
 
     
@@ -243,7 +270,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__remove_layer__-instance_method" title="#__remove_layer__ (instance method)">- (Object) <strong>__remove_layer__</strong> </a>
+      <a href="#buffer_size-instance_method" title="#buffer_size (instance method)">- (Integer) <strong>buffer_size</strong> </a>
     
 
     
@@ -264,7 +291,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__remove_style__-instance_method" title="#__remove_style__ (instance method)">- (Object) <strong>__remove_style__</strong> </a>
+      <a href="#buffer_size%3D-instance_method" title="#buffer_size= (instance method)">- (nil) <strong>buffer_size=</strong>(size) </a>
     
 
     
@@ -285,7 +312,30 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__render_to_file__-instance_method" title="#__render_to_file__ (instance method)">- (Object) <strong>__render_to_file__</strong> </a>
+      <a href="#buffered_envelope-instance_method" title="#buffered_envelope (instance method)">- (Mapnik::Envelope) <strong>buffered_envelope</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The envelope plus any buffer set in buffer_size.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#envelope-instance_method" title="#envelope (instance method)">- (Mapnik::Envelope) <strong>envelope</strong> </a>
     
 
     
@@ -306,7 +356,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#__styles__-instance_method" title="#__styles__ (instance method)">- (Object) <strong>__styles__</strong> </a>
+      <a href="#height-instance_method" title="#height (instance method)">- (Integer) <strong>height</strong> </a>
     
 
     
@@ -327,7 +377,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#background-instance_method" title="#background (instance method)">- (Object) <strong>background</strong> </a>
+      <a href="#height%3D-instance_method" title="#height= (instance method)">- (nil) <strong>height=</strong>(height_in_pixels) </a>
     
 
     
@@ -348,7 +398,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#background%3D-instance_method" title="#background= (instance method)">- (Object) <strong>background=</strong> </a>
+      <a href="#layer-instance_method" title="#layer (instance method)">- (Object) <strong>layer</strong>(name, srs = nil) {|layer| ... }</a>
     
 
     
@@ -369,7 +419,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#base_path-instance_method" title="#base_path (instance method)">- (Object) <strong>base_path</strong> </a>
+      <a href="#layers-instance_method" title="#layers (instance method)">- (Object) <strong>layers</strong> </a>
     
 
     
@@ -390,7 +440,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#base_path%3D-instance_method" title="#base_path= (instance method)">- (Object) <strong>base_path=</strong> </a>
+      <a href="#maximum_extent-instance_method" title="#maximum_extent (instance method)">- (Mapnik::Envelope) <strong>maximum_extent</strong> </a>
     
 
     
@@ -411,7 +461,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#buffer_size-instance_method" title="#buffer_size (instance method)">- (Object) <strong>buffer_size</strong> </a>
+      <a href="#maximum_extent%3D-instance_method" title="#maximum_extent= (instance method)">- (nil) <strong>maximum_extent=</strong>(new_extent) </a>
     
 
     
@@ -432,7 +482,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#buffer_size%3D-instance_method" title="#buffer_size= (instance method)">- (Object) <strong>buffer_size=</strong> </a>
+      <a href="#pan-instance_method" title="#pan (instance method)">- (nil) <strong>pan</strong>(x, y) </a>
     
 
     
@@ -453,7 +503,55 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#buffered_envelope-instance_method" title="#buffered_envelope (instance method)">- (Object) <strong>buffered_envelope</strong> </a>
+      <a href="#render_to_cairo_context-instance_method" title="#render_to_cairo_context (instance method)">- (nil) <strong>render_to_cairo_context</strong>(cairo_context) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Only available if Ruby-Mapnik was compiled with Cairo support and the Ruby
+Cairo gem is available.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render_to_cairo_surface-instance_method" title="#render_to_cairo_surface (instance method)">- (nil) <strong>render_to_cairo_surface</strong>(cairo_surface) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Only available if Ruby-Mapnik was compiled with Cairo support and the Ruby
+Cairo gem is available.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render_to_file-instance_method" title="#render_to_file (instance method)">- (Object) <strong>render_to_file</strong>(filename) </a>
     
 
     
@@ -474,7 +572,30 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#envelope-instance_method" title="#envelope (instance method)">- (Object) <strong>envelope</strong> </a>
+      <a href="#render_to_string-instance_method" title="#render_to_string (instance method)">- (String) <strong>render_to_string</strong>(file_format) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A string of the data for the image.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resize-instance_method" title="#resize (instance method)">- (nil) <strong>resize</strong>(new_width, new_height) </a>
     
 
     
@@ -495,7 +616,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#height-instance_method" title="#height (instance method)">- (Object) <strong>height</strong> </a>
+      <a href="#scale-instance_method" title="#scale (instance method)">- (Float) <strong>scale</strong> </a>
     
 
     
@@ -516,7 +637,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#height%3D-instance_method" title="#height= (instance method)">- (Object) <strong>height=</strong> </a>
+      <a href="#srs-instance_method" title="#srs (instance method)">- (String) <strong>srs</strong> </a>
     
 
     
@@ -537,7 +658,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#maximum_extent-instance_method" title="#maximum_extent (instance method)">- (Object) <strong>maximum_extent</strong> </a>
+      <a href="#srs%3D-instance_method" title="#srs= (instance method)">- (nil) <strong>srs=</strong>(new_srs) </a>
     
 
     
@@ -558,7 +679,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#maximum_extent%3D-instance_method" title="#maximum_extent= (instance method)">- (Object) <strong>maximum_extent=</strong> </a>
+      <a href="#style-instance_method" title="#style (instance method)">- (Object) <strong>style</strong>(name) {|style| ... }</a>
     
 
     
@@ -579,7 +700,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#pan-instance_method" title="#pan (instance method)">- (Object) <strong>pan</strong> </a>
+      <a href="#styles-instance_method" title="#styles (instance method)">- (Object) <strong>styles</strong> </a>
     
 
     
@@ -600,7 +721,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render_to_cairo_context-instance_method" title="#render_to_cairo_context (instance method)">- (Object) <strong>render_to_cairo_context</strong> </a>
+      <a href="#to_xml-instance_method" title="#to_xml (instance method)">- (String) <strong>to_xml</strong> </a>
     
 
     
@@ -613,7 +734,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>An XML representation of the map that can be loaded via the from_xml
+method, or by other mapnik implementations.</p>
+</div></span>
   
 </li>
 
@@ -621,154 +745,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#render_to_cairo_surface-instance_method" title="#render_to_cairo_surface (instance method)">- (Object) <strong>render_to_cairo_surface</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#render_to_string-instance_method" title="#render_to_string (instance method)">- (Object) <strong>render_to_string</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#resize-instance_method" title="#resize (instance method)">- (Object) <strong>resize</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#scale-instance_method" title="#scale (instance method)">- (Object) <strong>scale</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#srs-instance_method" title="#srs (instance method)">- (Object) <strong>srs</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#srs%3D-instance_method" title="#srs= (instance method)">- (Object) <strong>srs=</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#to_xml-instance_method" title="#to_xml (instance method)">- (Object) <strong>to_xml</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#width-instance_method" title="#width (instance method)">- (Object) <strong>width</strong> </a>
+      <a href="#width-instance_method" title="#width (instance method)">- (Integer) <strong>width</strong> </a>
     
 
     
@@ -810,7 +787,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#zoom-instance_method" title="#zoom (instance method)">- (Object) <strong>zoom</strong> </a>
+      <a href="#zoom-instance_method" title="#zoom (instance method)">- (nil) <strong>zoom</strong>(zoom_factor) </a>
     
 
     
@@ -831,7 +808,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#zoom_all-instance_method" title="#zoom_all (instance method)">- (Object) <strong>zoom_all</strong> </a>
+      <a href="#zoom_all-instance_method" title="#zoom_all (instance method)">- (nil) <strong>zoom_all</strong> </a>
     
 
     
@@ -852,7 +829,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#zoom_to_box-instance_method" title="#zoom_to_box (instance method)">- (Object) <strong>zoom_to_box</strong> </a>
+      <a href="#zoom_to_box-instance_method" title="#zoom_to_box (instance method)">- (nil) <strong>zoom_to_box</strong>(envelope) </a>
     
 
     
@@ -880,33 +857,125 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="__load_map__-class_method">
+  <p class="signature first" id="from_file-class_method">
   
-    + (<tt>Object</tt>) <strong>__load_map__</strong> 
+    + (<tt>Object</tt>) <strong>from_file</strong>(filename, strict = false) 
   
 
   
-</p>
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 74</span>
+
+<span class='def def kw'>def</span> <span class='from_file identifier id'>from_file</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='strict identifier id'>strict</span> <span class='assign token'>=</span> <span class='false false kw'>false</span><span class='rparen token'>)</span>
+  <span class='map identifier id'>map</span> <span class='assign token'>=</span> <span class='new identifier id'>new</span>
+  <span class='__load_map__ identifier id'>__load_map__</span><span class='lparen token'>(</span><span class='map identifier id'>map</span><span class='comma token'>,</span> <span class='filename identifier id'>filename</span><span class='comma token'>,</span> <span class='strict identifier id'>strict</span><span class='rparen token'>)</span>
+  <span class='map identifier id'>map</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="__load_map_string__-class_method">
+  <p class="signature " id="from_xml-class_method">
   
-    + (<tt>Object</tt>) <strong>__load_map_string__</strong> 
+    + (<tt>Object</tt>) <strong>from_xml</strong>(xml, strict = false, base_path = &quot;&quot;) 
   
 
   
-</p>
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 68</span>
+
+<span class='def def kw'>def</span> <span class='from_xml identifier id'>from_xml</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='strict identifier id'>strict</span> <span class='assign token'>=</span> <span class='false false kw'>false</span><span class='comma token'>,</span> <span class='base_path identifier id'>base_path</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span>
+  <span class='map identifier id'>map</span> <span class='assign token'>=</span> <span class='new identifier id'>new</span>
+  <span class='__load_map_string__ identifier id'>__load_map_string__</span><span class='lparen token'>(</span><span class='map identifier id'>map</span><span class='comma token'>,</span> <span class='xml identifier id'>xml</span><span class='comma token'>,</span> <span class='strict identifier id'>strict</span><span class='comma token'>,</span> <span class='base_path identifier id'>base_path</span><span class='rparen token'>)</span>
+  <span class='map identifier id'>map</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="new-class_method">
   
-    + (<tt>Object</tt>) <strong>new</strong> 
+    + (<tt><span class='object_link'><a href="" title="Mapnik::Map (class)">Mapnik::Map</a></span></tt>) <strong>new</strong> {|map| ... }
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new map object</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>map</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the new map object</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="" title="Mapnik::Map (class)">Mapnik::Map</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a new map object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
   </div>
@@ -916,293 +985,1139 @@
     
     
       <div class="method_details first">
-  <p class="signature first" id="__add_layer__-instance_method">
+  <p class="signature first" id="background-instance_method">
   
-    - (<tt>Object</tt>) <strong>__add_layer__</strong> 
+    - (<tt><span class='object_link'><a href="Color.html" title="Mapnik::Color (class)">Mapnik::Color</a></span></tt>) <strong>background</strong> 
   
 
   
-</p>
-</div>
+</p><div class="docstring">
+  <div class="discussion">
     
-      <div class="method_details ">
-  <p class="signature " id="__insert_style__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__insert_style__</strong> 
-  
 
-  
-</p>
+  </div>
 </div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__layers__-instance_method">
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
   
-    - (<tt>Object</tt>) <strong>__layers__</strong> 
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Color.html" title="Mapnik::Color (class)">Mapnik::Color</a></span></tt>)</span>
+      
+      
+      
+    </li>
   
+</ul>
 
-  
-</p>
 </div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__remove_layer__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__remove_layer__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__remove_style__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__remove_style__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__render_to_file__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__render_to_file__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="__styles__-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__styles__</strong> 
-  
-
-  
-</p>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="background-instance_method">
-  
-    - (<tt>Object</tt>) <strong>background</strong> 
-  
-
-  
-</p>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="background=-instance_method">
   
-    - (<tt>Object</tt>) <strong>background=</strong> 
+    - (<tt>nil</tt>) <strong>background=</strong>(color) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Color.html" title="Mapnik::Color (class)">Mapnik::Color</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="base_path-instance_method">
   
-    - (<tt>Object</tt>) <strong>base_path</strong> 
+    - (<tt>String</tt>) <strong>base_path</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The path all relative paths will be resolved with</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The path all relative paths will be resolved with</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="base_path=-instance_method">
   
-    - (<tt>Object</tt>) <strong>base_path=</strong> 
+    - (<tt>nil</tt>) <strong>base_path=</strong>(path) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="buffer_size-instance_method">
   
-    - (<tt>Object</tt>) <strong>buffer_size</strong> 
+    - (<tt>Integer</tt>) <strong>buffer_size</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="buffer_size=-instance_method">
   
-    - (<tt>Object</tt>) <strong>buffer_size=</strong> 
+    - (<tt>nil</tt>) <strong>buffer_size=</strong>(size) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="buffered_envelope-instance_method">
   
-    - (<tt>Object</tt>) <strong>buffered_envelope</strong> 
+    - (<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>) <strong>buffered_envelope</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>The envelope plus any buffer set in buffer_size</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="envelope-instance_method">
   
-    - (<tt>Object</tt>) <strong>envelope</strong> 
+    - (<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>) <strong>envelope</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="height-instance_method">
   
-    - (<tt>Object</tt>) <strong>height</strong> 
+    - (<tt>Integer</tt>) <strong>height</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="height=-instance_method">
   
-    - (<tt>Object</tt>) <strong>height=</strong> 
+    - (<tt>nil</tt>) <strong>height=</strong>(height_in_pixels) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="layer-instance_method">
+  
+    - (<tt>Object</tt>) <strong>layer</strong>(name, srs = nil) {|layer| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>layer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 94</span>
+
+<span class='def def kw'>def</span> <span class='layer identifier id'>layer</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='srs identifier id'>srs</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='layer identifier id'>layer</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Layer constant id'>Layer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='comma token'>,</span> <span class='srs identifier id'>srs</span><span class='rparen token'>)</span>
+  <span class='layer identifier id'>layer</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='yield yield kw'>yield</span> <span class='layer identifier id'>layer</span>
+  <span class='layers identifier id'>layers</span> <span class='lshft op'>&lt;&lt;</span> <span class='layer identifier id'>layer</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="layers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>layers</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 101</span>
+
+<span class='def def kw'>def</span> <span class='layers identifier id'>layers</span>
+  <span class='layers identifier id'>layers</span> <span class='assign token'>=</span> <span class='MapLayerContainer constant id'>MapLayerContainer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='__layers__ identifier id'>__layers__</span><span class='rparen token'>)</span>
+  <span class='layers identifier id'>layers</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='layers identifier id'>layers</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="maximum_extent-instance_method">
   
-    - (<tt>Object</tt>) <strong>maximum_extent</strong> 
+    - (<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>) <strong>maximum_extent</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="maximum_extent=-instance_method">
   
-    - (<tt>Object</tt>) <strong>maximum_extent=</strong> 
+    - (<tt>nil</tt>) <strong>maximum_extent=</strong>(new_extent) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>new_extent</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="pan-instance_method">
   
-    - (<tt>Object</tt>) <strong>pan</strong> 
+    - (<tt>nil</tt>) <strong>pan</strong>(x, y) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="render_to_cairo_context-instance_method">
   
-    - (<tt>Object</tt>) <strong>render_to_cairo_context</strong> 
+    - (<tt>nil</tt>) <strong>render_to_cairo_context</strong>(cairo_context) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Only available if Ruby-Mapnik was compiled with Cairo support and the Ruby
+Cairo gem is available</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>Cairo::Context</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="render_to_cairo_surface-instance_method">
   
-    - (<tt>Object</tt>) <strong>render_to_cairo_surface</strong> 
+    - (<tt>nil</tt>) <strong>render_to_cairo_surface</strong>(cairo_surface) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Only available if Ruby-Mapnik was compiled with Cairo support and the Ruby
+Cairo gem is available</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>Cairo::Surface</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="render_to_file-instance_method">
+  
+    - (<tt>Object</tt>) <strong>render_to_file</strong>(filename) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 107</span>
+
+<span class='def def kw'>def</span> <span class='render_to_file identifier id'>render_to_file</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+  <span class='__render_to_file__ identifier id'>__render_to_file__</span><span class='lparen token'>(</span><span class='filename identifier id'>filename</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="render_to_string-instance_method">
   
-    - (<tt>Object</tt>) <strong>render_to_string</strong> 
+    - (<tt>String</tt>) <strong>render_to_string</strong>(file_format) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A string of the data for the image</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>file_format</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>One of ‘png’, ‘jpg’ or ‘tiff’</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A string of the data for the image</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="resize-instance_method">
   
-    - (<tt>Object</tt>) <strong>resize</strong> 
+    - (<tt>nil</tt>) <strong>resize</strong>(new_width, new_height) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>new_width</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>in pixels</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>new_height</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>in pixels</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="scale-instance_method">
   
-    - (<tt>Object</tt>) <strong>scale</strong> 
+    - (<tt>Float</tt>) <strong>scale</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="srs-instance_method">
   
-    - (<tt>Object</tt>) <strong>srs</strong> 
+    - (<tt>String</tt>) <strong>srs</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="srs=-instance_method">
   
-    - (<tt>Object</tt>) <strong>srs=</strong> 
+    - (<tt>nil</tt>) <strong>srs=</strong>(new_srs) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'></span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="style-instance_method">
+  
+    - (<tt>Object</tt>) <strong>style</strong>(name) {|style| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>style</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 82</span>
+
+<span class='def def kw'>def</span> <span class='style identifier id'>style</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
+  <span class='style identifier id'>style</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Style constant id'>Style</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='yield yield kw'>yield</span> <span class='style identifier id'>style</span>
+  <span class='styles identifier id'>styles</span><span class='lbrack token'>[</span><span class='name identifier id'>name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='style identifier id'>style</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="styles-instance_method">
+  
+    - (<tt>Object</tt>) <strong>styles</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/map.rb', line 88</span>
+
+<span class='def def kw'>def</span> <span class='styles identifier id'>styles</span>
+  <span class='styles identifier id'>styles</span> <span class='assign token'>=</span> <span class='MapStyleContainer constant id'>MapStyleContainer</span><span class='lbrack token'>[</span><span class='__styles__ identifier id'>__styles__</span><span class='rbrack token'>]</span>
+  <span class='styles identifier id'>styles</span><span class='dot token'>.</span><span class='map identifier id'>map</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='styles identifier id'>styles</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="to_xml-instance_method">
   
-    - (<tt>Object</tt>) <strong>to_xml</strong> 
+    - (<tt>String</tt>) <strong>to_xml</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>An XML representation of the map that can be loaded via the from_xml
+method, or by other mapnik implementations</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="width-instance_method">
   
-    - (<tt>Object</tt>) <strong>width</strong> 
+    - (<tt>Integer</tt>) <strong>width</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
@@ -1218,31 +2133,128 @@
       <div class="method_details ">
   <p class="signature " id="zoom-instance_method">
   
-    - (<tt>Object</tt>) <strong>zoom</strong> 
+    - (<tt>nil</tt>) <strong>zoom</strong>(zoom_factor) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>zoom_factor</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="zoom_all-instance_method">
   
-    - (<tt>Object</tt>) <strong>zoom_all</strong> 
+    - (<tt>nil</tt>) <strong>zoom_all</strong> 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
       <div class="method_details ">
   <p class="signature " id="zoom_to_box-instance_method">
   
-    - (<tt>Object</tt>) <strong>zoom_to_box</strong> 
+    - (<tt>nil</tt>) <strong>zoom_to_box</strong>(envelope) 
   
 
   
-</p>
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>envelope</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Envelope.html" title="Mapnik::Envelope (class)">Mapnik::Envelope</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div>
 </div>
     
   </div>
@@ -1250,7 +2262,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:55 2011 by 
+  Generated on Sat Sep  3 11:24:43 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

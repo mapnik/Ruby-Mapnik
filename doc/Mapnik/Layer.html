@@ -87,12 +87,45 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">ext/ruby_mapnik/_mapnik_layer.rb.cpp</dd>
+    <dd class="r2 last">lib/ruby_mapnik/mapnik/layer.rb<span class="defines">,<br />
+  ext/ruby_mapnik/_mapnik_layer.rb.cpp</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
 
 
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#map%3D-instance_method" title="#map= (instance method)">- (Object) <strong>map</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    <span class="note title writeonly">writeonly</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the attribute map.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -595,6 +628,48 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#style-instance_method" title="#style (instance method)">- (Object) <strong>style</strong>(override_style_name = nil) {|style| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#styles-instance_method" title="#styles (instance method)">- (Object) <strong>styles</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#title-instance_method" title="#title (instance method)">- (String) <strong>title</strong> </a>
     
 
@@ -661,6 +736,73 @@
   
 
 
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="map=-instance_method"></span>
+      <span id=""></span>
+      <div class="method_details first">
+  <p class="signature first" id="map=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>map=</strong>(value)  <span class="extras">(writeonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the attribute map</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the value to set the attribute map to.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/layer.rb', line 28</span>
+
+<span class='def def kw'>def</span> <span class='map= identifier id'>map=</span><span class='lparen token'>(</span><span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='@map ivar id'>@map</span> <span class='assign token'>=</span> <span class='value identifier id'>value</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -684,6 +826,32 @@
 <div class="tags">
   
   
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>srs</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
 <h3>Returns:</h3>
 <ul class="return">
   
@@ -1467,6 +1635,97 @@
 </div>
     
       <div class="method_details ">
+  <p class="signature " id="style-instance_method">
+  
+    - (<tt>Object</tt>) <strong>style</strong>(override_style_name = nil) {|style| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>style</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/layer.rb', line 30</span>
+
+<span class='def def kw'>def</span> <span class='style identifier id'>style</span><span class='lparen token'>(</span><span class='override_style_name identifier id'>override_style_name</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='style_name identifier id'>style_name</span> <span class='assign token'>=</span> <span class='override_style_name identifier id'>override_style_name</span> <span class='orop op'>||</span> <span class='name identifier id'>name</span> 
+  <span class='style identifier id'>style</span> <span class='assign token'>=</span> <span class='Mapnik constant id'>Mapnik</span><span class='colon2 op'>::</span><span class='Style constant id'>Style</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='yield yield kw'>yield</span> <span class='style identifier id'>style</span>
+  <span class='@map ivar id'>@map</span><span class='dot token'>.</span><span class='styles identifier id'>styles</span><span class='lbrack token'>[</span><span class='style_name identifier id'>style_name</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='style identifier id'>style</span>
+  <span class='styles identifier id'>styles</span> <span class='lshft op'>&lt;&lt;</span> <span class='style_name identifier id'>style_name</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="styles-instance_method">
+  
+    - (<tt>Object</tt>) <strong>styles</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ruby_mapnik/mapnik/layer.rb', line 38</span>
+
+<span class='def def kw'>def</span> <span class='styles identifier id'>styles</span>
+  <span class='styles identifier id'>styles</span> <span class='assign token'>=</span> <span class='LayerStyleContainer constant id'>LayerStyleContainer</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='__style_list__ identifier id'>__style_list__</span><span class='rparen token'>)</span>
+  <span class='styles identifier id'>styles</span><span class='dot token'>.</span><span class='layer identifier id'>layer</span> <span class='assign token'>=</span> <span class='self self kw'>self</span>
+  <span class='styles identifier id'>styles</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <p class="signature " id="title-instance_method">
   
     - (<tt>String</tt>) <strong>title</strong> 
@@ -1588,7 +1847,7 @@
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  1 17:30:55 2011 by 
+  Generated on Sat Sep  3 11:24:41 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.2 (ruby-1.8.7).
 </div>

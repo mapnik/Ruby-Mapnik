@@ -41,6 +41,6 @@ end
 Rake::Task[:test].prerequisites << :compile
 
 YARD::Rake::YardocTask.new do |t|
-  t.files   = ['ext/**/*.cpp']
+  t.files   = ['ext/**/*.cpp', 'lib/ruby_mapnik/mapnik/*.rb']
   t.options = ['-eyard/lib/yard_generic.rb'] # optional
 end
