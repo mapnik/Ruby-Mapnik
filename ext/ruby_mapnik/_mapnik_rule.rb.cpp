@@ -20,22 +20,80 @@ void register_rule(Rice::Module rb_mapnik){
     @@Module_var rb_mapnik = Mapnik
   */
   Rice::Data_Type< mapnik::rule > rb_crule = Rice::define_class_under< mapnik::rule >(rb_mapnik, "Rule");
+  
+  /*
+  * Document-method: new
+  * @return [Mapnik::Rule]
+  */
   rb_crule.define_constructor(Rice::Constructor< mapnik::rule >());
   
+  /*
+  * Document-method: name
+  * @return [String]
+  */
   rb_crule.define_method("name", &mapnik::rule::get_name);
+  
+  /*
+  * Document-method: name=
+  * call-seq:
+  *   name=(new_name)
+  * @param [String]
+  * @return [nil]
+  */
   rb_crule.define_method("name=", &mapnik::rule::set_name, Rice::Arg("new_name"));
   
+  /*
+  * Document-method: title
+  * @return [String]
+  */
   rb_crule.define_method("title", &mapnik::rule::get_title);
+  
+  /*
+  * Document-method: title=
+  * call-seq:
+  *   title=(new_title)
+  * @param [String]
+  * @return [nil]
+  */
   rb_crule.define_method("title=", &mapnik::rule::set_title, Rice::Arg("new_title"));
   
+  /*
+  * Document-method: abstract
+  * @return [String]
+  */
   rb_crule.define_method("abstract", &mapnik::rule::get_abstract);
+  
+  /*
+  * Document-method: abstract=
+  * call-seq:
+  *   abstract=(new_abstract)
+  * @param [String]
+  * @return [nil]
+  */
   rb_crule.define_method("abstract=", &mapnik::rule::set_abstract, Rice::Arg("new_abstract"));
   
+  /*
+  * Document-method: filter
+  * @return [Mapnik::Expression]
+  */
   rb_crule.define_method("filter", &mapnik::rule::get_filter);
+  
+  /*
+  * Document-method: filter=
+  * call-seq:
+  *   filter=(new_filter)
+  * @param [Mapnik::Expression]
+  * @return [nil]
+  */
   rb_crule.define_method("filter=", &mapnik::rule::set_filter, Rice::Arg("new_filter"));
 
+  // Dont-Document-method: __symbols__
   rb_crule.define_method("__symbols__", &mapnik::rule::get_symbolizers);
+  
+  // Dont-Document-method: __append_symbol__
   rb_crule.define_method("__append_symbol__", &mapnik::rule::append, Rice::Arg("new_symbol"));
+  
+  // Dont-Document-method: __remove_symbol__
   rb_crule.define_method("__remove_symbol__", &mapnik::rule::remove_at, Rice::Arg("index"));
   
 }
