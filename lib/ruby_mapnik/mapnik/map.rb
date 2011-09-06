@@ -54,10 +54,10 @@ module Mapnik
     end
      
     private 
-     
-     def remove_object_at_index(index)
+    
+    def remove_object_at_index(index)
        @map.send(:__remove_layer__, index)
-     end
+    end
           
   end
   
@@ -65,12 +65,14 @@ module Mapnik
     
     class << self
       
+      # @return [Mapnik::Map]
       def from_xml(xml, strict = false, base_path = "")
         map = new
         __load_map_string__(map, xml, strict, base_path)
         map
       end
       
+      # @return [Mapnik::Map]
       def from_file(filename, strict = false)
         map = new
         __load_map__(map, filename, strict)
@@ -79,18 +81,21 @@ module Mapnik
             
     end
     
+    # @return [Mapnik::Style]
     def style(name)
       style = Mapnik::Style.new
       yield style
       styles[name] = style
     end
     
+    # @return [Mapnik::StyleContainer]
     def styles
       styles = MapStyleContainer[__styles__]
       styles.map = self
       styles
     end
     
+    # @return [Mapnik::Layer]
     def layer(name, srs = nil)
       layer = Mapnik::Layer.new(name, srs)
       layer.map = self
@@ -98,12 +103,14 @@ module Mapnik
       layers << layer
     end
     
+    # @return [Mapnik::MapLayerContainer]
     def layers
       layers = MapLayerContainer.new(__layers__)
       layers.map = self
       layers
     end
     
+    # @return [nil]
     def render_to_file(filename)
       __render_to_file__(filename)
     end
