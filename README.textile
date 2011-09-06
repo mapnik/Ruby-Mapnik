@@ -1,6 +1,6 @@
-h1. This is what you all have been waiting for: RUBY BINDINGS FOR MAPNIK
+h1. Ruby-Mapnik is a set of bindings between Ruby and Mapnik. Amazing!
 
-Soon all of your mapping will be like pouding chômeur!
+*Now* all of your mapping is like pouding chômeur - cheap and stickyAwesome!
 
 h2. Requirements
 * Mapnik2 (aka the trunk available here: http://svn.mapnik.org/trunk)
