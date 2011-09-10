@@ -17,7 +17,7 @@ Mapnik has been compiled with Cairo support.
 
 == Installation
 
-Coming Soon!
+  gem install ruby_mapnik
 
 Note: on osx the default rake compile will try to build universal, and your
 mapnik install is unlikely built universal. Check the architecture of libmapnik2.dylib like:
