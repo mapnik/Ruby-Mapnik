@@ -144,7 +144,6 @@ lib/ruby_mapnik/mapnik/style.rb
 lib/ruby_mapnik/mapnik/tile.rb
 lib/ruby_mapnik/ruby_mapnik.bundle
 lib/ruby_mapnik_config.rb
-manifest.diff
 script/console
 test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.dbf
 test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.prj

@@ -1,0 +1,84 @@
+= Ruby Mapnik
+
+Exactly what it sounds like.
+
+== Requirements
+
+* Mapnik 2 (Currently available at http://svn.mapnik.org/trunk) 
+* Rice >=1.4.2
+* rcairo (https://github.com/rcairo/rcairo) (Optional)
+
+== Description
+
+A set of bindings between Ruby and Mapnik. Supports many of the common uses for 
+Mapnik, and one day, might support al of them. Rundering is available using
+the plain agg library, or via Cairo, if the rcairo gem is installed and 
+Mapnik has been compiled with Cairo support.
+
+== Installation
+
+Coming Soon!
+
+Note: on osx the default rake compile will try to build universal, and your
+mapnik install is unlikely built universal. Check the architecture of libmapnik2.dylib like:
+
+    file /usr/local/lib/libmapnik2.dylib
+
+On a system where your compiler defaults to 64bit you'll see: 'Mach-O 64-bit dynamically linked shared library x86_64'
+
+So to avoid a linking warning like:
+
+    ld: warning: ignoring file /usr/local/lib/libmapnik2.dylib, file was built for unsupported file format which is not the architecture being linked (i386)
+
+You can pass this before rake compile:
+
+    export ARCHFLAGS="-arch x86_64"
+
+== Synopsis
+  
+  require 'ruby_mapnik'
+
+  map = Mapnik::Map.new do |m|
+    
+    # A grey background
+    m.background = Mapnik::Color.new('#777')
+    
+    # Use the Google mercator projection
+    m.srs =  Mapnik::Tile::DEFAULT_OUTPUT_PROJECTION
+    
+    # Add a layer to the map
+    m.layer 'countries' do |l|
+      
+      # Add a style to the layer
+      l.style do |s|
+
+        # Add a rule to the style (this one is a default rule)
+        s.rule do |default|
+          
+          #fill the shapes woith polygon symbolizers
+          default.fill = Mapnik::Color.new('#880000')
+        end
+      end
+
+      # set the srs of the layer
+      l.srs = "+proj=latlong +datum=WGS84"
+
+      #specify the datasource for the layer
+      l.datasource = Mapnik::Datasource.create :type => 'shape', :file => "#{PATH}/../data/TM_WORLD_BORDERS_SIMPL_0.3_MOD"
+    end
+
+  end
+
+  map.zoom_to_box(map.layers.first.envelope) 
+  map.render_to_file('my_map.png')
+
+== Examples
+
+See demo/rundemo.rb for the classic mapnik rundemo. Also see demo/sinatra/demo.rb 
+for a simple tile server (requires the sinatra gem).
+
+== Thanks
+
+Thanks to the Mapnik team and especially to Dane Springmeyer!
+
+
