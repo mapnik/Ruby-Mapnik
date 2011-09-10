@@ -146,8 +146,6 @@ test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.prj
 test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.shp
 test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.shx
 test/data/test_map.xml
-test/nemis.sublime-project
-test/nemis.sublime-workspace
 test/test_helper.rb
 test/test_line_pattern_symbolizer.rb
 test/test_mapnik_color.rb
