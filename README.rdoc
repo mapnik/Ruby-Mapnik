@@ -1,6 +1,6 @@
 = Ruby Mapnik
 
-Exactly what it sounds like.
+https://github.com/mapnik/Ruby-Mapnik
 
 == Requirements
 
