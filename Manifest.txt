@@ -2,6 +2,7 @@
 .yardopts
 Gemfile
 LICENSE
+Manifest.tmps
 Manifest.txt
 README.rdoc
 Rakefile
@@ -139,7 +140,7 @@ lib/ruby_mapnik/mapnik/rule.rb
 lib/ruby_mapnik/mapnik/stroke.rb
 lib/ruby_mapnik/mapnik/style.rb
 lib/ruby_mapnik/mapnik/tile.rb
-lib/ruby_mapnik/ruby_mapnik.bundle
+ruby_mapnik.gemspec
 script/console
 test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.dbf
 test/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD.prj
@@ -174,6 +175,5 @@ test/test_mapnik_symbolizer.rb
 test/test_mapnik_text_symbolizer.rb
 test/test_polygon_pattern_symbolizer.rb
 test/test_ruby_mapnik.rb
-tmp/rundemo.png
 yard/lib/yard/parser/generic_parser.rb
 yard/lib/yard_generic.rb
