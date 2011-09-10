@@ -5,7 +5,6 @@
 .yardopts
 Gemfile
 LICENSE
-Manifest.patch
 Manifest.txt
 README.rdoc
 Rakefile
