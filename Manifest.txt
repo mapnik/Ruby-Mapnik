@@ -1,7 +1,4 @@
 .autotest
-.yardoc/checksums
-.yardoc/objects/root.dat
-.yardoc/proxy_types
 .yardopts
 Gemfile
 LICENSE
