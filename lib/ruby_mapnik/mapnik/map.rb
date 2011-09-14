@@ -110,6 +110,9 @@ module Mapnik
             
     end
     
+    # Creates and yeilds a new style object, then adds that style to the 
+    # map's collection of styles, under the name passed in. Makes no effort
+    # to de-dupe style name collisions.
     # @return [Mapnik::Style]
     def style(name)
       style = Mapnik::Style.new
@@ -117,6 +120,7 @@ module Mapnik
       styles[name] = style
     end
     
+    # The styles for this map.
     # @return [Mapnik::StyleContainer]
     def styles
       styles = MapStyleContainer[__styles__]
@@ -124,6 +128,9 @@ module Mapnik
       styles
     end
     
+    # Creates and yields a new layer object, then adds that layer to the map's 
+    # collection of layers. If the srs is not provided in the initial call,
+    # it will need to be provided in the block.
     # @return [Mapnik::Layer]
     def layer(name, srs = nil)
       layer = Mapnik::Layer.new(name, srs)
@@ -132,16 +139,21 @@ module Mapnik
       layers << layer
     end
     
+    # The layers associated with this map
     # @return [Mapnik::MapLayerContainer]
     def layers
       layers = MapLayerContainer.new(__layers__)
       layers.map = self
       layers
     end
-    
-    # @return [nil]
+
+    # Renders the map to a file. Returns true or false depending if the
+    # render was successful. The image type is inferred from the filename.
+    # @param [String] filename Should end in one of "png", "jpg", or "tiff"
+    # @return [Boolean]
     def render_to_file(filename)
       __render_to_file__(filename)
+      return File.exists?(filename)
     end
       
     private :__styles__, :__insert_style__, :__remove_style__, :__layers__, 
