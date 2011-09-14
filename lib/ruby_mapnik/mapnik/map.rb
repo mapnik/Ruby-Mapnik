@@ -86,6 +86,7 @@ module Mapnik
     
     class << self
       
+      # Loads a map from an xml string.
       # @return [Mapnik::Map]
       def from_xml(xml, strict = false, base_path = "")
         map = new
@@ -93,10 +94,17 @@ module Mapnik
         map
       end
       
+      # Loads a map from an xml file. 
       # @return [Mapnik::Map]
-      def from_file(filename, strict = false)
+      # @param [File, String] file Can be a string representing a file path, or a file object
+      def from_file(file, strict = false)
+        if file.is_a?(File)
+          path = File.expand_path(file.path)
+        else
+          path = file
+        end
         map = new
-        __load_map__(map, filename, strict)
+        __load_map__(map, path, strict)
         map
       end
             

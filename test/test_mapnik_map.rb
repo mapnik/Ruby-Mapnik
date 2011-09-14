@@ -158,13 +158,21 @@ class TestMapnikMap < Test::Unit::TestCase
     assert_equal map_1.srs, map_2.srs
   end
   
-  def test_should_load_from_file
+  def test_should_load_from_file_path_string
     file_path = File.join(File.expand_path(File.dirname(__FILE__)), "data", "test_map.xml")
     map = Mapnik::Map.from_file(file_path)
     assert map.layers.any?
     assert map.styles['My Style']
   end
   
+  def test_should_load_from_file
+    file = File.open(File.join(File.expand_path(File.dirname(__FILE__)), "data", "test_map.xml"))
+    map = Mapnik::Map.from_file(file)
+    assert map.layers.any?
+    assert map.styles['My Style']
+  end
+  
+
 private
   
   def build_complete_map

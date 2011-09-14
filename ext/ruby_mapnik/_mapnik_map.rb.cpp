@@ -163,13 +163,25 @@ namespace {
 void register_map(Rice::Module rb_mapnik){
   /*
     @@Module_var rb_mapnik = Mapnik
+    Document-class: Mapnik::Map
+    
+    Maps are exactly what they sound like: the reason you are using mapnik. Maps
+    have layers, which wrap a datasource, and styles, which contain instructions
+    on how to render those layers. 
+
+    Maps can be rendered to basic image formats (jpg, png), as well as to cairo
+    surfaces and contexts, if mapnik has been compiled with cairo support, and if 
+    the rcairo gem is installed. 
+  
   */
   Rice::Data_Type< mapnik::Map > rb_cmap = Rice::define_class_under< mapnik::Map >(rb_mapnik, "Map");
   
   /* 
   * Document-method: new
+  * Instantiates a new map object. The map is yielded if a block is given.
   * @return [Mapnik::Map] a new map object
   * @yield [map] the new map object
+
   */
   rb_cmap.define_constructor(Rice::Constructor< mapnik::Map >());
   
@@ -235,6 +247,7 @@ void register_map(Rice::Module rb_mapnik){
   
   /*
   * Document-method: height
+  * The height of the rendered image in pixels.
   * @return [Integer]
   */
   rb_cmap.define_method("height", &mapnik::Map::height);
@@ -243,7 +256,8 @@ void register_map(Rice::Module rb_mapnik){
   * Document-method: height=
   * call-seq:
   *   height=(height_in_pixels) 
-  * @param [Integer]
+  * Sets the height of the rendered image.
+  * @param [Integer] height_in_pixels
   * @return [nil]
   */
   rb_cmap.define_method("height=", &mapnik::Map::set_height);
@@ -265,6 +279,8 @@ void register_map(Rice::Module rb_mapnik){
   
   /*
   * Document-method: srs
+  * The spatial reference system string for the map. It does not need to match 
+  * the srs of any of the layers.
   * @return [String]
   */
   rb_cmap.define_method("srs", &mapnik::Map::srs);
@@ -273,6 +289,9 @@ void register_map(Rice::Module rb_mapnik){
   * Document-method: srs=
   * call-seq:
   *   srs=(new_srs)
+  * Sets the spatial reference system that will be used to render the map. All
+  * layers will have thier data reprojected to this srs behind the scenes. 
+  *
   * @param [String]
   * @return [nil]
   */
@@ -280,14 +299,16 @@ void register_map(Rice::Module rb_mapnik){
   
   /*
   * Document-method: width
+  * The width of the image in pixels.
   * @return [Integer]
   */
   rb_cmap.define_method("width", &mapnik::Map::width);
   
   /*
-  * Document-method width=
+  * Document-method: width=
   * call-seq:
   *  width=(new_width)
+  * Sets the width of the image.
   * @param [Integer] new_width in pixels
   * @return [nil]
   */
@@ -327,6 +348,7 @@ void register_map(Rice::Module rb_mapnik){
   
   /*
   * Document-method: zoom_all
+  * Zooms the map so that all of the envelopes of the layers are visible.
   * @return [nil]
   */
   rb_cmap.define_method("zoom_all", &mapnik::Map::zoom_all);
@@ -335,6 +357,9 @@ void register_map(Rice::Module rb_mapnik){
   * Document-method: zoom_to_box
   * call-seq:
   *   zoom_to_box(envelope)
+  * Zooms the map such that the envelope provided is all that will be rendered.
+  * The height and width of the map will stay the same, but the content will be 
+  * zoomed.
   * @param [Mapnik::Envelope] envelope
   * @return [nil]
   */
@@ -344,6 +369,7 @@ void register_map(Rice::Module rb_mapnik){
   * Document-method: resize
   * call-seq:
   *   resize(new_width, new_height)
+  * Resizes the height and width of the map in one step.
   * @param [Integer] new_width in pixels
   * @param [Integer] new_height in pixels
   * @return [nil]
