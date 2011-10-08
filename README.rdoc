@@ -11,9 +11,9 @@ https://github.com/mapnik/Ruby-Mapnik
 == Description
 
 A set of bindings between Ruby and Mapnik. Supports many of the common uses for 
-Mapnik, and one day, might support al of them. Rundering is available using
-the plain agg library, or via Cairo, if the rcairo gem is installed and 
-Mapnik has been compiled with Cairo support.
+Mapnik, and one day, might support all of them. Rendering is available using
+the standard AGG library, or additionally via Cairo, if the rcairo gem is 
+installed and Mapnik has been compiled with Cairo support.
 
 == Installation
 
