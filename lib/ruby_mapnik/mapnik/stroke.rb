@@ -51,7 +51,7 @@ module Mapnik
       dashes
     end
     
-    private :__dashes__, :__add_dash__
+    public :__dashes__, :__add_dash__
     
   end
   

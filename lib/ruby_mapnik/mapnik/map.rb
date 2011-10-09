@@ -156,7 +156,7 @@ module Mapnik
       return File.exists?(filename)
     end
       
-    private :__styles__, :__insert_style__, :__remove_style__, :__layers__, 
+    public :__styles__, :__insert_style__, :__remove_style__, :__layers__, 
             :__add_layer__, :__remove_layer__
     
   end

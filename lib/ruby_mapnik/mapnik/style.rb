@@ -59,7 +59,7 @@ module Mapnik
       rules
     end
     
-    private :__rules__, :__add_rule__
+    public :__rules__, :__add_rule__
     
   end
   

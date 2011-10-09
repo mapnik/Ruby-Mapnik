@@ -100,7 +100,7 @@ module Mapnik
       symbol_container
     end
     
-    private :__symbols__, :__append_symbol__, :__remove_symbol__
+    public :__symbols__, :__append_symbol__, :__remove_symbol__
     
   end
 end
