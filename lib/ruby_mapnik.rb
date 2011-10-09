@@ -23,7 +23,7 @@ require 'forwardable'
 
 path = File.expand_path(File.dirname(__FILE__))
 
-require 'ruby_mapnik_config'
+require "#{path}/ruby_mapnik_config"
 require "#{path}/ruby_mapnik/ruby_mapnik"
 require "#{path}/ruby_mapnik/mapnik/rule"
 require "#{path}/ruby_mapnik/mapnik/style"
