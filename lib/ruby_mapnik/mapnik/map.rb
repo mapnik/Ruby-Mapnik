@@ -155,9 +155,6 @@ module Mapnik
       __render_to_file__(filename)
       return File.exists?(filename)
     end
-      
-    private :__styles__, :__insert_style__, :__remove_style__, :__layers__, 
-            :__add_layer__, :__remove_layer__
     
   end
   

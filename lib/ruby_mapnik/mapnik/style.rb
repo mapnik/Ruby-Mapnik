@@ -58,9 +58,7 @@ module Mapnik
       rules.style = self
       rules
     end
-    
-    private :__rules__, :__add_rule__
-    
+
   end
   
 end

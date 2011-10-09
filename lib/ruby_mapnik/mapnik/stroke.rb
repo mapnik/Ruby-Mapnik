@@ -50,9 +50,7 @@ module Mapnik
       dashes.stroke = self
       dashes
     end
-    
-    private :__dashes__, :__add_dash__
-    
+        
   end
   
 end

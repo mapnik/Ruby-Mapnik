@@ -39,8 +39,6 @@ module Mapnik
         __inverse_pt__(obj)
       end
     end
-    
-    private :__forward_pt__, :__forward_env__, :__inverse_pt__, :__inverse_env__
-    
+        
   end
 end

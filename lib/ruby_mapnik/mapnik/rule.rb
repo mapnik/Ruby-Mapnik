@@ -99,9 +99,7 @@ module Mapnik
       symbol_container.rule = self
       symbol_container
     end
-    
-    private :__symbols__, :__append_symbol__, :__remove_symbol__
-    
+        
   end
 end
 

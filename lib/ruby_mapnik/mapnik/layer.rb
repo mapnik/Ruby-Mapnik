@@ -62,7 +62,6 @@ module Mapnik
       styles
     end
     
-    private :__style_list__, :__append_style__
     
   end
   
