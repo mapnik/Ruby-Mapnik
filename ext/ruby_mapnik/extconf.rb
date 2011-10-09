@@ -77,4 +77,4 @@ if RUBY_PLATFORM =~ /darwin/
     append_ld_flags '-all_load'
 end
 
-create_makefile("ruby_mapnik")
+create_makefile("ruby_mapnik/ruby_mapnik")
