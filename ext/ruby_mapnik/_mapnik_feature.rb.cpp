@@ -30,15 +30,9 @@ SOFTWARE.
 #include <mapnik/wkt/wkt_factory.hpp>
 #include <mapnik/feature.hpp>
 
-// A cop out of sorts. I'll need to do more research on how to transfer ownership
-// via rice.
-void add_geometry(mapnik::Feature * self, std::string wkt){
-  std::pair<bool,mapnik::geometry_type*> result = mapnik::from_wkt(wkt);
-  if (result.first){
-    self->add_geometry(result.second);
-  } else {
-    throw std::runtime_error("Failed to parse WKT");
-  }
+void add_geometries_from_wkt(mapnik::Feature * self, std::string wkt){
+  bool result = mapnik::from_wkt(wkt, self->paths());
+  if (!result) throw std::runtime_error("Failed to parse WKT");
 }
 
 void register_feature(Rice::Module rb_mapnik){
@@ -52,5 +46,5 @@ void register_feature(Rice::Module rb_mapnik){
   rb_cfeature.define_method("number_of_geometries", &mapnik::Feature::num_geometries);
   rb_cfeature.define_method("envelope", &mapnik::Feature::envelope);
   
-  rb_cfeature.define_method("add_geometry", &add_geometry, Rice::Arg("geom"));  
+  rb_cfeature.define_method("add_geometries_from_wkt", &add_geometries_from_wkt, Rice::Arg("geom"));  
 }
