@@ -32,14 +32,25 @@ SOFTWARE.
 #include <mapnik/wkt/wkt_factory.hpp>
 
 namespace{
+
+  typedef boost::ptr_vector<mapnik::geometry_type> path_type;
+
   // Borrowed from the python bindings...
-  mapnik::geometry_type * make_from_wkt(std::string const& wkt) {
+  void from_wkt_impl(path_type& p, std::string const& wkt)
+  {
+      bool result = mapnik::from_wkt(wkt, p);
+      if (!result) throw std::runtime_error("Failed to parse WKT");
+  }
+
+/*
+  mapnik::geometry_type * from_wkt_impl(std::string const& wkt) {
     std::pair<bool,mapnik::geometry_type*> result = mapnik::from_wkt(wkt);
     if (result.first){
       return result.second;
     }
     throw std::runtime_error("Failed to parse WKT");
   }
+*/
 
 }
 
@@ -65,9 +76,11 @@ void register_geometry(Rice::Module rb_mapnik){
   geometry_enum.define_value("MultiPolygon",mapnik::MultiPolygon);
   
   Rice::Data_Type< mapnik::geometry_type > rb_cgeometry2d = Rice::define_class_under< mapnik::geometry_type >(rb_mapnik, "Geometry2d");
-  rb_cgeometry2d.define_singleton_method("from_wkt", &make_from_wkt, Rice::Arg("wkt"));
   rb_cgeometry2d.define_method("envelope", &mapnik::geometry_type::envelope);
   rb_cgeometry2d.define_method("type", &mapnik::geometry_type::type);
   rb_cgeometry2d.define_method("area", &mapnik::geometry_type::area);
+
+  Rice::Data_Type< path_type > rb_cpath = Rice::define_class_under< path_type >(rb_mapnik, "Path");
+  rb_cpath.define_singleton_method("from_wkt", &from_wkt_impl, Rice::Arg("wkt"));
 }
 
