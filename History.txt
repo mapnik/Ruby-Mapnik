@@ -1,3 +1,7 @@
+=== 0.1.2
+
+* Fixed an installation issue
+
 === 0.1.1
 
 * Bugfixes for ruby 1.9.2 and post-release Mapnik 2
