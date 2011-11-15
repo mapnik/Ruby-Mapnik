@@ -78,7 +78,6 @@ void register_geometry(Rice::Module rb_mapnik){
   Rice::Data_Type< mapnik::geometry_type > rb_cgeometry2d = Rice::define_class_under< mapnik::geometry_type >(rb_mapnik, "Geometry2d");
   rb_cgeometry2d.define_method("envelope", &mapnik::geometry_type::envelope);
   rb_cgeometry2d.define_method("type", &mapnik::geometry_type::type);
-  rb_cgeometry2d.define_method("area", &mapnik::geometry_type::area);
 
   Rice::Data_Type< path_type > rb_cpath = Rice::define_class_under< path_type >(rb_mapnik, "Path");
   rb_cpath.define_singleton_method("from_wkt", &from_wkt_impl, Rice::Arg("wkt"));
