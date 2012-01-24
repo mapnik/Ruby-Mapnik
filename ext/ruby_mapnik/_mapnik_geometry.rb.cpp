@@ -71,9 +71,6 @@ void register_geometry(Rice::Module rb_mapnik){
   geometry_enum.define_value("Point",mapnik::Point);
   geometry_enum.define_value("LineString",mapnik::LineString);
   geometry_enum.define_value("Polygon",mapnik::Polygon);
-  geometry_enum.define_value("MultiPoint",mapnik::MultiPoint);
-  geometry_enum.define_value("MultiLineString",mapnik::MultiLineString);
-  geometry_enum.define_value("MultiPolygon",mapnik::MultiPolygon);
   
   Rice::Data_Type< mapnik::geometry_type > rb_cgeometry2d = Rice::define_class_under< mapnik::geometry_type >(rb_mapnik, "Geometry2d");
   rb_cgeometry2d.define_method("envelope", &mapnik::geometry_type::envelope);

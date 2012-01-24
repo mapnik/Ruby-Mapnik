@@ -41,37 +41,7 @@ void register_rule(Rice::Module rb_mapnik){
   * @return [nil]
   */
   rb_crule.define_method("name=", &mapnik::rule::set_name, Rice::Arg("new_name"));
-  
-  /*
-  * Document-method: title
-  * @return [String]
-  */
-  rb_crule.define_method("title", &mapnik::rule::get_title);
-  
-  /*
-  * Document-method: title=
-  * call-seq:
-  *   title=(new_title)
-  * @param [String]
-  * @return [nil]
-  */
-  rb_crule.define_method("title=", &mapnik::rule::set_title, Rice::Arg("new_title"));
-  
-  /*
-  * Document-method: abstract
-  * @return [String]
-  */
-  rb_crule.define_method("abstract", &mapnik::rule::get_abstract);
-  
-  /*
-  * Document-method: abstract=
-  * call-seq:
-  *   abstract=(new_abstract)
-  * @param [String]
-  * @return [nil]
-  */
-  rb_crule.define_method("abstract=", &mapnik::rule::set_abstract, Rice::Arg("new_abstract"));
-  
+    
   /*
   * Document-method: filter
   * @return [Mapnik::Expression]

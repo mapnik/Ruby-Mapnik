@@ -10,8 +10,6 @@ class TestMapnikGeometry < Test::Unit::TestCase
     assert Mapnik::GeometryType::Point
     assert Mapnik::GeometryType::LineString
     assert Mapnik::GeometryType::Polygon
-    assert Mapnik::GeometryType::MultiPoint
-    assert Mapnik::GeometryType::MultiLineString
   end
   
   def test_should_make_point_from_wkt

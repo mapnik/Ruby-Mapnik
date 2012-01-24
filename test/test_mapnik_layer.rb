@@ -29,22 +29,6 @@ class TestMapnikLayer < Test::Unit::TestCase
     assert_equal new_name, layer.name
   end
   
-  def test_should_get_and_set_title
-    layer = build_layer
-    title_before = layer.title
-    new_title = title_before + "BUT DIFFERENT"
-    layer.title = new_title
-    assert_equal new_title, layer.title
-  end
-  
-  def test_should_get_and_set_abstract
-    layer = build_layer
-    abstract_before = layer.abstract
-    new_abstract = abstract_before + "BUT DIFFERENT"
-    layer.abstract = new_abstract
-    assert_equal new_abstract, layer.abstract
-  end
-  
   def test_should_get_and_set_srs
     layer = build_layer
     srs_before = layer.srs

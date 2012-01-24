@@ -90,36 +90,7 @@ void register_layer(Rice::Module rb_mapnik){
   * @return [nil]
   */
   rb_clayer.define_method("name=", &mapnik::layer::set_name, Rice::Arg("new_name"));
-  
-  /*
-  * Document-method: title
-  * @return [String] The layer's title
-  */
-  rb_clayer.define_method("title", &mapnik::layer::title);
-  
-  /*
-  * Document-method: title=
-  * call-seq:
-  *   title=(new_name)
-  * @param [String]
-  * @return [nil]
-  */
-  rb_clayer.define_method("title=", &mapnik::layer::set_title, Rice::Arg("new_title"));
-  
-  /*
-  * Document-method: abstract
-  * @return [String] the layer's abstract
-  */
-  rb_clayer.define_method("abstract", &mapnik::layer::abstract);
-  
-  /*
-  * Document-method: abstract=
-  * call-seq:
-  *   abstract=(new_abstract)
-  * @param [String]
-  */
-  rb_clayer.define_method("abstract=", &mapnik::layer::set_abstract, Rice::Arg("new_abstract"));
-  
+    
   /*
   * Document-method: srs
   * @return [String] the layer's srs
