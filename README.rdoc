@@ -4,8 +4,9 @@ https://github.com/mapnik/Ruby-Mapnik
 
 == Requirements
 
-* Mapnik 2 (Currently available at http://svn.mapnik.org/trunk) 
-* Rice >=1.4.2
+* Rake
+* Mapnik 2.x (Currently available at https://github.com/mapnik/mapnik)
+* Rice >= 1.4.2
 * rcairo (https://github.com/rcairo/rcairo) (Optional)
 
 == Description
@@ -17,18 +18,28 @@ installed and Mapnik has been compiled with Cairo support.
 
 == Installation
 
+If you have checked out this local repository code build like:
+
+    rake
+
+The above command will compile the bindings and run the tests.
+
+File issues at https://github.com/mapnik/Ruby-Mapnik if you hit any compile errors.
+
+If you wish to install Ruby-Mapnik from the latest tagged release you can do:
+
   gem install ruby_mapnik
 
 Note: on osx the default rake compile will try to build universal, and your
-mapnik install is unlikely built universal. Check the architecture of libmapnik2.dylib like:
+mapnik install is unlikely built universal. Check the architecture of libmapnik.dylib like:
 
-    file /usr/local/lib/libmapnik2.dylib
+    file /usr/local/lib/libmapnik.dylib
 
 On a system where your compiler defaults to 64bit you'll see: 'Mach-O 64-bit dynamically linked shared library x86_64'
 
 So to avoid a linking warning like:
 
-    ld: warning: ignoring file /usr/local/lib/libmapnik2.dylib, file was built for unsupported file format which is not the architecture being linked (i386)
+    ld: warning: ignoring file /usr/local/lib/libmapnik.dylib, file was built for unsupported file format which is not the architecture being linked (i386)
 
 You can pass this before rake compile:
 

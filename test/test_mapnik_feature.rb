@@ -10,7 +10,7 @@ class TestMapnikFeature < Test::Unit::TestCase
     feature_id = 12
     assert feature = Mapnik::Feature.new(feature_id)
     assert_equal feature_id, feature.id
-    assert_equal "feature (  id:#{feature_id})", feature.to_s.gsub("\n", '')
+    assert_equal "feature #{feature_id} ()", feature.to_s.gsub("\n", '')
   end
   
   def test_should_return_number_of_geometries

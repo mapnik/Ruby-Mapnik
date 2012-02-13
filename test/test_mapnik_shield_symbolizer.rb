@@ -13,13 +13,6 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
   def test_should_instantiate
     assert @sym
   end
-
-  def test_should_get_and_set_anchor
-    assert @sym.anchor
-    new_vals = [1,2]
-    @sym.anchor = new_vals
-    assert_equal new_vals, @sym.anchor
-  end
   
   def test_should_get_and_set_allow_overlap
     @sym.allow_overlap = true

@@ -36,13 +36,6 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
     assert Mapnik::TEXT_TRANSFORM::CAPITALIZE
   end
   
-  def test_should_get_and_set_anchor
-    assert @symbolizer.anchor
-    new_vals = [1,2]
-    @symbolizer.anchor = new_vals
-    assert_equal new_vals, @symbolizer.anchor
-  end
-  
   def test_should_get_and_set_allow_overlap
     @symbolizer.allow_overlap = true
     assert @symbolizer.allow_overlap?

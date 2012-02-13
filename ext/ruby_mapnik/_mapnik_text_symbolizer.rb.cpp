@@ -28,31 +28,16 @@ SOFTWARE.
 #include <rice/Enum.hpp>
 
 // Mapnik
-#include <mapnik/text_placements.hpp>  
+//#include <mapnik/text_placements.hpp>  
 #include <mapnik/text_symbolizer.hpp>
 
 namespace {
 
-  Rice::Object get_anchor(const mapnik::text_symbolizer& t){
-    mapnik::position pos = t.get_anchor();
-    Rice::Array out;
-    out.push(boost::get<0>(pos));
-    out.push(boost::get<1>(pos));
-    return out;
-  }
-
-  void set_anchor(mapnik::text_symbolizer & t, Rice::Array ary) {
-    double x = from_ruby<double>(ary[0]);
-    double y = from_ruby<double>(ary[1]);
-    
-    t.set_anchor(x, y);
-  }
-
   Rice::Object get_text_displacement(const mapnik::text_symbolizer& t){
     mapnik::position pos = t.get_displacement();
     Rice::Array out;
-    out.push(boost::get<0>(pos));
-    out.push(boost::get<1>(pos));
+    out.push(pos.first);
+    out.push(pos.second);
     return out;
   }
 
@@ -155,20 +140,6 @@ void register_text_symbolizer(Rice::Module rb_mapnik){
   */
   rb_ctext_symbolizer.define_constructor(Rice::Constructor< mapnik::text_symbolizer, mapnik::expression_ptr, std::string, int, mapnik::color >());
   
-  /*
-  * Document-method: anchor
-  * @return [Array] Two element array [x,y]
-  */
-  rb_ctext_symbolizer.define_method("anchor", &get_anchor);
-  
-  /*
-  * Document-method: anchor=
-  * call-seq:
-  *   anchor=(new_anchor)
-  * @param [Array] new_anchor Two element array [x,y]
-  */
-  rb_ctext_symbolizer.define_method("anchor=", &set_anchor);
-
   /*
   * Document-method: allow_overlap?
   * @return [Boolean]

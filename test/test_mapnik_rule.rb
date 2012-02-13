@@ -18,25 +18,7 @@ class TestMapnikRule < Test::Unit::TestCase
     rule.name = new_name
     assert_equal new_name, rule.name
   end
-  
-  def test_should_get_and_set_title
-    rule = Mapnik::Rule.new
-    assert_equal("", rule.title)
     
-    new_title = "New title"
-    rule.title = new_title
-    assert_equal new_title, rule.title
-  end
-  
-  def test_should_get_and_set_abstract
-    rule = Mapnik::Rule.new
-    assert_equal("", rule.abstract)
-    
-    new_abstract = "New abstract"
-    rule.abstract = new_abstract
-    assert_equal new_abstract, rule.abstract
-  end
-  
   def test_should_get_and_set_filter
     rule = Mapnik::Rule.new
     expression_string = "([place]='town')"

@@ -32,16 +32,16 @@ end
 
 # Check for mapnik-config
 if %x{which mapnik-config}.length == 0
-  abort("\n***\n mapnik-config is missing!\n Is mapnik2 installed?\n Is mapnik-config in your $PATH?\n***\n\n")
+  abort("\n***\n mapnik-config is missing!\n Is mapnik 2.x installed?\n Is mapnik-config in your $PATH?\n***\n\n")
 end
 
 LIBDIR = Config::CONFIG['libdir']
 INCLUDEDIR = Config::CONFIG['includedir'] 
 
-$LDFLAGS += " -lmapnik2 "
+$LDFLAGS += " " + %x{mapnik-config --libs}.chomp + " "
 
 # force whitespace padding to avoid: https://github.com/mapnik/Ruby-Mapnik/issues/7
-$CFLAGS += " " + %x{mapnik-config --cflags} + " "
+$CFLAGS += " " + %x{mapnik-config --cflags}.chomp + " "
 
 #------------------------------------------------------------------------------#
 # Ruby-Mapnik configuration
@@ -64,6 +64,9 @@ File.open(mapnik_config_file_path, 'w+') do |file|
   file.write(ruby_mapnik_config)
 end
 
+if ENV['CXX']
+    $CXX = ENV['CXX']
+end
 
 if RUBY_PLATFORM =~ /darwin/
     # In order to link the shared library into our bundle with GCC 4.x on OSX, we have to work around a bug:

@@ -51,6 +51,11 @@ namespace {
    Rice::Object operator()(const std::string & str) const {
      return to_ruby<std::string>(str);
    }
+
+   Rice::Object operator()(const mapnik::value_null & value) const {
+     return NULL;
+   }
+
   };
 
 

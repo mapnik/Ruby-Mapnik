@@ -36,8 +36,8 @@ namespace{
   Rice::Object get_shield_displacement(const mapnik::shield_symbolizer& t){
     mapnik::position pos = t.get_shield_displacement();
     Rice::Array out;
-    out.push(boost::get<0>(pos));
-    out.push(boost::get<1>(pos));
+    out.push(pos.first);
+    out.push(pos.second);
     return out;
   }
 

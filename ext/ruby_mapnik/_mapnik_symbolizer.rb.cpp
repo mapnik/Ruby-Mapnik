@@ -42,8 +42,6 @@ namespace {
       out = mapnik::symbolizer(from_ruby<mapnik::line_symbolizer>(obj));
     } else if(class_name == "Mapnik::TextSymbolizer"){
       out = mapnik::symbolizer(from_ruby<mapnik::text_symbolizer>(obj));
-    } else if(class_name == "Mapnik::GlyphSymbolizer"){
-      out = mapnik::symbolizer(from_ruby<mapnik::glyph_symbolizer>(obj));
     } else if(class_name == "Mapnik::LinePatternSymbolizer"){
       out = mapnik::symbolizer(from_ruby<mapnik::line_pattern_symbolizer>(obj));
     } else if(class_name == "Mapnik::MarkersSymbolizer"){
