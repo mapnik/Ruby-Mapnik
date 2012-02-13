@@ -378,12 +378,6 @@ void register_text_symbolizer(Rice::Module rb_mapnik){
   rb_ctext_symbolizer.define_method("minimum_padding=", &mapnik::text_symbolizer::set_minimum_padding);
   
   /* 
-  * Document-method: name
-  * @return [Mapnik::Expression]
-  */
-  rb_ctext_symbolizer.define_method("name", &mapnik::text_symbolizer::get_name);
-  
-  /* 
   * Document-method: name=
   * call-seq:
   *   name=(new_name)

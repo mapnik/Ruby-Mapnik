@@ -135,15 +135,6 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
     assert_equal 1, @sym.minimum_padding
   end
   
-  def test_should_get_and_set_name
-    assert @sym.name.instance_of?(Mapnik::Expression)
-    new_expression_string = "([place]='towns')"
-    assert_not_equal new_expression_string, @sym.name.to_s
-    new_expression = Mapnik::Expression.parse(new_expression_string)
-    @sym.name = new_expression
-    assert_equal new_expression_string, @sym.name.to_s
-  end
-  
   def test_should_get_and_set_opactiy
     assert_equal 1, @sym.opacity
     @sym.opacity = 0
@@ -156,26 +147,12 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
     assert_equal 3, @sym.ratio
   end
   
-  def test_should_get_and_set_text_size
-    assert_equal 12, @sym.size
-    @sym.size = 0
-    assert_equal 0, @sym.size
-  end
-  
-  def test_should_get_and_set_wrap_width
-    assert_equal 0, @sym.wrap_width
-    @sym.wrap_width = 30
-    assert_equal 30, @sym.wrap_width
-  end
-  
   def test_should_get_and_set_wrap_character
     @sym.wrap_character = '|'
     assert_equal '|', @sym.wrap_character
     @sym.wrap_character = '%'
     assert_equal '%', @sym.wrap_character
   end
-  
-  
   
   def test_should_get_and_set_wrap_before
     assert !@sym.wrap_before

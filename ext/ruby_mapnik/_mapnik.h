@@ -60,8 +60,7 @@ SOFTWARE.
 #include "_mapnik_polygon_pattern_symbolizer.rb.h"
 #include "_mapnik_line_pattern_symbolizer.rb.h" 
 #include "_mapnik_markers_symbolizer.rb.h" 
-#include "_mapnik_shield_symbolizer.rb.h" 
- 
+#include "_mapnik_shield_symbolizer.rb.h"  
  
 void register_mapnik();
 
