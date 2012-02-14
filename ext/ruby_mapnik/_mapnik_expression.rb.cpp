@@ -29,7 +29,7 @@ SOFTWARE.
 
 // Mapnik
 #include <mapnik/feature.hpp>
-#include <mapnik/filter_factory.hpp>
+#include <mapnik/expression.hpp>
 #include <mapnik/expression_node.hpp>
 #include <mapnik/expression_string.hpp>
 #include <mapnik/expression_evaluator.hpp>
