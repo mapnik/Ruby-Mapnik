@@ -21,6 +21,8 @@ SOFTWARE.
  *****************************************************************************/
 #include "_mapnik_feature.rb.h"
 
+#include <boost/make_shared.hpp>
+
 // Rice
 #include <rice/Data_Type.hpp>
 #include <rice/Constructor.hpp>
@@ -30,12 +32,37 @@ SOFTWARE.
 #include <mapnik/wkt/wkt_factory.hpp>
 #include <mapnik/feature.hpp>
 
-void add_geometries_from_wkt(mapnik::Feature * self, std::string wkt){
-  bool result = mapnik::from_wkt(wkt, self->paths());
-  if (!result) throw std::runtime_error("Failed to parse WKT");
+namespace {
+
+  void add_geometries_from_wkt(mapnik::Feature * self, std::string wkt){
+    bool result = mapnik::from_wkt(wkt, self->paths());
+    if (!result) throw std::runtime_error("Failed to parse WKT");
+  }
+
+  class context_holder {
+  public:
+    mapnik::context_ptr ptr;  
+    context_holder(){
+      ptr = boost::make_shared<mapnik::context_type>();
+    }
+
+    int push(std::string const& str){
+      return ptr->push(str);
+    }
+  };
+
+}
+template<>
+mapnik::context_ptr from_ruby<mapnik::context_ptr>(Rice::Object ruby_obj){
+  context_holder ctx = from_ruby<context_holder>(ruby_obj);
+  return ctx.ptr;
 }
 
 void register_feature(Rice::Module rb_mapnik){
+  Rice::Data_Type< context_holder > rb_ccontext = Rice::define_class_under< context_holder >(rb_mapnik, "Context");
+  rb_ccontext.define_constructor(Rice::Constructor< context_holder >());
+  rb_ccontext.define_method("push", &context_holder::push);
+
   /*
     @@Module_var rb_mapnik = Mapnik
   */
