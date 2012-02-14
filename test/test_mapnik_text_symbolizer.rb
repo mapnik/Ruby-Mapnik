@@ -157,11 +157,6 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
     assert_equal 1, @symbolizer.minimum_padding
   end
   
-  def test_should_get_and_set_name
-    new_expression = Mapnik::Expression.parse(new_expression_string)
-    @symbolizer.name = new_expression
-  end
-  
   def test_should_get_and_set_opactiy
     assert_equal 1, @symbolizer.opacity
     @symbolizer.opacity = 0
