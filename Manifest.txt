@@ -153,7 +153,6 @@ test/test_mapnik_expression.rb
 test/test_mapnik_feature.rb
 test/test_mapnik_font_engine.rb
 test/test_mapnik_geometry.rb
-test/test_mapnik_glyph_symbolizer.rb
 test/test_mapnik_layer.rb
 test/test_mapnik_line_symbolizer.rb
 test/test_mapnik_map.rb
