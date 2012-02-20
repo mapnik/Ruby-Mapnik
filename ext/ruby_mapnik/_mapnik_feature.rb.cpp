@@ -42,8 +42,10 @@ namespace {
   class context_holder {
   public:
     mapnik::context_ptr ptr;  
-    context_holder(){
-      ptr = boost::make_shared<mapnik::context_type>();
+    context_holder()
+      : ptr (boost::make_shared<mapnik::context_type>())
+    {
+      return;
     }
 
     int push(std::string const& str){
