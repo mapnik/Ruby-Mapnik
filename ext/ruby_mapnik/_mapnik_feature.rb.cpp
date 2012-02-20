@@ -40,8 +40,10 @@ namespace {
   }
 
   class context_holder {
+  private:
+    mapnik::context_ptr ptr;
   public:
-    mapnik::context_ptr ptr;  
+      
     context_holder()
       : ptr (boost::make_shared<mapnik::context_type>())
     {
@@ -51,13 +53,18 @@ namespace {
     int push(std::string const& str){
       return ptr->push(str);
     }
+
+    mapnik::context_ptr get_ptr(){
+      return ptr;
+    }
+
   };
 
 }
 template<>
 mapnik::context_ptr from_ruby<mapnik::context_ptr>(Rice::Object ruby_obj){
   context_holder ctx = from_ruby<context_holder>(ruby_obj);
-  return ctx.ptr;
+  return ctx.get_ptr();
 }
 
 void register_feature(Rice::Module rb_mapnik){
