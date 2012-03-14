@@ -6,6 +6,7 @@ source :gemcutter
 
 gem "rice", ">=1.4.2"
 
+gem "chunky_png", ">=0", :group => [:development, :test]
 gem "rake-compiler", ">=0", :group => [:development, :test]
 gem "hoe", "~>2.10", :group => [:development, :test]
 
