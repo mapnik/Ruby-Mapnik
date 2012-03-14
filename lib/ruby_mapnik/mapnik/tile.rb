@@ -44,11 +44,11 @@ module Mapnik
       setup_bounds
     end
       
-    def render(map, filename)
+    def render(map, filename, format=nil)
       map.height = @height
       map.width = @width
       map.zoom_to_box(forwarded_envelope)
-      map.render_to_file(filename)
+      map.render_to_file(filename, format)
     end
 
     def render_to_string(map)
