@@ -109,7 +109,7 @@ void register_layer(Rice::Module rb_mapnik){
   * Document-method: min_zoom
   * @return [Integer] the layer's minimum zoom factor
   */
-  rb_clayer.define_method("min_zoom", &mapnik::layer::getMinZoom);
+  rb_clayer.define_method("min_zoom", &mapnik::layer::min_zoom);
   
   /*
   * Document-method: min_zoom=
@@ -117,13 +117,13 @@ void register_layer(Rice::Module rb_mapnik){
   *   min_zoom=(min_zoom)
   * @return [nil]
   */
-  rb_clayer.define_method("min_zoom=", &mapnik::layer::setMinZoom, Rice::Arg("new_min_zoom"));
+  rb_clayer.define_method("min_zoom=", &mapnik::layer::set_min_zoom, Rice::Arg("new_min_zoom"));
   
   /*
   * Document-method: max_zoom
   * @return [Integer] the layer's maximum zoom factor
   */
-  rb_clayer.define_method("max_zoom", &mapnik::layer::getMaxZoom);
+  rb_clayer.define_method("max_zoom", &mapnik::layer::max_zoom);
   
  
   /*
@@ -132,19 +132,19 @@ void register_layer(Rice::Module rb_mapnik){
   *   min_zoom=(min_zoom)
   * @return [nil]
   */
-  rb_clayer.define_method("max_zoom=", &mapnik::layer::setMaxZoom, Rice::Arg("new_max_zoom"));
+  rb_clayer.define_method("max_zoom=", &mapnik::layer::set_max_zoom, Rice::Arg("new_max_zoom"));
 
   /*
   * Document-method: visible_at_scale?
   * @return [Boolean]
   */
-  rb_clayer.define_method("visible_at_scale?", &mapnik::layer::isVisible, Rice::Arg("scale"));
+  rb_clayer.define_method("visible_at_scale?", &mapnik::layer::visible, Rice::Arg("scale"));
   
   /*
   * Document-method: active?
   * @return [Boolean]
   */
-  rb_clayer.define_method("active?", &mapnik::layer::isActive);
+  rb_clayer.define_method("active?", &mapnik::layer::active);
   
   /*
   * Document-method: active=
@@ -152,13 +152,13 @@ void register_layer(Rice::Module rb_mapnik){
   *   active=(new_active_value)
   * @return [nil]
   */
-  rb_clayer.define_method("active=", &mapnik::layer::setActive, Rice::Arg("new_active_value"));
+  rb_clayer.define_method("active=", &mapnik::layer::set_active, Rice::Arg("new_active_value"));
   
   /*
   * Document-method: queryable?
   * @return [Boolean]
   */
-  rb_clayer.define_method("queryable?", &mapnik::layer::isQueryable);
+  rb_clayer.define_method("queryable?", &mapnik::layer::queryable);
   
   /*
   * Document-method: queryable=
@@ -166,7 +166,7 @@ void register_layer(Rice::Module rb_mapnik){
   *   queryable=(new_queryable_value)
   * @return [nil]
   */
-  rb_clayer.define_method("queryable=", &mapnik::layer::setQueryable, Rice::Arg("new_queryable_value"));
+  rb_clayer.define_method("queryable=", &mapnik::layer::set_queryable, Rice::Arg("new_queryable_value"));
   
   /*
   * Document-method: cache_features?
