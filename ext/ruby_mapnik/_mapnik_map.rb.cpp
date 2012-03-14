@@ -82,8 +82,7 @@ std::vector<mapnik::layer> & (mapnik::Map::*_map_layers_)() = &mapnik::Map::laye
 
 namespace {
 
-  void render_map_to_file(const mapnik::Map& map, const std::string& filename){
-    std::string format = mapnik::guess_type(filename);
+  void render_map_to_file_with_format(const mapnik::Map& map, const std::string& filename, const std::string& format){
     if (format == "pdf" || format == "svg" || format =="ps") {
   #if defined(HAVE_CAIRO)
     mapnik::save_to_cairo_file(map,filename,format);
@@ -94,8 +93,12 @@ namespace {
         mapnik::image_32 image(map.width(),map.height());
         mapnik::agg_renderer<mapnik::image_32> ren(map,image,1.0,0,0);
         ren.apply();
-        mapnik::save_to_file(image,filename);
+        mapnik::save_to_file(image,filename, format);
     }
+  }
+
+  void render_map_to_file(const mapnik::Map& map, const std::string& filename){
+    render_map_to_file_with_format(map, filename, mapnik::guess_type(filename));
   }
 
   std::string render_map_to_string(const mapnik::Map& map, std::string const& format){
@@ -416,6 +419,11 @@ void register_map(Rice::Module rb_mapnik){
   * Dont-Document-method: __render_to_file__
   */
   rb_cmap.define_method("__render_to_file__", &render_map_to_file);
+
+  /*
+  * Dont-Document-method: __render_to_file_with_format__
+  */
+  rb_cmap.define_method("__render_to_file_with_format__", &render_map_to_file_with_format);
 
   /*
   * Document-method: to_xml

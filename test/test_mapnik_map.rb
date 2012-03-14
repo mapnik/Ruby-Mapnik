@@ -151,7 +151,17 @@ class TestMapnikMap < Test::Unit::TestCase
     assert File.exists?(filename)
     File.delete(filename)
   end
-  
+
+  def test_should_render_to_file_with_explicit_format
+    map = build_complete_map
+    filename = File.join(File.expand_path(File.dirname(__FILE__)), "../tmp/world-256.png")
+    assert_equal 0, File.size(filename) if File.exists?(filename)
+    assert map.render_to_file(filename, "png256")
+    assert File.exists?(filename)
+    assert `exiftool #{filename}`.include?('Palette') if system("exiftool")
+    File.delete(filename)
+  end
+
   def test_should_load_from_xml_string
     map_1 = build_complete_map
     map_2 = Mapnik::Map.from_xml(map_1.to_xml)

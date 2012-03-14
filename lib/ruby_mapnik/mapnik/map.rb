@@ -149,10 +149,15 @@ module Mapnik
 
     # Renders the map to a file. Returns true or false depending if the
     # render was successful. The image type is inferred from the filename.
-    # @param [String] filename Should end in one of "png", "jpg", or "tiff"
+    # @param [String] filename Should end in one of "png", "jpg", or "tiff" if format not specified
+    # @param [String] format Should be one of formats supported by Mapnik or nil (to be guessed from filename)
     # @return [Boolean]
-    def render_to_file(filename)
-      __render_to_file__(filename)
+    def render_to_file(filename, format = nil)
+      if format
+        __render_to_file_with_format__(filename, format)
+      else
+        __render_to_file__(filename)
+      end
       return File.exists?(filename)
     end
     
