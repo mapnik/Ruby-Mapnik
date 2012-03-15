@@ -30,7 +30,6 @@ void register_mapnik(){
   register_datasource_cache(rb_mapnik);
   register_envelope(rb_mapnik);
   register_feature(rb_mapnik);
-  register_geometry(rb_mapnik);
   register_polygon_symbolizer(rb_mapnik);
   register_line_symbolizer(rb_mapnik);
   register_stroke(rb_mapnik);

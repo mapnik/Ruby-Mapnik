@@ -38,7 +38,6 @@ SOFTWARE.
 #include "_mapnik_datasource_cache.rb.h"
 #include "_mapnik_envelope.rb.h"
 #include "_mapnik_feature.rb.h"
-#include "_mapnik_geometry.rb.h"
  
 #include "_mapnik_polygon_symbolizer.rb.h" 
 #include "_mapnik_line_symbolizer.rb.h" 
