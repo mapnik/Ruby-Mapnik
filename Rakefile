@@ -31,7 +31,7 @@ Hoe.spec 'ruby_mapnik' do
   self.history_file  = 'History.txt'
   self.extra_deps << ['rice', '>= 1.4.2']
   self.extra_dev_deps << ['rake-compiler', '>= 0']
-
+  self.extra_dev_deps << ['chunky_png', '>= 0']
 
   self.spec_extras = { :extensions => ["ext/ruby_mapnik/extconf.rb"] }
 

@@ -1,4 +1,5 @@
 require "test_helper"
+require "chunky_png"
 
 class TestMapnikMap < Test::Unit::TestCase
       
@@ -158,7 +159,7 @@ class TestMapnikMap < Test::Unit::TestCase
     assert_equal 0, File.size(filename) if File.exists?(filename)
     assert map.render_to_file(filename, "png256")
     assert File.exists?(filename)
-    assert `exiftool #{filename}`.include?('Palette') if system("exiftool")
+    assert_not_nil ChunkyPNG::Datastream.from_file(filename).palette_chunk
     File.delete(filename)
   end
 
