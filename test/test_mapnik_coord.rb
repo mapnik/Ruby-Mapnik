@@ -58,55 +58,35 @@ class TestMapnikCoord < Test::Unit::TestCase
   
   # These could be refactored, I suppose...
   def test_should_return_a_new_coord_when_multiplied_by_a_number
-    start_x = 1
-    start_y = 2
-    factor  = 3
-    coord2d = Mapnik::Coord2d.new(start_x, start_y)
-    multiplied_coord = coord2d * factor
-    assert_not_equal(coord2d.object_id, multiplied_coord.object_id)
-    assert_equal(coord2d.x * factor, multiplied_coord.x)
-    assert_equal(coord2d.y * factor, multiplied_coord.y)
-    assert_equal(coord2d.x, start_x)
-    assert_equal(coord2d.y, start_y)
+    coord_check_with_operator(:*)
   end
   
   def test_should_return_a_new_coord_when_added_to_by_a_number
-    start_x = 1
-    start_y = 2
-    factor  = 3
-    coord2d = Mapnik::Coord2d.new(start_x, start_y)
-    added_coord = coord2d + factor
-    assert_not_equal(coord2d.object_id, added_coord.object_id)
-    assert_equal(coord2d.x + factor, added_coord.x)
-    assert_equal(coord2d.y + factor, added_coord.y)
-    assert_equal(coord2d.x, start_x)
-    assert_equal(coord2d.y, start_y)
+    coord_check_with_operator(:+)
   end
   
   def test_should_return_a_new_coord_when_subtracted_from_by_a_number
-    start_x = 1
-    start_y = 2
-    factor  = 3
-    coord2d = Mapnik::Coord2d.new(start_x, start_y)
-    subtracted_coord = coord2d - factor
-    assert_not_equal(coord2d.object_id, subtracted_coord.object_id)
-    assert_equal(coord2d.x - factor, subtracted_coord.x)
-    assert_equal(coord2d.y - factor, subtracted_coord.y)
-    assert_equal(coord2d.x, start_x)
-    assert_equal(coord2d.y, start_y)
+    coord_check_with_operator(:-)
   end
   
   def test_should_return_a_new_coord_when_divided_by_a_number
+    coord_check_with_operator(:/)
+  end
+  
+private
+  
+  def coord_check_with_operator(operator)
     start_x = 1
     start_y = 2
     factor  = 3
     coord2d = Mapnik::Coord2d.new(start_x, start_y)
-    divided_coord = coord2d / factor
-    assert_not_equal(coord2d.object_id, divided_coord.object_id)
-    assert_equal(coord2d.x / factor, divided_coord.x)
-    assert_equal(coord2d.y / factor, divided_coord.y)
+    updated_coord = coord2d.send(operator, factor)
+    
+    assert_not_equal(coord2d.object_id, updated_coord.object_id)
+    assert_equal(coord2d.x.send(operator, factor), updated_coord.x)
+    assert_equal(coord2d.y.send(operator, factor), updated_coord.y)
     assert_equal(coord2d.x, start_x)
     assert_equal(coord2d.y, start_y)
   end
-  
+
 end
