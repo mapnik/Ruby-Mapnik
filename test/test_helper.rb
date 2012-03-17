@@ -25,5 +25,5 @@ CURRENT_PATH = File.expand_path(File.dirname(__FILE__))
 require File.join(CURRENT_PATH, '..', 'lib', 'ruby_mapnik')
 
 unless defined?(SHAPEFILE)
-  SHAPEFILE = "#{File.expand_path(File.dirname(__FILE__))}/data/TM_WORLD_BORDERS_SIMPL_0.3_MOD"
+  SHAPEFILE = File.join(CURRENT_PATH, 'data', 'TM_WORLD_BORDERS_SIMPL_0.3_MOD')
 end
