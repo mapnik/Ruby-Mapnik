@@ -39,6 +39,7 @@ SOFTWARE.
 #include <mapnik/load_map.hpp>
 #include <mapnik/save_map.hpp>
 
+#include <boost/optional.hpp>
 
 // Seems like one could metaprogram these two away...
 template<>
@@ -79,6 +80,7 @@ Rice::Object to_ruby<std::vector<mapnik::layer> >(std::vector<mapnik::layer> con
 
 std::map<std::string,mapnik::feature_type_style> & (mapnik::Map::*_map_styles_)() = &mapnik::Map::styles;
 std::vector<mapnik::layer> & (mapnik::Map::*_map_layers_)() = &mapnik::Map::layers;
+boost::optional<mapnik::box2d<double> > const& (mapnik::Map::*maximum_extent_const)() const =  &mapnik::Map::maximum_extent;
 
 namespace {
 
@@ -269,7 +271,7 @@ void register_map(Rice::Module rb_mapnik){
   * Document-method: maximum_extent
   * @return [Mapnik::Envelope]
   */
-  rb_cmap.define_method("maximum_extent", &mapnik::Map::maximum_extent);
+  rb_cmap.define_method("maximum_extent", maximum_extent_const);
 
   /*
   * Document-method: maximum_extent=
