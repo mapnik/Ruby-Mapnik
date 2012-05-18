@@ -38,7 +38,7 @@ end
 LIBDIR = Config::CONFIG['libdir']
 INCLUDEDIR = Config::CONFIG['includedir'] 
 
-$LDFLAGS += " -lmapnik "
+$LDFLAGS += " " + %x{mapnik-config --libs}.chomp + " "
 
 # force whitespace padding to avoid: https://github.com/mapnik/Ruby-Mapnik/issues/7
 $CFLAGS += " " + %x{mapnik-config --cflags} + " "
