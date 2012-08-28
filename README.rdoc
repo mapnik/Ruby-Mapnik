@@ -4,10 +4,16 @@ https://github.com/mapnik/Ruby-Mapnik
 
 == Requirements
 
-* Rake
+* Rake (and extentiontask)
 * Mapnik 2.x (Currently available at https://github.com/mapnik/mapnik)
 * Rice >= 1.4.2
 * rcairo (https://github.com/rcairo/rcairo) (Optional)
+
+On OS X install ruby deps like:
+
+    sudo gem install rake-compiler
+    export ARCHFLAGS="-arch x86_64"
+    sudo bash -c 'ARCHFLAGS="-arch x86_64" gem install rice cairo'
 
 == Description
 
