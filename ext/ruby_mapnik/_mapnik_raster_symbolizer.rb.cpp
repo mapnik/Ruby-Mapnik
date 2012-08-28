@@ -28,6 +28,7 @@ SOFTWARE.
 #include <rice/Enum.hpp>
 
 // Mapnik
+#include <mapnik/version.hpp>
 #include <mapnik/raster_symbolizer.hpp>
 
 void register_raster_symbolizer(Rice::Module rb_mapnik){
@@ -39,10 +40,15 @@ void register_raster_symbolizer(Rice::Module rb_mapnik){
   
   rb_craster_symbolizer.define_method("mode", &mapnik::raster_symbolizer::get_mode);
   rb_craster_symbolizer.define_method("mode=", &mapnik::raster_symbolizer::set_mode);
-  
+
+#if MAPNIK_VERSION >= 200100
+  rb_craster_symbolizer.define_method("scaling", &mapnik::raster_symbolizer::get_scaling_method);
+  rb_craster_symbolizer.define_method("scaling=", &mapnik::raster_symbolizer::set_scaling_method);
+#else
   rb_craster_symbolizer.define_method("scaling", &mapnik::raster_symbolizer::get_scaling);
   rb_craster_symbolizer.define_method("scaling=", &mapnik::raster_symbolizer::set_scaling);
-  
+#endif
+
   rb_craster_symbolizer.define_method("opacity", &mapnik::raster_symbolizer::get_opacity);
   rb_craster_symbolizer.define_method("opacity=", &mapnik::raster_symbolizer::set_opacity);
   
