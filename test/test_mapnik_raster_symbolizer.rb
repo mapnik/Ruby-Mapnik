@@ -6,10 +6,15 @@ class TestMapnikRasterSymbolizer < Test::Unit::TestCase
     @sym = Mapnik::RasterSymbolizer.new
   end
   
-  def test_presence
-    assert Mapnik::RasterSymbolizer
+  def test_should_have_scaling_method
+    scaling_methods = [:NEAR, :BILINEAR, :BICUBIC, 
+                       :SPLINE16, :SPLINE36, :HANNING, 
+                       :HAMMING, :HERMITE, :KAISER, :QUADRIC, 
+                       :CATROM, :GAUSSIAN, :BESSEL, :MITCHELL, 
+                       :SINC, :LANCZOS, :BLACKMAN, :BILINEAR8]
+    assert_equal scaling_methods, Mapnik::ScalingMethod.constants
   end
-  
+
   def test_should_get_and_set_mode
     possible_values = ["normal", "grain_merge", "grain_merge2", "multiply",
      "multiply2", "divide", "divide2", "screen", "hard_light"]
@@ -20,8 +25,8 @@ class TestMapnikRasterSymbolizer < Test::Unit::TestCase
   end
   
   def test_should_get_and_set_scaling
-    possible_values = [ "fast","bilinear","bilinear8"]
-    possible_values.each do |value|
+    Mapnik::ScalingMethod.constants.each do |const_sym|
+      value =  Mapnik::ScalingMethod.const_get(const_sym)
       @sym.scaling = value
       assert_equal value, @sym.scaling
     end
