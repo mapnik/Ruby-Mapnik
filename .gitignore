@@ -7,3 +7,4 @@ tmp
 mkmf.log
 *.sublime-*
 .yardoc
+.rbenv-version
