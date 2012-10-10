@@ -125,6 +125,7 @@ ext/ruby_mapnik/_mapnik_text_symbolizer.rb.cpp
 ext/ruby_mapnik/_mapnik_text_symbolizer.rb.h
 ext/ruby_mapnik/extconf.rb
 ext/ruby_mapnik/ruby_mapnik.cpp
+lib/mapnik.rb
 lib/ruby_mapnik.rb
 lib/ruby_mapnik/mapnik/font_engine.rb
 lib/ruby_mapnik/mapnik/layer.rb
