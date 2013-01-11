@@ -37,7 +37,7 @@ require "#{path}/ruby_mapnik/mapnik/tile"
 
 
 module Mapnik
-  VERSION = '0.1.4'
+  VERSION = '0.1.5'
   
   FontEngine.register_fonts(FONT_PATH)
   DatasourceCache.register(INPUT_PLUGIN_PATH)

@@ -31,8 +31,36 @@ SOFTWARE.
 #include <mapnik/version.hpp>
 #include <mapnik/raster_symbolizer.hpp>
 
+#if MAPNIK_VERSION >= 200100
+  #include <mapnik/image_scaling.hpp>
+#endif
+
 void register_raster_symbolizer(Rice::Module rb_mapnik){
-  /*
+
+#if MAPNIK_VERSION >= 200100  
+  Rice::Enum<mapnik::scaling_method_e> scaling_enum = Rice::define_enum<mapnik::scaling_method_e>("ScalingMethod", rb_mapnik);
+  
+  scaling_enum.define_value("NEAR",mapnik::SCALING_NEAR);
+  scaling_enum.define_value("BILINEAR",mapnik::SCALING_BILINEAR);
+  scaling_enum.define_value("BICUBIC", mapnik::SCALING_BICUBIC);
+  scaling_enum.define_value("SPLINE16", mapnik::SCALING_SPLINE16);
+  scaling_enum.define_value("SPLINE36", mapnik::SCALING_SPLINE36);
+  scaling_enum.define_value("HANNING", mapnik::SCALING_HANNING);
+  scaling_enum.define_value("HAMMING", mapnik::SCALING_HAMMING);
+  scaling_enum.define_value("HERMITE", mapnik::SCALING_HERMITE);
+  scaling_enum.define_value("KAISER", mapnik::SCALING_KAISER);
+  scaling_enum.define_value("QUADRIC", mapnik::SCALING_QUADRIC);
+  scaling_enum.define_value("CATROM", mapnik::SCALING_CATROM);
+  scaling_enum.define_value("GAUSSIAN", mapnik::SCALING_GAUSSIAN);
+  scaling_enum.define_value("BESSEL", mapnik::SCALING_BESSEL);
+  scaling_enum.define_value("MITCHELL", mapnik::SCALING_MITCHELL);
+  scaling_enum.define_value("SINC", mapnik::SCALING_SINC);
+  scaling_enum.define_value("LANCZOS", mapnik::SCALING_LANCZOS);
+  scaling_enum.define_value("BLACKMAN", mapnik::SCALING_BLACKMAN);
+  scaling_enum.define_value("BILINEAR8", mapnik::SCALING_BILINEAR8);
+#endif
+
+  /*  
     @@Module_var rb_mapnik = Mapnik
   */
   Rice::Data_Type< mapnik::raster_symbolizer > rb_craster_symbolizer = Rice::define_class_under< mapnik::raster_symbolizer >(rb_mapnik, "RasterSymbolizer");
