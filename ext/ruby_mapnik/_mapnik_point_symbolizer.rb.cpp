@@ -28,6 +28,7 @@ SOFTWARE.
 #include <rice/Enum.hpp>
 
 // Mapnik
+#include <mapnik/parse_path.hpp>
 #include <mapnik/point_symbolizer.hpp>
 
 namespace {

@@ -27,6 +27,7 @@ SOFTWARE.
 #include <rice/Class.hpp>
 
 // Mapnik
+#include <mapnik/parse_path.hpp>
 #include <mapnik/line_pattern_symbolizer.hpp>
 
 const std::string get_filename(mapnik::line_pattern_symbolizer const& t) { 

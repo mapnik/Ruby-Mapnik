@@ -30,29 +30,40 @@ SOFTWARE.
 
 // Mapnik
 #include <mapnik/layer.hpp>
+#include <mapnik/version.hpp>
 #include <mapnik/datasource.hpp>
 #include <mapnik/datasource_cache.hpp>
 #include <mapnik/feature_layer_desc.hpp>
 #include <mapnik/box2d.hpp>
+
+#if MAPNIK_VERSION >= 200200
+	typedef mapnik::value_integer value_integer;
+#else
+	typedef int value_integer;
+#endif
 
 namespace {
   class mapnik_value_holder_to_ruby_visitor : public boost::static_visitor<Rice::Object>
   {
   public:
 
-   Rice::Object operator()(int i) const {
-     return to_ruby<int>(i);
+   Rice::Object operator()(value_integer i) const {
+     // TODO - support long long?
+     return to_ruby<int>(static_cast<int>(i));
    }
 
+   Rice::Object operator()(bool i) const {
+     return to_ruby<bool>(i);
+   }
    Rice::Object operator()(double i) const {
      return to_ruby<double>(i);
    }
 
-   Rice::Object operator()(const std::string & str) const {
+   Rice::Object operator()(std::string const& str) const {
      return to_ruby<std::string>(str);
    }
 
-   Rice::Object operator()(const mapnik::value_null & value) const {
+   Rice::Object operator()(mapnik::value_null const& value) const {
      return NULL;
    }
 
@@ -65,7 +76,6 @@ namespace {
   }
 
   boost::shared_ptr<mapnik::datasource> create(Rice::Object params){
-    bool bind=true;
     Rice::Hash options = (Rice::Hash) params;
     mapnik::parameters datasource_params;
 
@@ -83,12 +93,17 @@ namespace {
           break;
         case T_FIXNUM:
           // The compiler wanted this explicit cast here, not sure why...
-          datasource_params[keyString.str()] = (int)NUM2INT(value.value());
+          // TODO FIXME - won't compile....
+          //datasource_params[keyString.str()] = static_cast<value_integer>(NUM2INT(value.value()));
           break;
       }
     }
     
-    return mapnik::datasource_cache::create(datasource_params, bind);
+#if MAPNIK_VERSION >= 200200
+    return mapnik::datasource_cache::instance().create(datasource_params);
+#else
+    return mapnik::datasource_cache::instance()->create(datasource_params);
+#endif
   }
 
 

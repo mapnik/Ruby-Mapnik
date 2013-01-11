@@ -29,8 +29,15 @@ SOFTWARE.
 #include <rice/Class.hpp>
 
 // Mapnik
+#include <mapnik/version.hpp>
 #include <mapnik/wkt/wkt_factory.hpp>
 #include <mapnik/feature.hpp>
+
+#if MAPNIK_VERSION >= 200200
+       typedef mapnik::value_integer value_integer;
+#else
+       typedef int value_integer;
+#endif
 
 namespace {
 
@@ -76,7 +83,7 @@ void register_feature(Rice::Module rb_mapnik){
     @@Module_var rb_mapnik = Mapnik
   */
   Rice::Data_Type< mapnik::Feature > rb_cfeature = Rice::define_class_under< mapnik::Feature >(rb_mapnik, "Feature");
-  rb_cfeature.define_constructor(Rice::Constructor< mapnik::Feature,mapnik::context_ptr,int >());
+  rb_cfeature.define_constructor(Rice::Constructor< mapnik::Feature,mapnik::context_ptr,value_integer >());
   rb_cfeature.define_method("id", &mapnik::Feature::id);
   rb_cfeature.define_method("to_s", &mapnik::Feature::to_string);
   rb_cfeature.define_method("number_of_geometries", &mapnik::Feature::num_geometries);

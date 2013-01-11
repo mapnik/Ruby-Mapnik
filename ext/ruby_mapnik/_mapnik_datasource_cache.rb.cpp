@@ -29,18 +29,26 @@ SOFTWARE.
 #include <rice/Hash.hpp>
 
 // Mapnik
+#include <mapnik/version.hpp>
 #include <mapnik/datasource.hpp>
 #include <mapnik/datasource_cache.hpp>
 
 namespace {
   bool rubysafe_register_sources(std::string path){
+#if MAPNIK_VERSION >= 200200
+    mapnik::datasource_cache::instance().register_datasources(path);
+#else
     mapnik::datasource_cache::instance()->register_datasources(path);
+#endif
     return true;
   }
 
   Rice::Array rubysafe_plugin_names(){
+#if MAPNIK_VERSION >= 200200
+    std::vector<std::string, std::allocator<std::string> > names = mapnik::datasource_cache::instance().plugin_names();
+#else
     std::vector<std::string, std::allocator<std::string> > names = mapnik::datasource_cache::instance()->plugin_names();
-
+#endif
     Rice::Array o;
 
     int unsigned count = names.size();
