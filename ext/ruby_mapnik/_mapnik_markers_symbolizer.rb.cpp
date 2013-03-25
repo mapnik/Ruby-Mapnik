@@ -28,6 +28,7 @@ SOFTWARE.
 
 // Mapnik
 #include <mapnik/markers_symbolizer.hpp>
+#include <mapnik/parse_path.hpp>
 
 namespace {
   const std::string get_filename(mapnik::markers_symbolizer const& t) { 

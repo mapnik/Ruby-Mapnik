@@ -7,6 +7,8 @@
 
 // Mapnik
 #include <mapnik/projection.hpp>
+#include <mapnik/coord.hpp>
+#include <mapnik/box2d.hpp>
 
 namespace {
 
