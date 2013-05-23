@@ -40,7 +40,7 @@ INCLUDEDIR = Config::CONFIG['includedir']
 
 $LDFLAGS += " " + %x{mapnik-config --libs}.chomp + " "
 
-$CFLAGS = '-I/Library/Ruby/Gems/1.8/gems/rice-1.4.3/'
+$CFLAGS = '-I/Library/Ruby/Gems/1.8/gems/rice-1.5.1/'
 
 # force whitespace padding to avoid: https://github.com/mapnik/Ruby-Mapnik/issues/7
 $CFLAGS += " " + %x{mapnik-config --cflags}.chomp + " "

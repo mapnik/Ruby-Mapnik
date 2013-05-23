@@ -27,7 +27,6 @@ SOFTWARE.
 #include <rice/Object.hpp>
 #include <rice/Data_Type.hpp>
 #include <rice/Data_Object.hpp>
-#include <rice/Allocation_Strategies.hpp>
 #include <rice/Module.hpp>
 #include <rice/Enum.hpp>
 
