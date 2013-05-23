@@ -21,10 +21,11 @@ SOFTWARE.
  *****************************************************************************/
 #include <rice/Module.hpp>
 #include "_mapnik.h"
+#include <mapnik/config.hpp>
 
 extern "C"
 
-void Init_ruby_mapnik() {
+MAPNIK_DECL void Init_ruby_mapnik() {
   RUBY_TRY {
     register_mapnik();
   } RUBY_CATCH
