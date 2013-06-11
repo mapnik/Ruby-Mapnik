@@ -58,7 +58,7 @@ You can pass this before rake compile:
 
 == Synopsis
   
-  require 'ruby_mapnik'
+  require 'mapnik'
 
   map = Mapnik::Map.new do |m|
     
