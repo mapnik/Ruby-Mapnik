@@ -32,7 +32,12 @@ The above command will compile the bindings and run the tests.
 
 File issues at https://github.com/mapnik/Ruby-Mapnik if you hit any compile errors.
 
-If you wish to install Ruby-Mapnik from the latest tagged release you can do:
+To create a gem from your local repository and install it run:
+
+  rake gem
+  gem install pkg/ruby_mapnik-0.x.y.gem
+
+Alternatively, if you wish to install Ruby-Mapnik from the latest tagged release you can do:
 
   gem install ruby_mapnik
 
