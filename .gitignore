@@ -1,5 +1,6 @@
 lib/ruby_mapnik/ruby_mapnik.bundle
 lib/ruby_mapnik_config.rb
+lib/ruby_mapnik/ruby_mapnik.so
 pkg
 tmp
 .DS_Store
