@@ -57,9 +57,11 @@ namespace {
     t.set_point_placement(value);
   }
 
+  /*
   std::string get_point_transform_string(mapnik::point_symbolizer const& t){
     return t.get_transform_string();
   }
+  */
 
 }
 
