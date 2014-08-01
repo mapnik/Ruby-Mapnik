@@ -64,7 +64,7 @@ namespace {
    }
 
    Rice::Object operator()(mapnik::value_null const& value) const {
-     return NULL;
+     return Rice::Object(Qnil);
    }
 
   };
