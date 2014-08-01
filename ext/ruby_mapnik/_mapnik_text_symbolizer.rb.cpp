@@ -232,21 +232,6 @@ void register_text_symbolizer(Rice::Module rb_mapnik){
   // TODO: Need fontset
   // rb_ctext_symbolizer.define_method("fontset", &mapnik::text_symbolizer::get_fontset);
   // rb_ctext_symbolizer.define_method("fontset=", &mapnik::text_symbolizer::set_fontset);
-
-  /*
-  * Document-method: force_odd_labels?
-  * @return [Boolean]
-  */
-  rb_ctext_symbolizer.define_method("force_odd_labels?", &mapnik::text_symbolizer::get_force_odd_labels);
-  
-  /*
-  * Document-method: force_odd_labels=
-  * call-seq:
-  *   force_odd_labels=(new_value)
-  * @param [Boolean] new_value
-  * @return [Boolean]
-  */
-  rb_ctext_symbolizer.define_method("force_odd_labels=", &mapnik::text_symbolizer::set_force_odd_labels);
   
   /*
   * Document-method: halo_fill
