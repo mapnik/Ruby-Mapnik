@@ -5,15 +5,14 @@ https://github.com/mapnik/Ruby-Mapnik
 == Requirements
 
 * Rake (and extentiontask)
-* Mapnik 2.x (Currently available at https://github.com/mapnik/mapnik)
-* Rice >= 1.4.2
+* Rice >= 1.4.2 (build depends on autoconf)
 * rcairo (https://github.com/rcairo/rcairo) (Optional)
+* Mapnik 2.3.x or 2.2.x (Currently available at https://github.com/mapnik/mapnik)
 
 On OS X install ruby deps like:
 
-    sudo gem install rake-compiler rake
     export ARCHFLAGS="-arch x86_64"
-    sudo bash -c 'ARCHFLAGS="-arch x86_64" gem install hoe rice chunky_png cairo'
+    sudo bash -c 'ARCHFLAGS="-arch x86_64" gem install rake-compiler rake hoe rice chunky_png cairo'
 
 == Description
 
@@ -30,7 +29,7 @@ If you have checked out this local repository code build like:
 
 The above command will compile the bindings and run the tests.
 
-File issues at https://github.com/mapnik/Ruby-Mapnik if you hit any compile errors.
+File issues at https://github.com/mapnik/Ruby-Mapnik/issues if you hit any compile errors.
 
 To create a gem from your local repository and install it run:
 
