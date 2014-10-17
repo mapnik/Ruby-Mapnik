@@ -1,7 +1,7 @@
 language: ruby
 
 before_install:
- #- sudo apt-add-repository --yes ppa:mapnik/v2.2.0
+ - sudo apt-add-repository --yes ppa:mapnik/v2.2.0
  - sudo apt-add-repository --yes ppa:mapnik/nightly-2.3
  - sudo apt-add-repository --yes ppa:mapnik/nightly-trunk
  - sudo apt-get update -y
