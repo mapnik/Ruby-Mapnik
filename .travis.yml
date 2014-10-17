@@ -1,7 +1,8 @@
 language: ruby
 
 before_install:
- - sudo apt-add-repository --yes ppa:mapnik/v2.2.0
+ # GDAL package conflicts...
+ #- sudo apt-add-repository --yes ppa:mapnik/v2.2.0
  - sudo apt-add-repository --yes ppa:mapnik/nightly-2.3
  - sudo apt-add-repository --yes ppa:mapnik/nightly-trunk
  - sudo apt-get update -y
@@ -12,10 +13,11 @@ install:
  - gem install rake-compiler rake hoe rice chunky_png cairo
 
 before_script:
- - sudo apt-get -y install libmapnik=2.2.0* mapnik-utils=2.2.0* libmapnik-dev=2.2.0*
- - make clean
- - make test
- - sudo apt-get purge libmapnik=2.2.0* mapnik-utils=2.2.0* libmapnik-dev=2.2.0*
+ - true
+ #- sudo apt-get -y install libmapnik=2.2.0* mapnik-utils=2.2.0* libmapnik-dev=2.2.0*
+ #- make clean
+ #- make test
+ #- sudo apt-get purge libmapnik=2.2.0* mapnik-utils=2.2.0* libmapnik-dev=2.2.0*
 
 script:
  - sudo apt-get -y install libmapnik=2.3.0* mapnik-utils=2.3.0* libmapnik-dev=2.3.0* mapnik-input-plugin*=2.3.0*
