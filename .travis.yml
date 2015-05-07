@@ -1,30 +1,24 @@
 language: ruby
 
+matrix:
+  include:
+    - os: linux
+      compiler: clang
+      env: MAPNIK_VERSION="2.3"
+    - os: linux
+      compiler: gcc
+      env: MAPNIK_VERSION="2.3"
+
 before_install:
- # GDAL package conflicts...
- #- sudo apt-add-repository --yes ppa:mapnik/v2.2.0
- - sudo apt-add-repository --yes ppa:mapnik/nightly-2.3
- - sudo apt-add-repository --yes ppa:mapnik/nightly-trunk
+ - sudo apt-add-repository --yes ppa:mapnik/nightly-${MAPNIK_VERSION}
  - sudo apt-get update -y
 
 install:
- - sudo apt-get -y install g++ gcc
- - sudo apt-get -y install gcc-4.8 g++-4.8
- - gem install rake-compiler rake hoe rice chunky_png cairo
+ - sudo apt-get -y install libmapnik=${MAPNIK_VERSION}* mapnik-utils=${MAPNIK_VERSION}* libmapnik-dev=${MAPNIK_VERSION}* mapnik-input-plugin*=${MAPNIK_VERSION}*
 
 before_script:
- - true
- #- sudo apt-get -y install libmapnik=2.2.0* mapnik-utils=2.2.0* libmapnik-dev=2.2.0*
- #- make clean
- #- make test
- #- sudo apt-get purge libmapnik=2.2.0* mapnik-utils=2.2.0* libmapnik-dev=2.2.0*
+ - gem install rake-compiler rake hoe rice chunky_png cairo
 
 script:
- - sudo apt-get -y install libmapnik=2.3.0* mapnik-utils=2.3.0* libmapnik-dev=2.3.0* mapnik-input-plugin*=2.3.0*
- - make clean
- - make test
- - sudo apt-get purge libmapnik=2.3.0* mapnik-utils=2.3.0* libmapnik-dev=2.3.0* mapnik-input-plugin*=2.3.0*
- - sudo apt-get -qq install libmapnik=3.0.0* mapnik-utils=3.0.0* libmapnik-dev=3.0.0* mapnik-input-plugin*=3.0.0*
- - if [ "${CXX}" = 'g++' ]; then export CXX="g++-4.8" && export CC="gcc-4.8"; fi;
- - make clean
+ - make
  - make test
