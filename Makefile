@@ -8,6 +8,7 @@ ruby-mapnik:
 
 clean:
 	rake clean
+	rm -rf ./tmp
 
 test:
 	rake test
