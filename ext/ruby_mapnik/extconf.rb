@@ -35,9 +35,6 @@ if %x{which mapnik-config}.length == 0
   abort("\n***\n mapnik-config is missing!\n Is mapnik 2.x installed?\n Is mapnik-config in your $PATH?\n***\n\n")
 end
 
-LIBDIR = Config::CONFIG['libdir']
-INCLUDEDIR = Config::CONFIG['includedir'] 
-
 $LDFLAGS += " " + %x{mapnik-config --libs}.chomp + " "
 
 # force whitespace padding to avoid: https://github.com/mapnik/Ruby-Mapnik/issues/7
