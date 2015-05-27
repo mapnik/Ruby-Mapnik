@@ -2,7 +2,7 @@
 
 https://github.com/mapnik/Ruby-Mapnik
 
-[![Build Status](https://travis-ci.org/mapnik/Ruby-Mapnik.svg?branch=master)](https://travis-ci.org/mapnik/Ruby-Mapnik)
+{<img src="https://travis-ci.org/mapnik/Ruby-Mapnik.svg?branch=master" alt="Build Status">}[https://travis-ci.org/mapnik/Ruby-Mapnik]
 
 == Requirements
 
