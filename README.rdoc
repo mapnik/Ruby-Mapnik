@@ -78,7 +78,7 @@ You can pass this before rake compile:
         # Add a rule to the style (this one is a default rule)
         s.rule do |default|
           
-          #fill the shapes woith polygon symbolizers
+          #fill the shapes with polygon symbolizers
           default.fill = Mapnik::Color.new('#880000')
         end
       end
