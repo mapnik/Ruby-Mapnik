@@ -9,3 +9,5 @@ mkmf.log
 *.sublime-*
 .yardoc
 .rbenv-version
+.kitchen/
+.kitchen.local.yml
