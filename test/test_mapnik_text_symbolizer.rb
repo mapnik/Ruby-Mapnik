@@ -81,13 +81,6 @@ class TestMapnikTextSymbolizer < Test::Unit::TestCase
   #   raise @symbolizer.fontset.inspect
   # end
 
-  def test_should_get_and_set_force_odd_labels
-    @symbolizer.force_odd_labels = true
-    assert @symbolizer.force_odd_labels?
-    @symbolizer.force_odd_labels = false
-    assert !@symbolizer.force_odd_labels?
-  end
-
   def test_should_get_and_set_halo_fill
     assert @symbolizer.halo_fill.instance_of?(Mapnik::Color)
     white = Mapnik::Color.new("#fff")

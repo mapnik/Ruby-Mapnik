@@ -66,13 +66,6 @@ class TestMapnikShieldSymbolizer < Test::Unit::TestCase
   #   raise @sym.fontset.inspect
   # end
 
-  def test_should_get_and_set_force_odd_labels
-    @sym.force_odd_labels = true
-    assert @sym.force_odd_labels?
-    @sym.force_odd_labels = false
-    assert !@sym.force_odd_labels?
-  end
-
   def test_should_get_and_set_halo_fill
     assert @sym.halo_fill.instance_of?(Mapnik::Color)
     white = Mapnik::Color.new("#fff")
