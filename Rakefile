@@ -23,10 +23,10 @@ require 'rubygems'
 require 'hoe'
 require 'rake/extensiontask'
 
-Hoe.plugin :bundler, :rubygems, :doofus, :git
+Hoe.plugin :bundler, :rubygems, :doofus, :git, :gemspec
 
-Hoe.spec 'ruby_mapnik' do
-  developer('Elliot Laster', 'elliotlaster@gmail.com')
+Hoe.spec 'mapnik' do
+  developer('Andy Allan', 'info@gravitystorm.co.uk')
   self.readme_file   = 'README.rdoc'
   self.history_file  = 'History.txt'
   self.extra_deps << ['rice', '>= 1.4.2']
