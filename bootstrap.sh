@@ -9,6 +9,7 @@ locale-gen en_GB.UTF-8
 # Things included by travis
 apt-get update -y
 apt-get -y install software-properties-common ruby1.9.1 ruby1.9.1-dev
+apt-get -y install autoconf make
 
 # Travis from this point onwards
 apt-add-repository --yes ppa:mapnik/nightly-2.3
