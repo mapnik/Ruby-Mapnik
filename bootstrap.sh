@@ -21,5 +21,8 @@ apt-get -y install gcc-4.8 g++-4.8
 gem install rake-compiler rake hoe rice chunky_png cairo
 
 apt-get -y install libmapnik=2.3.0* mapnik-utils=2.3.0* libmapnik-dev=2.3.0* mapnik-input-plugin*=2.3.0*
+
+# change to the test-kitchen directory
+cd /tmp/kitchen/data/
 make clean
 make test
