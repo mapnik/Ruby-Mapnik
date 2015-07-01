@@ -8,7 +8,7 @@ provisioner:
   data_path: .
 
 platforms:
-  - name: ubuntu-12.04
+  - name: ubuntu-14.04
 
 suites:
   - name: default
