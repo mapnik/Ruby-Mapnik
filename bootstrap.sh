@@ -4,7 +4,7 @@ set -e
 
 # Things included by travis
 apt-get update -y
-apt-get -y install python-software-properties ruby1.9.1 ruby1.9.1-dev
+apt-get -y install software-properties-common ruby1.9.1 ruby1.9.1-dev
 
 # Travis from this point onwards
 apt-add-repository --yes ppa:mapnik/nightly-2.3
