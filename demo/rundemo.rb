@@ -8,7 +8,7 @@ map = Mapnik::Map.new do |m|
   m.background = Mapnik::Color.new("#fff")
   m.srs = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs"
 
-  nd83_srs = "+proj=lcc +ellps=GRS80 +lat_0=49 +lon_0=-95 +lat+1=49 +lat_2=77 +datum=NAD83 +units=m +no_defs"
+  nd83_srs = "+proj=lcc +lat_1=49 +lat_2=77 +lat_0=49 +lon_0=-95 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
 
   m.layer "provinces", nd83_srs do |prov|
     prov.datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/boundaries'))
