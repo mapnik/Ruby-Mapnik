@@ -1,6 +1,6 @@
-=begin 
+=begin
  ******************************************************************************
- * 
+ *
  * Copyright (C) 2011 Elliot Laster
  *
  * This library is free software; you can redistribute it and/or
@@ -21,7 +21,7 @@
 =end
 require 'test_helper'
 class TestMapnikDatasource < Test::Unit::TestCase
-  
+
   def setup
     @datasource_params = {
       :type => 'shape',
@@ -29,11 +29,11 @@ class TestMapnikDatasource < Test::Unit::TestCase
     }
     @datasource = Mapnik::Datasource.create(@datasource_params)
   end
-  
+
   def test_should_create_a_new_datasource
     assert @datasource
   end
-  
+
   def test_should_have_an_envelope
     assert @datasource.envelope.kind_of?(Mapnik::Envelope)
   end

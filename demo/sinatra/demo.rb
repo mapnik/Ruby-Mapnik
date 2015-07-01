@@ -7,11 +7,11 @@ PATH = File.expand_path(File.dirname(__FILE__))
 
 
 map = Mapnik::Map.new do |m|
-  
+
   m.background = Mapnik::Color.new('#777')
-  
+
   m.srs =  Mapnik::Tile::DEFAULT_OUTPUT_PROJECTION
-  
+
   m.layer 'countries' do |l|
     l.style do |s|
       s.rule do |default|

@@ -7,38 +7,38 @@ map = Mapnik::Map.new do |m|
   m.height = 768
   m.background = Mapnik::Color.new("#fff")
   m.srs = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs"
-  
+
   nd83_srs = "+proj=lcc +ellps=GRS80 +lat_0=49 +lon_0=-95 +lat+1=49 +lat_2=77 +datum=NAD83 +units=m +no_defs"
-  
+
   m.layer "provinces", nd83_srs do |prov|
     prov.datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/boundaries'))
     prov.style do |s|
       s.rule "[NAME_EN] = 'Ontario'" do |ontario|
         ontario.fill = Mapnik::Color.new('#FABEB7')
       end
-      
+
       s.rule "[NAME_EN] = 'Quebec'" do |quebec|
         quebec.fill = Mapnik::Color.new('#D9EBCB')
-      end   
-    end  
+      end
+    end
   end
-    
+
   m.style 'drainage' do |style|
     style.rule '[HYC] = 8' do |drainage|
       drainage.fill = Mapnik::Color.new('#99CCFF')
     end
   end
-  
+
   m.layer "quebec_hydro", nd83_srs do |q_hydro|
     q_hydro.datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/qcdrainage'))
     q_hydro.styles << 'drainage'
   end
-  
+
   m.layer "ontario_hydro", nd83_srs do |o_hydro|
     o_hydro.datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/ontdrainage'))
     o_hydro.styles << 'drainage'
   end
-  
+
   m.layer "provincial_borders", nd83_srs do |borders|
     borders.datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/boundaries_l'))
     borders.style do |s|
@@ -52,7 +52,7 @@ map = Mapnik::Map.new do |m|
       end
     end
   end
-  
+
   roads_datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/roads'))
   m.layer 'roads_3_and_4', nd83_srs do |layer|
     layer.datasource = roads_datasource
@@ -65,10 +65,10 @@ map = Mapnik::Map.new do |m|
       end
     end
   end
-  
+
   m.layer 'roads_2', nd83_srs do |layer|
     layer.datasource = roads_datasource
-    
+
     layer.style 'road_fill' do |s|
       s.rule '[CLASS] = 2' do |road|
         road.line do |stroke|
@@ -77,7 +77,7 @@ map = Mapnik::Map.new do |m|
         end
       end
     end
-    
+
     layer.style 'road_border' do |s|
       s.rule '[CLASS] = 2' do |road|
         road.line do |stroke|
@@ -86,12 +86,12 @@ map = Mapnik::Map.new do |m|
         end
       end
     end
-    
+
   end
-  
+
   m.layer 'roads_1', nd83_srs do |layer|
     layer.datasource = roads_datasource
-    
+
     layer.style 'highway_fill' do |s|
       s.rule '[CLASS] = 1' do |road|
         road.line do |stroke|
@@ -101,7 +101,7 @@ map = Mapnik::Map.new do |m|
         end
       end
     end
-    
+
     layer.style 'highway_border' do |s|
       s.rule '[CLASS] = 1' do |road|
         road.line do |stroke|
@@ -112,7 +112,7 @@ map = Mapnik::Map.new do |m|
       end
     end
   end
-  
+
   m.layer 'populated_places', nd83_srs do |layer|
     layer.datasource = Mapnik::Datasource.create(:type => "shape", :file => File.join(CURRENT_PATH, 'data/popplaces'))
     layer.style do |style|
@@ -125,16 +125,16 @@ map = Mapnik::Map.new do |m|
           text.halo_radius = 1
           text.avoid_edges = true
         end
-        
+
       end
     end
   end
-  
+
 end
 
 # Rendering...
 filename = File.join(CURRENT_PATH, '..', 'tmp', 'rundemo.png')
-map.zoom_to_box(Mapnik::Envelope.new(-8024477.28459,5445190.38849,-7381388.20071,5662941.44855)) 
+map.zoom_to_box(Mapnik::Envelope.new(-8024477.28459,5445190.38849,-7381388.20071,5662941.44855))
 map.render_to_file(filename)
 
 if RUBY_PLATFORM =~ /linux/

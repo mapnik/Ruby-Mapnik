@@ -1,6 +1,6 @@
-=begin 
+=begin
  ******************************************************************************
- * 
+ *
  * Copyright (C) 2011 Elliot Laster
  *
  * This library is free software; you can redistribute it and/or
@@ -21,7 +21,7 @@
 =end
 require 'test_helper'
 class TestMapnikColor < Test::Unit::TestCase
-  
+
   def test_should_instantiate_and_update_values
     values = {:red => 0, :green => 0, :blue => 0, :alpha => 0}
     color = Mapnik::Color.new("#000")
@@ -31,16 +31,16 @@ class TestMapnikColor < Test::Unit::TestCase
       color.send("#{key}=", value + 1)
       assert_equal(value + 1, color.send("#{key}"))
     end
-    
+
   end
-  
+
   def test_should_instantiate_with_a_css_hex_value
     color = Mapnik::Color.new("#ff0000")
     assert_equal 255, color.red
     assert_equal 0, color.green
     assert_equal 0, color.blue
   end
-  
+
   def test_should_instantiate_with_a_rgb_value
     red = 34
     green = 120
@@ -50,7 +50,7 @@ class TestMapnikColor < Test::Unit::TestCase
     assert_equal green, color.green
     assert_equal blue, color.blue
   end
-  
+
   def test_should_instantiate_with_a_rgba_value
     red = 34
     green = 120
@@ -62,5 +62,5 @@ class TestMapnikColor < Test::Unit::TestCase
     assert_equal blue, color.blue
     assert_equal alpha, color.alpha
   end
-  
+
 end
