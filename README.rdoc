@@ -36,11 +36,11 @@ File issues at https://github.com/mapnik/Ruby-Mapnik/issues if you hit any compi
 To create a gem from your local repository and install it run:
 
   rake gem
-  gem install pkg/ruby_mapnik-0.x.y.gem
+  gem install pkg/mapnik-0.x.y.gem
 
 Alternatively, if you wish to install Ruby-Mapnik from the latest tagged release you can do:
 
-  gem install ruby_mapnik
+  gem install mapnik
 
 Note: on osx the default rake compile will try to build universal, and your
 mapnik install is unlikely built universal. Check the architecture of libmapnik.dylib like:
