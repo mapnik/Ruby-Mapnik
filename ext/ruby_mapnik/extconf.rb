@@ -36,6 +36,8 @@ if %x{which mapnik-config}.length == 0
 end
 
 $LDFLAGS += " " + %x{mapnik-config --libs}.chomp + " "
+$LDFLAGS += " " + %x{mapnik-config --ldflags}.chomp + " "
+$LDFLAGS += " " + %x{mapnik-config --dep-libs}.chomp + " "
 
 # force whitespace padding to avoid: https://github.com/mapnik/Ruby-Mapnik/issues/7
 $CFLAGS += " " + %x{mapnik-config --cflags}.chomp + " "
